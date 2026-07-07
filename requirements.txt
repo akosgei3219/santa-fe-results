@@ -1,0 +1,6 @@
+# Core SDK. Includes the server-side HTTP stack (starlette + uvicorn) used by
+# the streamable-http transport.
+mcp>=1.2.0
+
+# Only needed for CLIENTS that connect over HTTP from behind a SOCKS proxy.
+# httpx[socks]

@@ -1,9 +1,26 @@
+# Render.com blueprint — push-button deploy.
+# In Render: New > Blueprint > connect the repo containing this file.
 services:
   - type: web
-    name: santa-fe-results-board
-    runtime: static
-    staticPublishPath: public
-    buildCommand: npm run build
+    name: santa-fe-half-marathon
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: starter            # free/hobby tier is fine to start
+    healthCheckPath: /leaderboard
+    autoDeploy: true
     envVars:
-      - key: RACE_HOST
-        value: santafehalfmarathon.com
+      - key: MCP_HOST
+        value: 0.0.0.0
+      - key: MCP_PORT
+        value: "8000"
+      - key: REGISTRATION_BACKEND
+        value: json           # switch to runsignup once creds are set below
+      # Set these in the Render dashboard (Environment > Secret), not here:
+      # - key: RUNSIGNUP_API_KEY
+      #   sync: false
+      # - key: RUNSIGNUP_API_SECRET
+      #   sync: false
+      # - key: RUNSIGNUP_RACE_ID
+      #   value: "83604"
+      # - key: RUNSIGNUP_EVENT_ID
+      #   value: "1056101"

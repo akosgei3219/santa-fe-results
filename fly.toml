@@ -1,0 +1,25 @@
+# Fly.io config — `fly launch --copy-config` then `fly deploy`.
+app = "santa-fe-half-marathon"
+primary_region = "den"       # Denver, closest to Santa Fe
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  MCP_HOST = "0.0.0.0"
+  MCP_PORT = "8000"
+  REGISTRATION_BACKEND = "json"
+  # Secrets go via: fly secrets set RUNSIGNUP_API_KEY=... RUNSIGNUP_API_SECRET=...
+
+[http_service]
+  internal_port = 8000
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 0
+
+  [[http_service.checks]]
+    method = "get"
+    path = "/leaderboard"
+    interval = "30s"
+    timeout = "5s"

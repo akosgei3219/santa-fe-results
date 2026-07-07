@@ -1,0 +1,11 @@
+services:
+  santa-fe-mcp:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      # Registration backend (default json needs no extra vars). To use RunSignup,
+      # set these or point env_file at your .env.
+      REGISTRATION_BACKEND: json
+    # env_file: .env      # uncomment to load RunSignup/Airtable/RaceRoster creds
+    restart: unless-stopped

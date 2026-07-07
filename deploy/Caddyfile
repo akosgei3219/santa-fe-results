@@ -1,0 +1,6 @@
+# Automatic HTTPS via Let's Encrypt. Replace the domain with your real one
+# (e.g. a subdomain like race.santafehalfmarathon.com pointed at this server).
+race.santafehalfmarathon.com {
+    reverse_proxy santa-fe-mcp:8000
+    encode gzip
+}

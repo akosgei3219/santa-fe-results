@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "santa-fe-half-marathon": {
+      "command": "python",
+      "args": ["/absolute/path/to/santa_fe_race_mcp/server.py"],
+      "env": {
+        "REGISTRATION_BACKEND": "runsignup",
+        "RUNSIGNUP_API_KEY": "your-key",
+        "RUNSIGNUP_API_SECRET": "your-secret",
+        "RUNSIGNUP_RACE_ID": "83604",
+        "RUNSIGNUP_EVENT_ID": "1056101"
+      }
+    }
+  }
+}

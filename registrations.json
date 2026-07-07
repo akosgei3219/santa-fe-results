@@ -1,0 +1,26 @@
+[
+  {
+    "bib": 101,
+    "name": "Akosgei",
+    "email": "coach@example.com",
+    "wave": "Elite",
+    "status": "confirmed",
+    "packet_picked_up": false
+  },
+  {
+    "bib": 244,
+    "name": "Maria Lopez",
+    "email": "maria.lopez@example.com",
+    "wave": "Corral B",
+    "status": "confirmed",
+    "packet_picked_up": true
+  },
+  {
+    "bib": 377,
+    "name": "Devon Yazzie",
+    "email": "devon.y@example.com",
+    "wave": "Corral C",
+    "status": "waitlist",
+    "packet_picked_up": false
+  }
+]

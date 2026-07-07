@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="fixture" xmlns="http://www.topografix.com/GPX/1/1">
+  <trk><name>Sample point-to-point (synthetic fixture, NOT the real course)</name>
+    <trkseg>
+      <trkpt lat="35.5236" lon="-105.9319"><ele>2103</ele></trkpt>
+      <trkpt lat="35.5450" lon="-105.9350"><ele>2120</ele></trkpt>
+      <trkpt lat="35.5700" lon="-105.9380"><ele>2145</ele></trkpt>
+      <trkpt lat="35.5950" lon="-105.9400"><ele>2130</ele></trkpt>
+      <trkpt lat="35.6200" lon="-105.9450"><ele>2160</ele></trkpt>
+      <trkpt lat="35.6450" lon="-105.9480"><ele>2140</ele></trkpt>
+      <trkpt lat="35.6700" lon="-105.9520"><ele>2110</ele></trkpt>
+      <trkpt lat="35.6773" lon="-105.9527"><ele>2134</ele></trkpt>
+    </trkseg>
+  </trk>
+</gpx>

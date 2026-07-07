@@ -1,0 +1,32 @@
+# Production compose: app + Caddy for automatic TLS on a VPS.
+#   1) Point your domain's DNS A record at the server's IP.
+#   2) Edit deploy/Caddyfile with that domain.
+#   3) docker compose -f docker-compose.prod.yml up -d --build
+services:
+  santa-fe-mcp:
+    build: .
+    environment:
+      MCP_HOST: 0.0.0.0
+      MCP_PORT: "8000"
+      REGISTRATION_BACKEND: json
+    # env_file: .env       # uncomment to load RunSignup/Airtable/RaceRoster creds
+    restart: unless-stopped
+    expose:
+      - "8000"
+
+  caddy:
+    image: caddy:2
+    depends_on:
+      - santa-fe-mcp
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    restart: unless-stopped
+
+volumes:
+  caddy_data:
+  caddy_config:

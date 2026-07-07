@@ -2,7 +2,7 @@ services:
   - type: web
     name: santa-fe-results-board
     runtime: static
-    publishDir: public
+    staticPublishPath: public
     buildCommand: npm run build
     envVars:
       - key: RACE_HOST

@@ -458,14 +458,14 @@ async def result_json(request: Request):
 @mcp.custom_route("/course", methods=["GET"])
 async def course_page(request: Request):
     """Serve the standalone course-elevation chart (static, brand-matched)."""
-    html = (pathlib.Path(__file__).with_name("course_chart.html")).read_text()
+    html = (pathlib.Path(__file__).with_name("course_chart.html")).read_text(encoding="utf-8")
     return HTMLResponse(html, headers=_CORS)
 
 
 @mcp.custom_route("/leaderboard", methods=["GET"])
 async def leaderboard_page(request: Request):
     """Serve the embeddable widget HTML."""
-    html = (pathlib.Path(__file__).with_name("leaderboard.html")).read_text()
+    html = (pathlib.Path(__file__).with_name("leaderboard.html")).read_text(encoding="utf-8")
     return HTMLResponse(html, headers=_CORS)
 
 

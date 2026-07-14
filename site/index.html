@@ -159,6 +159,22 @@
   .tip h3 { margin: 0 0 6px; font-size: 1.05rem; }
   .tip p { color: var(--text-muted); font-size: .92rem; margin: 0; }
 
+  /* ---------- where to stay ---------- */
+  .stay-card { display: flex; flex-wrap: wrap; align-items: center; }
+  .stay-logo {
+    flex: 1 1 260px; background: #ffffff; align-self: stretch;
+    display: flex; align-items: center; justify-content: center; padding: 28px;
+  }
+  .stay-logo img { max-height: 180px; width: auto; }
+  .stay-body { flex: 2 1 320px; padding: 28px; }
+  .promo-code-box { margin: 0; }
+  .promo-code-box code {
+    display: inline-block; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-weight: 900; font-size: 1.15rem; letter-spacing: .06em;
+    color: var(--nm-gold); border: 1px dashed var(--nm-gold); border-radius: 10px;
+    padding: 10px 18px; background: rgba(255,184,0,.06);
+  }
+
   /* ---------- register band ---------- */
   .register-band { background: linear-gradient(120deg, #171204 0%, #121212 60%); border-top: 1px solid var(--border-gray); border-bottom: 1px solid var(--border-gray); }
   .register-band .container { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding-top: 44px; padding-bottom: 44px; }
@@ -190,9 +206,9 @@
 <body>
 
 <div class="promo-bar" id="promo-bar">
-  Save 15% on registration with code <code>RUNSANTAFE26</code> —
-  valid Wed, Sept 16 through Tue, Sept 22.
-  <a href="https://runsignup.com/Race/NM/SantaFe/SantaFeInternationalHalfMarathon">Register&nbsp;→</a>
+  Race-week lodging: save 15% at the Pecos Trail Inn with code <code>RUNSANTAFE26</code> —
+  stays Wed, Sept 16 through Tue, Sept 22.
+  <a href="#stay">Details&nbsp;→</a>
 </div>
 
 <header class="site-header">
@@ -203,6 +219,7 @@
       <a class="nav-link" href="#course">Course</a>
       <a class="nav-link" href="#results">Results</a>
       <a class="nav-link" href="#photos">Photos</a>
+      <a class="nav-link" href="#stay">Stay</a>
       <a class="btn" href="https://runsignup.com/Race/NM/SantaFe/SantaFeInternationalHalfMarathon">Register</a>
     </nav>
   </div>
@@ -400,6 +417,33 @@
     </div>
   </section>
 
+  <!-- ================= WHERE TO STAY ================= -->
+  <section id="stay" class="section" style="padding-top:0">
+    <div class="container">
+      <p class="eyebrow">Race weekend</p>
+      <h2>Where to Stay</h2>
+      <p class="section-sub">Our lodging partner is holding a race-week deal for Santa Fe Half Marathon runners.</p>
+
+      <div class="card stay-card">
+        <div class="stay-logo" id="stay-logo">
+          <!-- Drop the hotel's logo file at assets/pecos-trail-inn.png and it
+               appears here automatically; until then this panel hides itself. -->
+          <img src="assets/pecos-trail-inn.png" alt="Pecos Trail Inn"
+               onerror="document.getElementById('stay-logo').style.display='none'">
+        </div>
+        <div class="stay-body">
+          <h3 style="margin:0 0 6px; font-size:1.3rem;">Pecos Trail Inn</h3>
+          <p style="color:var(--text-muted); margin:0 0 14px;">
+            Santa Fe Half Marathon runners save <strong style="color:var(--text)">15%</strong> on
+            race-week stays — <strong style="color:var(--text)">Wednesday, Sept 16 through
+            Tuesday, Sept 22</strong>. Mention the promo code when you book:
+          </p>
+          <p class="promo-code-box"><code>RUNSANTAFE26</code></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= REGISTER BAND ================= -->
   <section class="register-band">
     <div class="container">
@@ -407,9 +451,6 @@
         <p class="eyebrow">September 20, 2026</p>
         <h2>Toe the line in Eldorado.</h2>
         <p>Registration is open now on RunSignup.</p>
-        <p class="promo-note">Save 15% with code
-           <strong style="color:var(--nm-gold); font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;">RUNSANTAFE26</strong>
-           — valid Wed, Sept 16 through Tue, Sept 22.</p>
       </div>
       <a class="btn" href="https://runsignup.com/Race/NM/SantaFe/SantaFeInternationalHalfMarathon">Register now</a>
     </div>
@@ -441,13 +482,14 @@
    ============================================================ */
 const RESULTS_HOST = "";
 
-/* ---------- promo: 15% off, code RUNSANTAFE26, Wed 9/16 – Tue 9/22 ---------- */
-// The banner and register-band note hide themselves once the code expires
-// (end of day Tue, Sept 22, 2026, Mountain time).
+/* ---- lodging promo: 15% off at Pecos Trail Inn, code RUNSANTAFE26 ---- */
+// The banner, nav link, and Where to Stay section hide themselves once the
+// offer window closes (end of day Tue, Sept 22, 2026, Mountain time).
 const PROMO_END = new Date("2026-09-22T23:59:59-06:00");
 if (new Date() > PROMO_END) {
   document.getElementById("promo-bar").style.display = "none";
-  document.querySelectorAll(".promo-note").forEach(n => n.style.display = "none");
+  document.getElementById("stay").style.display = "none";
+  document.querySelectorAll('a[href="#stay"]').forEach(a => a.style.display = "none");
 }
 
 /* ---------- countdown to the 7:30 AM MDT gun ---------- */

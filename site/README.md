@@ -35,6 +35,15 @@ the auto-refreshing leaderboard iframe (with the "Find my time" bib search).
 Leave it `""` and the section gracefully shows the official RunSignup results
 links instead — the page never looks broken.
 
+## Lodging partner logo
+
+The "Where to Stay" section (Pecos Trail Inn, 15% off with code
+`RUNSANTAFE26`, stays Sept 16–22) reserves a white logo panel that stays
+hidden until the file exists. To light it up, save the hotel's logo as
+`assets/pecos-trail-inn.png` — no HTML edit needed. The promo bar, nav link,
+and section all hide themselves automatically after the offer window closes
+at end of day Tuesday, Sept 22, 2026 (Mountain time).
+
 ## Deploying the page
 
 - **HostGator (current host):** cPanel → File Manager → `public_html`. Back up

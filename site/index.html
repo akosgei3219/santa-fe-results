@@ -164,6 +164,7 @@
   .register-band .container { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding-top: 44px; padding-bottom: 44px; }
   .register-band h2 { margin: 0 0 4px; }
   .register-band p { margin: 0; color: var(--text-muted); }
+  .register-band .promo-note { margin-top: 8px; }
 
   /* ---------- footer ---------- */
   footer { padding: 40px 0 56px; color: var(--text-muted); font-size: .85rem; }
@@ -172,9 +173,27 @@
   footer a:hover { color: var(--text); }
 
   :focus-visible { outline: 2px solid var(--nm-gold); outline-offset: 2px; }
+
+  /* ---------- promo bar ---------- */
+  .promo-bar {
+    background: var(--nm-gold); color: #0A0A0A;
+    text-align: center; padding: 9px 20px; font-size: .92rem; font-weight: 600;
+  }
+  .promo-bar code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-weight: 900; background: rgba(10,10,10,.12); border-radius: 6px;
+    padding: 1px 8px; letter-spacing: .04em;
+  }
+  .promo-bar a { color: #0A0A0A; font-weight: 800; }
 </style>
 </head>
 <body>
+
+<div class="promo-bar" id="promo-bar">
+  Save 15% on registration with code <code>RUNSANTAFE26</code> —
+  valid Wed, Sept 16 through Tue, Sept 22.
+  <a href="https://runsignup.com/Race/NM/SantaFe/SantaFeInternationalHalfMarathon">Register&nbsp;→</a>
+</div>
 
 <header class="site-header">
   <div class="container">
@@ -388,6 +407,9 @@
         <p class="eyebrow">September 20, 2026</p>
         <h2>Toe the line in Eldorado.</h2>
         <p>Registration is open now on RunSignup.</p>
+        <p class="promo-note">Save 15% with code
+           <strong style="color:var(--nm-gold); font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;">RUNSANTAFE26</strong>
+           — valid Wed, Sept 16 through Tue, Sept 22.</p>
       </div>
       <a class="btn" href="https://runsignup.com/Race/NM/SantaFe/SantaFeInternationalHalfMarathon">Register now</a>
     </div>
@@ -418,6 +440,15 @@
    links instead of the live leaderboard.
    ============================================================ */
 const RESULTS_HOST = "";
+
+/* ---------- promo: 15% off, code RUNSANTAFE26, Wed 9/16 – Tue 9/22 ---------- */
+// The banner and register-band note hide themselves once the code expires
+// (end of day Tue, Sept 22, 2026, Mountain time).
+const PROMO_END = new Date("2026-09-22T23:59:59-06:00");
+if (new Date() > PROMO_END) {
+  document.getElementById("promo-bar").style.display = "none";
+  document.querySelectorAll(".promo-note").forEach(n => n.style.display = "none");
+}
 
 /* ---------- countdown to the 7:30 AM MDT gun ---------- */
 const RACE_START = new Date("2026-09-20T07:30:00-06:00");

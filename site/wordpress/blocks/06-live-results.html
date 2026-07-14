@@ -1,0 +1,74 @@
+<style>
+.sfhm{--bg:#0A0A0A;--card-bg:#121212;--border-gray:#1E1E1E;--text:#ffffff;--text-muted:#A3A3A3;--nm-gold:#FFB800;--nm-crimson:#D6221D;--nm-turquoise:#00A896;
+  background:var(--bg);color:var(--text);line-height:1.55;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
+.sfhm *{box-sizing:border-box;}
+.sfhm img{max-width:100%;display:block;}
+.sfhm a{color:var(--nm-gold);}
+.sfhm .container{max-width:1100px;margin:0 auto;padding:0 20px;}
+.sfhm .eyebrow{color:var(--nm-gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.75rem;margin:0 0 8px;}
+.sfhm h1,.sfhm h2,.sfhm h3{color:var(--text);}
+.sfhm h2{font-size:2rem;font-weight:900;margin:0 0 8px;}
+.sfhm .section{padding:64px 0;}
+.sfhm .section-sub{color:var(--text-muted);max-width:640px;margin:0 0 28px;}
+.sfhm .card{background:var(--card-bg);border:1px solid var(--border-gray);border-radius:16px;overflow:hidden;}
+.sfhm .btn{display:inline-block;background:var(--nm-gold);color:#0A0A0A;font-weight:800;text-decoration:none;border-radius:10px;padding:10px 20px;font-size:.95rem;border:0;cursor:pointer;}
+.sfhm .btn:hover,.sfhm .btn:focus{filter:brightness(1.08);}
+.sfhm .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--text-muted);}
+.sfhm .btn-ghost:hover,.sfhm .btn-ghost:focus{border-color:var(--text);}
+.sfhm :focus-visible{outline:2px solid var(--nm-gold);outline-offset:2px;}
+.sfhm .results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;}
+.sfhm .frame-wrap{position:relative;width:100%;padding-top:82%;}
+.sfhm .frame-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.sfhm .results-links{padding:24px;}
+.sfhm .results-links ul{list-style:none;padding:0;margin:12px 0 0;}
+.sfhm .results-links li{padding:10px 0;border-top:1px solid var(--border-gray);font-size:.95rem;}
+.sfhm .results-links li:first-child{border-top:0;}
+.sfhm .footnote{color:var(--text-muted);font-size:.8rem;margin:16px 0 0;}
+</style>
+<div class="sfhm">
+<section id="results" class="section">
+  <div class="container">
+    <p class="eyebrow">Race day</p>
+    <h2>Live Results</h2>
+    <p class="section-sub">
+      Top finishers update automatically as runners cross the line at Railyard Park.
+      Type your bib number to find your own time the moment it posts.
+    </p>
+    <div class="results-grid">
+      <div class="card" id="leaderboard-slot">
+        <div class="results-links" id="results-fallback">
+          <h3 style="margin:0 0 4px;">Official results</h3>
+          <p style="color:var(--text-muted);font-size:.95rem;margin:0;">
+            The live leaderboard appears here on race day. Past editions are posted on RunSignup:
+          </p>
+          <ul>
+            <li><a href="https://runsignup.com/Race/Results/83604">All results — Santa Fe International Half Marathon</a></li>
+            <li><a href="https://runsignup.com/Race/NM/SantaFe/SantaFeInternationalHalfMarathon">Race page, registration &amp; details</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="card results-links">
+        <h3 style="margin:0 0 4px;">How results work</h3>
+        <ul>
+          <li><strong style="color:var(--text)">On race day</strong> — chip times post live as you finish; the leaderboard refreshes every 30 seconds.</li>
+          <li><strong style="color:var(--text)">Find your time</strong> — search by bib number in the leaderboard the moment your result posts.</li>
+          <li><strong style="color:var(--text)">Questions?</strong> — results are official once posted by timing. Find us at the results tent by the finish.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="footnote">Results are official once posted by timing.</p>
+  </div>
+</section>
+</div>
+<script>
+// GO-LIVE: set RESULTS_HOST to your deployed results server (no protocol, no
+// trailing slash), e.g. "santa-fe-half-marathon.onrender.com". Leave "" and the
+// official-results links above stay in place.
+var RESULTS_HOST = "";
+if (RESULTS_HOST) {
+  document.getElementById("leaderboard-slot").innerHTML =
+    '<div class="frame-wrap"><iframe src="https://' + RESULTS_HOST + '/leaderboard" ' +
+    'title="Live Leaderboard — Santa Fe Half Marathon" loading="lazy"></iframe></div>';
+}
+</script>

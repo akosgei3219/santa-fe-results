@@ -1,0 +1,52 @@
+<style>
+.sfhm{--bg:#0A0A0A;--card-bg:#121212;--border-gray:#1E1E1E;--text:#ffffff;--text-muted:#A3A3A3;--nm-gold:#FFB800;--nm-crimson:#D6221D;--nm-turquoise:#00A896;
+  background:var(--bg);color:var(--text);line-height:1.55;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
+.sfhm *{box-sizing:border-box;}
+.sfhm img{max-width:100%;display:block;}
+.sfhm a{color:var(--nm-gold);}
+.sfhm .container{max-width:1100px;margin:0 auto;padding:0 20px;}
+.sfhm .eyebrow{color:var(--nm-gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.75rem;margin:0 0 8px;}
+.sfhm h1,.sfhm h2,.sfhm h3{color:var(--text);}
+.sfhm h2{font-size:2rem;font-weight:900;margin:0 0 8px;}
+.sfhm .section{padding:64px 0;}
+.sfhm .section-sub{color:var(--text-muted);max-width:640px;margin:0 0 28px;}
+.sfhm .card{background:var(--card-bg);border:1px solid var(--border-gray);border-radius:16px;overflow:hidden;}
+.sfhm .btn{display:inline-block;background:var(--nm-gold);color:#0A0A0A;font-weight:800;text-decoration:none;border-radius:10px;padding:10px 20px;font-size:.95rem;border:0;cursor:pointer;}
+.sfhm .btn:hover,.sfhm .btn:focus{filter:brightness(1.08);}
+.sfhm .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--text-muted);}
+.sfhm .btn-ghost:hover,.sfhm .btn-ghost:focus{border-color:var(--text);}
+.sfhm :focus-visible{outline:2px solid var(--nm-gold);outline-offset:2px;}
+.sfhm .photo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;}
+.sfhm .photo-card figcaption{padding:12px 16px;color:var(--text-muted);font-size:.85rem;}
+.sfhm .album-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;}
+</style>
+<div class="sfhm">
+<section id="photos" class="section">
+  <div class="container">
+    <p class="eyebrow">The community</p>
+    <h2>Photos</h2>
+    <p class="section-sub">Free race photos every year — from the start line in Eldorado to the finish at the Railyard.</p>
+    <div class="photo-grid">
+      <!-- Replace IMAGE_URL_FINISH / IMAGE_URL_COMMUNITY with Media Library URLs of
+           sfi-half-marathon-04.jpg and sfi-half-marathon-06.jpg. A card whose image
+           is missing hides itself. -->
+      <figure class="card photo-card" style="margin:0;">
+        <img src="IMAGE_URL_FINISH" loading="lazy" onerror="this.closest('figure').style.display='none'"
+             alt="Runners kicking to the finish line banner beside the rail crossing at Railyard Park.">
+        <figcaption>The finish at Railyard Park — flat, fast, and lined with cheers.</figcaption>
+      </figure>
+      <figure class="card photo-card" style="margin:0;">
+        <img src="IMAGE_URL_COMMUNITY" loading="lazy" onerror="this.closest('figure').style.display='none'"
+             alt="Runners and families gathered at the race festival under a clear New Mexico sky.">
+        <figcaption>Race morning in the high desert — runners, families, and friends from everywhere.</figcaption>
+      </figure>
+    </div>
+    <div class="album-row">
+      <a class="btn btn-ghost" href="https://runsignup.com/Race/Photos/NM/SantaFe/SantaFeInternationalHalfMarathon">RunSignup galleries</a>
+      <a class="btn btn-ghost" href="https://drive.google.com/drive/folders/10nod96Yb4hhBc23SpF1Rgk2HknRRXZvN">Photo gallery (Drive)</a>
+      <a class="btn btn-ghost" href="https://1drv.ms/f/c/e871014f27325bae/ElQomfBWl1dPg0eIlpRRgMsBoFZdxX-HCI5_xl_DTGZKRw?e=42Ebf1">2025 pro photos</a>
+    </div>
+  </div>
+</section>
+</div>

@@ -1,0 +1,36 @@
+<style>
+.sfhm{--bg:#0A0A0A;--card-bg:#121212;--border-gray:#1E1E1E;--text:#ffffff;--text-muted:#A3A3A3;--nm-gold:#FFB800;--nm-crimson:#D6221D;--nm-turquoise:#00A896;
+  background:var(--bg);color:var(--text);line-height:1.55;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
+.sfhm *{box-sizing:border-box;}
+.sfhm img{max-width:100%;display:block;}
+.sfhm a{color:var(--nm-gold);}
+.sfhm .container{max-width:1100px;margin:0 auto;padding:0 20px;}
+.sfhm .eyebrow{color:var(--nm-gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.75rem;margin:0 0 8px;}
+.sfhm h1,.sfhm h2,.sfhm h3{color:var(--text);}
+.sfhm h2{font-size:2rem;font-weight:900;margin:0 0 8px;}
+.sfhm .section{padding:64px 0;}
+.sfhm .section-sub{color:var(--text-muted);max-width:640px;margin:0 0 28px;}
+.sfhm .card{background:var(--card-bg);border:1px solid var(--border-gray);border-radius:16px;overflow:hidden;}
+.sfhm .btn{display:inline-block;background:var(--nm-gold);color:#0A0A0A;font-weight:800;text-decoration:none;border-radius:10px;padding:10px 20px;font-size:.95rem;border:0;cursor:pointer;}
+.sfhm .btn:hover,.sfhm .btn:focus{filter:brightness(1.08);}
+.sfhm .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--text-muted);}
+.sfhm .btn-ghost:hover,.sfhm .btn-ghost:focus{border-color:var(--text);}
+.sfhm :focus-visible{outline:2px solid var(--nm-gold);outline-offset:2px;}
+.sfhm .promo-bar{background:var(--nm-gold);color:#0A0A0A;text-align:center;padding:9px 20px;font-size:.92rem;font-weight:600;}
+.sfhm .promo-bar code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-weight:900;background:rgba(10,10,10,.12);border-radius:6px;padding:1px 8px;letter-spacing:.04em;}
+.sfhm .promo-bar a{color:#0A0A0A;font-weight:800;}
+</style>
+<div class="sfhm">
+<div class="promo-bar" id="promo-bar">
+  Race-week lodging: save 15% at the Pecos Trail Inn with code <code>RUNSANTAFE26</code> —
+  stays Wed, Sept 16 through Tue, Sept 22.
+  <a href="#stay">Details&nbsp;&rarr;</a>
+</div>
+</div>
+<script>
+// Hides itself once the offer window closes (end of day Tue, Sept 22, 2026, Mountain time).
+if (new Date() > new Date("2026-09-22T23:59:59-06:00")) {
+  document.getElementById("promo-bar").style.display = "none";
+}
+</script>

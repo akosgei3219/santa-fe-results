@@ -46,9 +46,12 @@ at end of day Tuesday, Sept 22, 2026 (Mountain time).
 
 ## Deploying the page
 
-- **HostGator (current host):** cPanel → File Manager → `public_html`. Back up
-  the existing `index.html` (copy to `index-backup.html`), then upload this
-  `index.html` and the `assets/` folder. Hard-refresh to bust caching.
+- **WordPress + Elementor:** see `wordpress/README.md` — an importable
+  Elementor page template plus per-section HTML blocks.
+- **Static hosting (HostGator File Manager):** cPanel → File Manager →
+  `public_html`. Back up the existing `index.html` (copy to
+  `index-backup.html`), then upload this `index.html` and the `assets/`
+  folder. Hard-refresh to bust caching.
 - **GitHub Pages (free alternative):** push this `site/` folder to the site
   repo and enable Pages on it; point the domain's DNS at Pages per GitHub docs.
 

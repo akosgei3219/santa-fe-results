@@ -1,0 +1,340 @@
+{
+  "version": "0.4",
+  "title": "Santa Fe Half Marathon — Home",
+  "type": "page",
+  "page_settings": {
+    "hide_title": "yes"
+  },
+  "content": [
+    {
+      "id": "1a2b3c",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "full_width",
+        "gap": "no",
+        "background_background": "classic",
+        "background_color": "#0A0A0A"
+      },
+      "elements": [
+        {
+          "id": "1a2b3d",
+          "elType": "column",
+          "isInner": false,
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": null
+          },
+          "elements": [
+            {
+              "id": "1a2b3e",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<style>\n.sfhm{--bg:#0A0A0A;--card-bg:#121212;--border-gray:#1E1E1E;--text:#ffffff;--text-muted:#A3A3A3;--nm-gold:#FFB800;--nm-crimson:#D6221D;--nm-turquoise:#00A896;\n  background:var(--bg);color:var(--text);line-height:1.55;\n  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}\n.sfhm *{box-sizing:border-box;}\n.sfhm img{max-width:100%;display:block;}\n.sfhm a{color:var(--nm-gold);}\n.sfhm .container{max-width:1100px;margin:0 auto;padding:0 20px;}\n.sfhm .eyebrow{color:var(--nm-gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.75rem;margin:0 0 8px;}\n.sfhm h1,.sfhm h2,.sfhm h3{color:var(--text);}\n.sfhm h2{font-size:2rem;font-weight:900;margin:0 0 8px;}\n.sfhm .section{padding:64px 0;}\n.sfhm .section-sub{color:var(--text-muted);max-width:640px;margin:0 0 28px;}\n.sfhm .card{background:var(--card-bg);border:1px solid var(--border-gray);border-radius:16px;overflow:hidden;}\n.sfhm .btn{display:inline-block;background:var(--nm-gold);color:#0A0A0A;font-weight:800;text-decoration:none;border-radius:10px;padding:10px 20px;font-size:.95rem;border:0;cursor:pointer;}\n.sfhm .btn:hover,.sfhm .btn:focus{filter:brightness(1.08);}\n.sfhm .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--text-muted);}\n.sfhm .btn-ghost:hover,.sfhm .btn-ghost:focus{border-color:var(--text);}\n.sfhm :focus-visible{outline:2px solid var(--nm-gold);outline-offset:2px;}\n.sfhm .promo-bar{background:var(--nm-gold);color:#0A0A0A;text-align:center;padding:9px 20px;font-size:.92rem;font-weight:600;}\n.sfhm .promo-bar code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-weight:900;background:rgba(10,10,10,.12);border-radius:6px;padding:1px 8px;letter-spacing:.04em;}\n.sfhm .promo-bar a{color:#0A0A0A;font-weight:800;}\n</style>\n<div class=\"sfhm\">\n<div class=\"promo-bar\" id=\"promo-bar\">\n  Race-week lodging: save 15% at the Pecos Trail Inn with code <code>RUNSANTAFE26</code> —\n  stays Wed, Sept 16 through Tue, Sept 22.\n  <a href=\"#stay\">Details&nbsp;&rarr;</a>\n</div>\n</div>\n<script>\n// Hides itself once the offer window closes (end of day Tue, Sept 22, 2026, Mountain time).\nif (new Date() > new Date(\"2026-09-22T23:59:59-06:00\")) {\n  document.getElementById(\"promo-bar\").style.display = \"none\";\n}\n</script>"
+              },
+              "elements": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1a2b3f",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "full_width",
+        "gap": "no",
+        "background_background": "classic",
+        "background_color": "#0A0A0A"
+      },
+      "elements": [
+        {
+          "id": "1a2b40",
+          "elType": "column",
+          "isInner": false,
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": null
+          },
+          "elements": [
+            {
+              "id": "1a2b41",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<style>\n.sfhm{--bg:#0A0A0A;--card-bg:#121212;--border-gray:#1E1E1E;--text:#ffffff;--text-muted:#A3A3A3;--nm-gold:#FFB800;--nm-crimson:#D6221D;--nm-turquoise:#00A896;\n  background:var(--bg);color:var(--text);line-height:1.55;\n  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}\n.sfhm *{box-sizing:border-box;}\n.sfhm img{max-width:100%;display:block;}\n.sfhm a{color:var(--nm-gold);}\n.sfhm .container{max-width:1100px;margin:0 auto;padding:0 20px;}\n.sfhm .eyebrow{color:var(--nm-gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.75rem;margin:0 0 8px;}\n.sfhm h1,.sfhm h2,.sfhm h3{color:var(--text);}\n.sfhm h2{font-size:2rem;font-weight:900;margin:0 0 8px;}\n.sfhm .section{padding:64px 0;}\n.sfhm .section-sub{color:var(--text-muted);max-width:640px;margin:0 0 28px;}\n.sfhm .card{background:var(--card-bg);border:1px solid var(--border-gray);border-radius:16px;overflow:hidden;}\n.sfhm .btn{display:inline-block;background:var(--nm-gold);color:#0A0A0A;font-weight:800;text-decoration:none;border-radius:10px;padding:10px 20px;font-size:.95rem;border:0;cursor:pointer;}\n.sfhm .btn:hover,.sfhm .btn:focus{filter:brightness(1.08);}\n.sfhm .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--text-muted);}\n.sfhm .btn-ghost:hover,.sfhm .btn-ghost:focus{border-color:var(--text);}\n.sfhm :focus-visible{outline:2px solid var(--nm-gold);outline-offset:2px;}\n.sfhm .hero{position:relative;min-height:78vh;display:flex;align-items:flex-end;overflow:hidden;background:linear-gradient(160deg,#171204 0%,#0A0A0A 70%);}\n.sfhm .hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;}\n.sfhm .hero .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.55) 0%,rgba(10,10,10,.35) 40%,rgba(10,10,10,.94) 100%);}\n.sfhm .hero .container{position:relative;padding-bottom:56px;padding-top:120px;}\n.sfhm .hero h1{font-size:clamp(2rem,5.4vw,3.6rem);font-weight:900;line-height:1.08;margin:0 0 12px;max-width:780px;}\n.sfhm .hero .tagline{color:var(--text);font-size:1.1rem;max-width:620px;margin:0 0 24px;}\n.sfhm .hero .cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:34px;}\n.sfhm .countdown{display:flex;gap:12px;flex-wrap:wrap;}\n.sfhm .count-cell{background:rgba(18,18,18,.85);border:1px solid var(--border-gray);border-radius:12px;padding:10px 14px;min-width:84px;text-align:center;}\n.sfhm .count-cell b{display:block;font-size:1.7rem;font-weight:900;color:var(--nm-gold);font-variant-numeric:tabular-nums;}\n.sfhm .count-cell span{font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;}\n</style>\n<div class=\"sfhm\">\n<section class=\"hero\">\n  <!-- Replace IMAGE_URL_FINISH with the Media Library URL of sfi-half-marathon-04.jpg.\n       Until then the img hides itself and the dark gradient shows instead. -->\n  <img class=\"bg\" src=\"IMAGE_URL_FINISH\" onerror=\"this.style.display='none'\"\n       alt=\"Runners approaching the finish line near the rail crossing at Railyard Park, Santa Fe.\">\n  <div class=\"shade\"></div>\n  <div class=\"container\">\n    <p class=\"eyebrow\">Sunday &middot; September 20, 2026 &middot; 7:30 AM</p>\n    <h1>Run 13.1 miles through the high desert, downhill into the heart of Santa Fe.</h1>\n    <p class=\"tagline\">\n      The Capitol Ford Santa Fe International Half Marathon — a USATF-certified,\n      point-to-point, net-downhill course from Eldorado to Railyard Park, all above 6,900 feet.\n    </p>\n    <div class=\"cta-row\">\n      <a class=\"btn\" href=\"https://runsignup.com/Race/NM/SantaFe/SantaFeInternationalHalfMarathon\">Register on RunSignup</a>\n      <a class=\"btn btn-ghost\" href=\"#course\">See the course</a>\n    </div>\n    <div class=\"countdown\" id=\"countdown\" role=\"timer\" aria-label=\"Countdown to race day\">\n      <div class=\"count-cell\"><b id=\"cd-days\">&mdash;</b><span>days</span></div>\n      <div class=\"count-cell\"><b id=\"cd-hours\">&mdash;</b><span>hours</span></div>\n      <div class=\"count-cell\"><b id=\"cd-mins\">&mdash;</b><span>minutes</span></div>\n      <div class=\"count-cell\"><b id=\"cd-secs\">&mdash;</b><span>seconds</span></div>\n    </div>\n  </div>\n</section>\n</div>\n<script>\nvar RACE_START = new Date(\"2026-09-20T07:30:00-06:00\");\nfunction sfhmPad(n){ return String(n).padStart(2, \"0\"); }\nfunction sfhmTick() {\n  var ms = RACE_START - new Date();\n  if (ms <= 0) {\n    document.getElementById(\"countdown\").innerHTML =\n      '<div class=\"count-cell\" style=\"min-width:auto;padding:10px 22px;\"><b>It&rsquo;s race day &mdash; go get it!</b></div>';\n    clearInterval(sfhmTimer);\n    return;\n  }\n  var s = Math.floor(ms / 1000);\n  document.getElementById(\"cd-days\").textContent  = Math.floor(s / 86400);\n  document.getElementById(\"cd-hours\").textContent = sfhmPad(Math.floor(s / 3600) % 24);\n  document.getElementById(\"cd-mins\").textContent  = sfhmPad(Math.floor(s / 60) % 60);\n  document.getElementById(\"cd-secs\").textContent  = sfhmPad(s % 60);\n}\nvar sfhmTimer = setInterval(sfhmTick, 1000);\nsfhmTick();\n</script>"
+              },
+              "elements": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1a2b42",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "full_width",
+        "gap": "no",
+        "background_background": "classic",
+        "background_color": "#0A0A0A"
+      },
+      "elements": [
+        {
+          "id": "1a2b43",
+          "elType": "column",
+          "isInner": false,
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": null
+          },
+          "elements": [
+            {
+              "id": "1a2b44",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<style>\n.sfhm{--bg:#0A0A0A;--card-bg:#121212;--border-gray:#1E1E1E;--text:#ffffff;--text-muted:#A3A3A3;--nm-gold:#FFB800;--nm-crimson:#D6221D;--nm-turquoise:#00A896;\n  background:var(--bg);color:var(--text);line-height:1.55;\n  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}\n.sfhm *{box-sizing:border-box;}\n.sfhm img{max-width:100%;display:block;}\n.sfhm a{color:var(--nm-gold);}\n.sfhm .container{max-width:1100px;margin:0 auto;padding:0 20px;}\n.sfhm .eyebrow{color:var(--nm-gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.75rem;margin:0 0 8px;}\n.sfhm h1,.sfhm h2,.sfhm h3{color:var(--text);}\n.sfhm h2{font-size:2rem;font-weight:900;margin:0 0 8px;}\n.sfhm .section{padding:64px 0;}\n.sfhm .section-sub{color:var(--text-muted);max-width:640px;margin:0 0 28px;}\n.sfhm .card{background:var(--card-bg);border:1px solid var(--border-gray);border-radius:16px;overflow:hidden;}\n.sfhm .btn{display:inline-block;background:var(--nm-gold);color:#0A0A0A;font-weight:800;text-decoration:none;border-radius:10px;padding:10px 20px;font-size:.95rem;border:0;cursor:pointer;}\n.sfhm .btn:hover,.sfhm .btn:focus{filter:brightness(1.08);}\n.sfhm .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--text-muted);}\n.sfhm .btn-ghost:hover,.sfhm .btn-ghost:focus{border-color:var(--text);}\n.sfhm :focus-visible{outline:2px solid var(--nm-gold);outline-offset:2px;}\n.sfhm .stat-strip{border-top:1px solid var(--border-gray);border-bottom:1px solid var(--border-gray);background:var(--card-bg);}\n.sfhm .stat-strip .container{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0;padding-top:22px;padding-bottom:22px;}\n.sfhm .stat{padding:6px 18px;border-left:1px solid var(--border-gray);}\n.sfhm .stat:first-child{border-left:0;}\n.sfhm .stat b{display:block;font-size:1.35rem;font-weight:900;color:var(--nm-gold);font-variant-numeric:tabular-nums;}\n.sfhm .stat span{font-size:.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em;}\n</style>\n<div class=\"sfhm\">\n<div class=\"stat-strip\" aria-label=\"Race facts\">\n  <div class=\"container\">\n    <div class=\"stat\"><b>13.109</b><span>USATF miles</span></div>\n    <div class=\"stat\"><b>7:30 AM</b><span>Start &middot; Eldorado</span></div>\n    <div class=\"stat\"><b>net &minus;36&prime;</b><span>Downhill finish</span></div>\n    <div class=\"stat\"><b>3:30</b><span>Course cutoff</span></div>\n  </div>\n</div>\n</div>"
+              },
+              "elements": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1a2b45",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "full_width",
+        "gap": "no",
+        "background_background": "classic",
+        "background_color": "#0A0A0A"
+      },
+      "elements": [
+        {
+          "id": "1a2b46",
+          "elType": "column",
+          "isInner": false,
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": null
+          },
+          "elements": [
+            {
+              "id": "1a2b47",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<style>\n.sfhm{--bg:#0A0A0A;--card-bg:#121212;--border-gray:#1E1E1E;--text:#ffffff;--text-muted:#A3A3A3;--nm-gold:#FFB800;--nm-crimson:#D6221D;--nm-turquoise:#00A896;\n  background:var(--bg);color:var(--text);line-height:1.55;\n  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}\n.sfhm *{box-sizing:border-box;}\n.sfhm img{max-width:100%;display:block;}\n.sfhm a{color:var(--nm-gold);}\n.sfhm .container{max-width:1100px;margin:0 auto;padding:0 20px;}\n.sfhm .eyebrow{color:var(--nm-gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.75rem;margin:0 0 8px;}\n.sfhm h1,.sfhm h2,.sfhm h3{color:var(--text);}\n.sfhm h2{font-size:2rem;font-weight:900;margin:0 0 8px;}\n.sfhm .section{padding:64px 0;}\n.sfhm .section-sub{color:var(--text-muted);max-width:640px;margin:0 0 28px;}\n.sfhm .card{background:var(--card-bg);border:1px solid var(--border-gray);border-radius:16px;overflow:hidden;}\n.sfhm .btn{display:inline-block;background:var(--nm-gold);color:#0A0A0A;font-weight:800;text-decoration:none;border-radius:10px;padding:10px 20px;font-size:.95rem;border:0;cursor:pointer;}\n.sfhm .btn:hover,.sfhm .btn:focus{filter:brightness(1.08);}\n.sfhm .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--text-muted);}\n.sfhm .btn-ghost:hover,.sfhm .btn-ghost:focus{border-color:var(--text);}\n.sfhm :focus-visible{outline:2px solid var(--nm-gold);outline-offset:2px;}\n.sfhm .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;}\n.sfhm .info-card{padding:24px;}\n.sfhm .info-card h3{margin:0 0 8px;font-size:1.1rem;display:flex;align-items:center;gap:10px;}\n.sfhm .info-card h3 .tick{width:10px;height:10px;border-radius:50%;background:var(--nm-turquoise);flex:0 0 auto;}\n.sfhm .info-card h3 .tick.gold{background:var(--nm-gold);}\n.sfhm .info-card h3 .tick.crimson{background:var(--nm-crimson);}\n.sfhm .info-card p{color:var(--text-muted);font-size:.95rem;margin:0;}\n.sfhm .info-card p + p{margin-top:10px;}\n.sfhm .info-card strong{color:var(--text);}\n</style>\n<div class=\"sfhm\">\n<section id=\"race\" class=\"section\">\n  <div class=\"container\">\n    <p class=\"eyebrow\">The essentials</p>\n    <h2>Race Info</h2>\n    <p class=\"section-sub\">Everything you need for race weekend — where it starts, where it ends, and how to get your bib.</p>\n    <div class=\"info-grid\">\n      <div class=\"card info-card\">\n        <h3><span class=\"tick\"></span>Start — Eldorado</h3>\n        <p><strong>La Tienda Plaza, Eldorado</strong> (7 Caliente Rd), elevation 6,992 ft.</p>\n        <p>Point-to-point via Old Las Vegas Highway. Gun at <strong>7:30 AM MDT</strong> — mornings up here are crisp, so dress for the start, not the finish.</p>\n      </div>\n      <div class=\"card info-card\">\n        <h3><span class=\"tick crimson\"></span>Finish — Railyard Park</h3>\n        <p><strong>Railyard Park</strong> (740 Cerrillos Rd), elevation 6,956 ft, in the heart of Santa Fe.</p>\n        <p>Course cutoff is <strong>3 hours 30 minutes</strong>. Live results post as you cross the line.</p>\n      </div>\n      <div class=\"card info-card\">\n        <h3><span class=\"tick gold\"></span>Packet Pickup &amp; Expo</h3>\n        <p>Expo and packet pickup at <strong>Old Warehouse 21</strong>, next to Railyard Park:<br>\n           <strong>Friday 12&ndash;5 PM</strong> and <strong>Saturday 10 AM&ndash;5 PM</strong>.</p>\n        <p>Race-morning pickup <strong>5:45&ndash;7:10 AM</strong> at the Eldorado start.</p>\n      </div>\n    </div>\n  </div>\n</section>\n</div>"
+              },
+              "elements": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1a2b48",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "full_width",
+        "gap": "no",
+        "background_background": "classic",
+        "background_color": "#0A0A0A"
+      },
+      "elements": [
+        {
+          "id": "1a2b49",
+          "elType": "column",
+          "isInner": false,
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": null
+          },
+          "elements": [
+            {
+              "id": "1a2b4a",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<style>\n.sfhm{--bg:#0A0A0A;--card-bg:#121212;--border-gray:#1E1E1E;--text:#ffffff;--text-muted:#A3A3A3;--nm-gold:#FFB800;--nm-crimson:#D6221D;--nm-turquoise:#00A896;\n  background:var(--bg);color:var(--text);line-height:1.55;\n  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}\n.sfhm *{box-sizing:border-box;}\n.sfhm img{max-width:100%;display:block;}\n.sfhm a{color:var(--nm-gold);}\n.sfhm .container{max-width:1100px;margin:0 auto;padding:0 20px;}\n.sfhm .eyebrow{color:var(--nm-gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.75rem;margin:0 0 8px;}\n.sfhm h1,.sfhm h2,.sfhm h3{color:var(--text);}\n.sfhm h2{font-size:2rem;font-weight:900;margin:0 0 8px;}\n.sfhm .section{padding:64px 0;}\n.sfhm .section-sub{color:var(--text-muted);max-width:640px;margin:0 0 28px;}\n.sfhm .card{background:var(--card-bg);border:1px solid var(--border-gray);border-radius:16px;overflow:hidden;}\n.sfhm .btn{display:inline-block;background:var(--nm-gold);color:#0A0A0A;font-weight:800;text-decoration:none;border-radius:10px;padding:10px 20px;font-size:.95rem;border:0;cursor:pointer;}\n.sfhm .btn:hover,.sfhm .btn:focus{filter:brightness(1.08);}\n.sfhm .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--text-muted);}\n.sfhm .btn-ghost:hover,.sfhm .btn-ghost:focus{border-color:var(--text);}\n.sfhm :focus-visible{outline:2px solid var(--nm-gold);outline-offset:2px;}\n.sfhm .chart-card{padding:20px 16px 10px;position:relative;}\n.sfhm .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;}\n.sfhm .chip{background:var(--card-bg);border:1px solid var(--border-gray);border-radius:10px;padding:8px 14px;min-width:104px;}\n.sfhm .chip b{display:block;font-size:1.05rem;color:var(--nm-gold);font-variant-numeric:tabular-nums;}\n.sfhm .chip span{font-size:.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.04em;}\n.sfhm .tooltip{position:absolute;pointer-events:none;display:none;background:#0A0A0A;border:1px solid var(--border-gray);border-radius:8px;padding:6px 10px;font-size:.8rem;color:var(--text);white-space:nowrap;transform:translate(-50%,-130%);z-index:5;}\n.sfhm .tooltip b{color:var(--nm-gold);font-variant-numeric:tabular-nums;}\n</style>\n<div class=\"sfhm\">\n<section id=\"course\" class=\"section\">\n  <div class=\"container\">\n    <p class=\"eyebrow\">The course</p>\n    <h2>Elevation Profile</h2>\n    <p class=\"section-sub\">\n      Point-to-point and net-downhill: start at 6,992 ft in Eldorado, climb to the\n      7,330 ft high point at the Woods Loop near mile 4, then descend to the\n      Railyard finish at 6,956 ft. Hover the chart for mile-by-mile elevations.\n    </p>\n    <div class=\"card chart-card\">\n      <svg id=\"chart\" viewBox=\"0 0 700 260\" width=\"100%\" role=\"img\"\n           aria-label=\"Elevation profile: 6,992 feet at the start, rising to 7,330 feet near mile 4, descending to 6,956 feet at the finish.\"></svg>\n      <div class=\"tooltip\" id=\"chart-tip\"></div>\n    </div>\n    <div class=\"chips\">\n      <div class=\"chip\"><b>13.109</b><span>USATF miles</span></div>\n      <div class=\"chip\"><b>7,330&prime;</b><span>High &middot; mile 4</span></div>\n      <div class=\"chip\"><b>6,956&prime;</b><span>Finish</span></div>\n      <div class=\"chip\"><b>net &minus;36&prime;</b><span>Downhill</span></div>\n    </div>\n    <details style=\"margin-top:20px;color:var(--text-muted);font-size:.9rem;\">\n      <summary style=\"cursor:pointer;color:var(--text);font-weight:600;\">Mile-by-mile elevation table</summary>\n      <table id=\"elev-table\" style=\"margin-top:12px;border-collapse:collapse;\">\n        <thead><tr>\n          <th style=\"text-align:left;padding:6px 18px 6px 0;color:var(--text-muted);font-size:.8rem;text-transform:uppercase;\">Mile</th>\n          <th style=\"text-align:right;padding:6px 0;color:var(--text-muted);font-size:.8rem;text-transform:uppercase;\">Elevation (ft)</th>\n        </tr></thead>\n        <tbody></tbody>\n      </table>\n    </details>\n  </div>\n</section>\n</div>\n<script>\n(function () {\n  var ELEV = [6992,7080,7180,7280,7330,7250,7160,7090,7040,7010,6995,6980,6968,6956];\n  var svg = document.getElementById(\"chart\");\n  var W = 700, H = 260, padL = 44, padR = 14, padT = 14, padB = 28;\n  var minE = 6900, maxE = 7380;\n  function x(i){ return padL + (i / (ELEV.length - 1)) * (W - padL - padR); }\n  function y(e){ return padT + (1 - (e - minE) / (maxE - minE)) * (H - padT - padB); }\n  function el(tag, attrs) {\n    var n = document.createElementNS(\"http://www.w3.org/2000/svg\", tag);\n    for (var k in attrs) n.setAttribute(k, attrs[k]);\n    return n;\n  }\n  for (var e = 6900; e <= 7300; e += 100) {\n    svg.appendChild(el(\"line\", {x1: padL, y1: y(e), x2: W - padR, y2: y(e), stroke: \"#1E1E1E\", \"stroke-width\": 1}));\n    var gl = el(\"text\", {x: padL - 6, y: y(e) + 3, fill: \"#A3A3A3\", \"font-size\": 10, \"text-anchor\": \"end\"});\n    gl.textContent = e.toLocaleString(); svg.appendChild(gl);\n  }\n  var d = \"M \" + x(0) + \" \" + y(ELEV[0]);\n  ELEV.forEach(function (ev, i) { if (i) d += \" L \" + x(i) + \" \" + y(ev); });\n  var area = d + \" L \" + x(ELEV.length - 1) + \" \" + (H - padB) + \" L \" + x(0) + \" \" + (H - padB) + \" Z\";\n  svg.appendChild(el(\"path\", {d: area, fill: \"#FFB800\", \"fill-opacity\": 0.12}));\n  svg.appendChild(el(\"path\", {d: d, fill: \"none\", stroke: \"#FFB800\", \"stroke-width\": 2.5, \"stroke-linejoin\": \"round\"}));\n  function marker(i, label, color) {\n    svg.appendChild(el(\"circle\", {cx: x(i), cy: y(ELEV[i]), r: 4, fill: color, stroke: \"#0A0A0A\", \"stroke-width\": 2}));\n    var t = el(\"text\", {x: x(i), y: y(ELEV[i]) - 9, fill: \"#fff\", \"font-size\": 10, \"font-weight\": 700,\n      \"text-anchor\": i === 0 ? \"start\" : (i === ELEV.length - 1 ? \"end\" : \"middle\")});\n    t.textContent = label; svg.appendChild(t);\n  }\n  marker(0, \"Start \\u00B7 6,992\\u2032\", \"#00A896\");\n  marker(4, \"Peak \\u00B7 7,330\\u2032\", \"#FFB800\");\n  marker(ELEV.length - 1, \"Finish \\u00B7 6,956\\u2032\", \"#D6221D\");\n  [0, 4, 8, 13].forEach(function (m) {\n    var i = Math.min(m, ELEV.length - 1);\n    var t = el(\"text\", {x: x(i), y: H - 8, fill: \"#A3A3A3\", \"font-size\": 10,\n      \"text-anchor\": m === 0 ? \"start\" : (m === 13 ? \"end\" : \"middle\")});\n    t.textContent = \"Mi \" + m; svg.appendChild(t);\n  });\n  var cross = el(\"line\", {y1: padT, y2: H - padB, stroke: \"#A3A3A3\", \"stroke-width\": 1, \"stroke-dasharray\": \"3 3\", visibility: \"hidden\"});\n  var dot = el(\"circle\", {r: 5, fill: \"#FFB800\", stroke: \"#0A0A0A\", \"stroke-width\": 2, visibility: \"hidden\"});\n  svg.appendChild(cross); svg.appendChild(dot);\n  var tip = document.getElementById(\"chart-tip\");\n  svg.addEventListener(\"pointermove\", function (ev) {\n    var rect = svg.getBoundingClientRect();\n    var fx = (ev.clientX - rect.left) / rect.width * W;\n    var i = Math.max(0, Math.min(ELEV.length - 1, Math.round((fx - padL) / (W - padL - padR) * (ELEV.length - 1))));\n    cross.setAttribute(\"x1\", x(i)); cross.setAttribute(\"x2\", x(i)); cross.setAttribute(\"visibility\", \"visible\");\n    dot.setAttribute(\"cx\", x(i)); dot.setAttribute(\"cy\", y(ELEV[i])); dot.setAttribute(\"visibility\", \"visible\");\n    tip.style.display = \"block\";\n    tip.style.left = (x(i) / W * rect.width) + \"px\";\n    tip.style.top  = (y(ELEV[i]) / H * rect.height) + \"px\";\n    tip.innerHTML = \"Mile \" + i + \" \\u00B7 <b>\" + ELEV[i].toLocaleString() + \" ft</b>\";\n  });\n  svg.addEventListener(\"pointerleave\", function () {\n    cross.setAttribute(\"visibility\", \"hidden\");\n    dot.setAttribute(\"visibility\", \"hidden\");\n    tip.style.display = \"none\";\n  });\n  var tbody = document.querySelector(\"#elev-table tbody\");\n  ELEV.forEach(function (ev, i) {\n    var tr = document.createElement(\"tr\");\n    tr.innerHTML = '<td style=\"padding:4px 18px 4px 0;\">' + i + '</td>' +\n                   '<td style=\"padding:4px 0;text-align:right;font-variant-numeric:tabular-nums;\">' +\n                   ev.toLocaleString() + \"</td>\";\n    tbody.appendChild(tr);\n  });\n})();\n</script>"
+              },
+              "elements": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1a2b4b",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "full_width",
+        "gap": "no",
+        "background_background": "classic",
+        "background_color": "#0A0A0A"
+      },
+      "elements": [
+        {
+          "id": "1a2b4c",
+          "elType": "column",
+          "isInner": false,
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": null
+          },
+          "elements": [
+            {
+              "id": "1a2b4d",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<style>\n.sfhm{--bg:#0A0A0A;--card-bg:#121212;--border-gray:#1E1E1E;--text:#ffffff;--text-muted:#A3A3A3;--nm-gold:#FFB800;--nm-crimson:#D6221D;--nm-turquoise:#00A896;\n  background:var(--bg);color:var(--text);line-height:1.55;\n  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}\n.sfhm *{box-sizing:border-box;}\n.sfhm img{max-width:100%;display:block;}\n.sfhm a{color:var(--nm-gold);}\n.sfhm .container{max-width:1100px;margin:0 auto;padding:0 20px;}\n.sfhm .eyebrow{color:var(--nm-gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.75rem;margin:0 0 8px;}\n.sfhm h1,.sfhm h2,.sfhm h3{color:var(--text);}\n.sfhm h2{font-size:2rem;font-weight:900;margin:0 0 8px;}\n.sfhm .section{padding:64px 0;}\n.sfhm .section-sub{color:var(--text-muted);max-width:640px;margin:0 0 28px;}\n.sfhm .card{background:var(--card-bg);border:1px solid var(--border-gray);border-radius:16px;overflow:hidden;}\n.sfhm .btn{display:inline-block;background:var(--nm-gold);color:#0A0A0A;font-weight:800;text-decoration:none;border-radius:10px;padding:10px 20px;font-size:.95rem;border:0;cursor:pointer;}\n.sfhm .btn:hover,.sfhm .btn:focus{filter:brightness(1.08);}\n.sfhm .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--text-muted);}\n.sfhm .btn-ghost:hover,.sfhm .btn-ghost:focus{border-color:var(--text);}\n.sfhm :focus-visible{outline:2px solid var(--nm-gold);outline-offset:2px;}\n.sfhm .results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;}\n.sfhm .frame-wrap{position:relative;width:100%;padding-top:82%;}\n.sfhm .frame-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}\n.sfhm .results-links{padding:24px;}\n.sfhm .results-links ul{list-style:none;padding:0;margin:12px 0 0;}\n.sfhm .results-links li{padding:10px 0;border-top:1px solid var(--border-gray);font-size:.95rem;}\n.sfhm .results-links li:first-child{border-top:0;}\n.sfhm .footnote{color:var(--text-muted);font-size:.8rem;margin:16px 0 0;}\n</style>\n<div class=\"sfhm\">\n<section id=\"results\" class=\"section\">\n  <div class=\"container\">\n    <p class=\"eyebrow\">Race day</p>\n    <h2>Live Results</h2>\n    <p class=\"section-sub\">\n      Top finishers update automatically as runners cross the line at Railyard Park.\n      Type your bib number to find your own time the moment it posts.\n    </p>\n    <div class=\"results-grid\">\n      <div class=\"card\" id=\"leaderboard-slot\">\n        <div class=\"results-links\" id=\"results-fallback\">\n          <h3 style=\"margin:0 0 4px;\">Official results</h3>\n          <p style=\"color:var(--text-muted);font-size:.95rem;margin:0;\">\n            The live leaderboard appears here on race day. Past editions are posted on RunSignup:\n          </p>\n          <ul>\n            <li><a href=\"https://runsignup.com/Race/Results/83604\">All results — Santa Fe International Half Marathon</a></li>\n            <li><a href=\"https://runsignup.com/Race/NM/SantaFe/SantaFeInternationalHalfMarathon\">Race page, registration &amp; details</a></li>\n          </ul>\n        </div>\n      </div>\n      <div class=\"card results-links\">\n        <h3 style=\"margin:0 0 4px;\">How results work</h3>\n        <ul>\n          <li><strong style=\"color:var(--text)\">On race day</strong> — chip times post live as you finish; the leaderboard refreshes every 30 seconds.</li>\n          <li><strong style=\"color:var(--text)\">Find your time</strong> — search by bib number in the leaderboard the moment your result posts.</li>\n          <li><strong style=\"color:var(--text)\">Questions?</strong> — results are official once posted by timing. Find us at the results tent by the finish.</li>\n        </ul>\n      </div>\n    </div>\n    <p class=\"footnote\">Results are official once posted by timing.</p>\n  </div>\n</section>\n</div>\n<script>\n// GO-LIVE: set RESULTS_HOST to your deployed results server (no protocol, no\n// trailing slash), e.g. \"santa-fe-half-marathon.onrender.com\". Leave \"\" and the\n// official-results links above stay in place.\nvar RESULTS_HOST = \"\";\nif (RESULTS_HOST) {\n  document.getElementById(\"leaderboard-slot\").innerHTML =\n    '<div class=\"frame-wrap\"><iframe src=\"https://' + RESULTS_HOST + '/leaderboard\" ' +\n    'title=\"Live Leaderboard — Santa Fe Half Marathon\" loading=\"lazy\"></iframe></div>';\n}\n</script>"
+              },
+              "elements": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1a2b4e",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "full_width",
+        "gap": "no",
+        "background_background": "classic",
+        "background_color": "#0A0A0A"
+      },
+      "elements": [
+        {
+          "id": "1a2b4f",
+          "elType": "column",
+          "isInner": false,
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": null
+          },
+          "elements": [
+            {
+              "id": "1a2b50",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<style>\n.sfhm{--bg:#0A0A0A;--card-bg:#121212;--border-gray:#1E1E1E;--text:#ffffff;--text-muted:#A3A3A3;--nm-gold:#FFB800;--nm-crimson:#D6221D;--nm-turquoise:#00A896;\n  background:var(--bg);color:var(--text);line-height:1.55;\n  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}\n.sfhm *{box-sizing:border-box;}\n.sfhm img{max-width:100%;display:block;}\n.sfhm a{color:var(--nm-gold);}\n.sfhm .container{max-width:1100px;margin:0 auto;padding:0 20px;}\n.sfhm .eyebrow{color:var(--nm-gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.75rem;margin:0 0 8px;}\n.sfhm h1,.sfhm h2,.sfhm h3{color:var(--text);}\n.sfhm h2{font-size:2rem;font-weight:900;margin:0 0 8px;}\n.sfhm .section{padding:64px 0;}\n.sfhm .section-sub{color:var(--text-muted);max-width:640px;margin:0 0 28px;}\n.sfhm .card{background:var(--card-bg);border:1px solid var(--border-gray);border-radius:16px;overflow:hidden;}\n.sfhm .btn{display:inline-block;background:var(--nm-gold);color:#0A0A0A;font-weight:800;text-decoration:none;border-radius:10px;padding:10px 20px;font-size:.95rem;border:0;cursor:pointer;}\n.sfhm .btn:hover,.sfhm .btn:focus{filter:brightness(1.08);}\n.sfhm .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--text-muted);}\n.sfhm .btn-ghost:hover,.sfhm .btn-ghost:focus{border-color:var(--text);}\n.sfhm :focus-visible{outline:2px solid var(--nm-gold);outline-offset:2px;}\n.sfhm .photo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;}\n.sfhm .photo-card figcaption{padding:12px 16px;color:var(--text-muted);font-size:.85rem;}\n.sfhm .album-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;}\n</style>\n<div class=\"sfhm\">\n<section id=\"photos\" class=\"section\">\n  <div class=\"container\">\n    <p class=\"eyebrow\">The community</p>\n    <h2>Photos</h2>\n    <p class=\"section-sub\">Free race photos every year — from the start line in Eldorado to the finish at the Railyard.</p>\n    <div class=\"photo-grid\">\n      <!-- Replace IMAGE_URL_FINISH / IMAGE_URL_COMMUNITY with Media Library URLs of\n           sfi-half-marathon-04.jpg and sfi-half-marathon-06.jpg. A card whose image\n           is missing hides itself. -->\n      <figure class=\"card photo-card\" style=\"margin:0;\">\n        <img src=\"IMAGE_URL_FINISH\" loading=\"lazy\" onerror=\"this.closest('figure').style.display='none'\"\n             alt=\"Runners kicking to the finish line banner beside the rail crossing at Railyard Park.\">\n        <figcaption>The finish at Railyard Park — flat, fast, and lined with cheers.</figcaption>\n      </figure>\n      <figure class=\"card photo-card\" style=\"margin:0;\">\n        <img src=\"IMAGE_URL_COMMUNITY\" loading=\"lazy\" onerror=\"this.closest('figure').style.display='none'\"\n             alt=\"Runners and families gathered at the race festival under a clear New Mexico sky.\">\n        <figcaption>Race morning in the high desert — runners, families, and friends from everywhere.</figcaption>\n      </figure>\n    </div>\n    <div class=\"album-row\">\n      <a class=\"btn btn-ghost\" href=\"https://runsignup.com/Race/Photos/NM/SantaFe/SantaFeInternationalHalfMarathon\">RunSignup galleries</a>\n      <a class=\"btn btn-ghost\" href=\"https://drive.google.com/drive/folders/10nod96Yb4hhBc23SpF1Rgk2HknRRXZvN\">Photo gallery (Drive)</a>\n      <a class=\"btn btn-ghost\" href=\"https://1drv.ms/f/c/e871014f27325bae/ElQomfBWl1dPg0eIlpRRgMsBoFZdxX-HCI5_xl_DTGZKRw?e=42Ebf1\">2025 pro photos</a>\n    </div>\n  </div>\n</section>\n</div>"
+              },
+              "elements": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1a2b51",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "full_width",
+        "gap": "no",
+        "background_background": "classic",
+        "background_color": "#0A0A0A"
+      },
+      "elements": [
+        {
+          "id": "1a2b52",
+          "elType": "column",
+          "isInner": false,
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": null
+          },
+          "elements": [
+            {
+              "id": "1a2b53",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<style>\n.sfhm{--bg:#0A0A0A;--card-bg:#121212;--border-gray:#1E1E1E;--text:#ffffff;--text-muted:#A3A3A3;--nm-gold:#FFB800;--nm-crimson:#D6221D;--nm-turquoise:#00A896;\n  background:var(--bg);color:var(--text);line-height:1.55;\n  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}\n.sfhm *{box-sizing:border-box;}\n.sfhm img{max-width:100%;display:block;}\n.sfhm a{color:var(--nm-gold);}\n.sfhm .container{max-width:1100px;margin:0 auto;padding:0 20px;}\n.sfhm .eyebrow{color:var(--nm-gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.75rem;margin:0 0 8px;}\n.sfhm h1,.sfhm h2,.sfhm h3{color:var(--text);}\n.sfhm h2{font-size:2rem;font-weight:900;margin:0 0 8px;}\n.sfhm .section{padding:64px 0;}\n.sfhm .section-sub{color:var(--text-muted);max-width:640px;margin:0 0 28px;}\n.sfhm .card{background:var(--card-bg);border:1px solid var(--border-gray);border-radius:16px;overflow:hidden;}\n.sfhm .btn{display:inline-block;background:var(--nm-gold);color:#0A0A0A;font-weight:800;text-decoration:none;border-radius:10px;padding:10px 20px;font-size:.95rem;border:0;cursor:pointer;}\n.sfhm .btn:hover,.sfhm .btn:focus{filter:brightness(1.08);}\n.sfhm .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--text-muted);}\n.sfhm .btn-ghost:hover,.sfhm .btn-ghost:focus{border-color:var(--text);}\n.sfhm :focus-visible{outline:2px solid var(--nm-gold);outline-offset:2px;}\n.sfhm .stay-card{display:flex;flex-wrap:wrap;align-items:center;}\n.sfhm .stay-logo{flex:1 1 260px;background:#ffffff;align-self:stretch;display:flex;align-items:center;justify-content:center;padding:28px;}\n.sfhm .stay-logo img{max-height:180px;width:auto;}\n.sfhm .stay-body{flex:2 1 320px;padding:28px;}\n.sfhm .promo-code-box{margin:0;}\n.sfhm .promo-code-box code{display:inline-block;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-weight:900;font-size:1.15rem;letter-spacing:.06em;color:var(--nm-gold);border:1px dashed var(--nm-gold);border-radius:10px;padding:10px 18px;background:rgba(255,184,0,.06);}\n</style>\n<div class=\"sfhm\">\n<section id=\"stay\" class=\"section\">\n  <div class=\"container\">\n    <p class=\"eyebrow\">Race weekend</p>\n    <h2>Where to Stay</h2>\n    <p class=\"section-sub\">Our lodging partner is holding a race-week deal for Santa Fe Half Marathon runners.</p>\n    <div class=\"card stay-card\">\n      <div class=\"stay-logo\" id=\"stay-logo\">\n        <!-- Replace LOGO_URL_PECOS with the Media Library URL of the Pecos Trail Inn\n             logo. Until then this white panel hides itself. -->\n        <img src=\"LOGO_URL_PECOS\" alt=\"Pecos Trail Inn\"\n             onerror=\"document.getElementById('stay-logo').style.display='none'\">\n      </div>\n      <div class=\"stay-body\">\n        <h3 style=\"margin:0 0 6px;font-size:1.3rem;\">Pecos Trail Inn</h3>\n        <p style=\"color:var(--text-muted);margin:0 0 14px;\">\n          Santa Fe Half Marathon runners save <strong style=\"color:var(--text)\">15%</strong> on\n          race-week stays — <strong style=\"color:var(--text)\">Wednesday, Sept 16 through\n          Tuesday, Sept 22</strong>. Mention the promo code when you book:\n        </p>\n        <p class=\"promo-code-box\"><code>RUNSANTAFE26</code></p>\n      </div>\n    </div>\n  </div>\n</section>\n</div>\n<script>\n// Hides itself once the offer window closes (end of day Tue, Sept 22, 2026, Mountain time).\nif (new Date() > new Date(\"2026-09-22T23:59:59-06:00\")) {\n  document.getElementById(\"stay\").style.display = \"none\";\n}\n</script>"
+              },
+              "elements": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1a2b54",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "full_width",
+        "gap": "no",
+        "background_background": "classic",
+        "background_color": "#0A0A0A"
+      },
+      "elements": [
+        {
+          "id": "1a2b55",
+          "elType": "column",
+          "isInner": false,
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": null
+          },
+          "elements": [
+            {
+              "id": "1a2b56",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<style>\n.sfhm{--bg:#0A0A0A;--card-bg:#121212;--border-gray:#1E1E1E;--text:#ffffff;--text-muted:#A3A3A3;--nm-gold:#FFB800;--nm-crimson:#D6221D;--nm-turquoise:#00A896;\n  background:var(--bg);color:var(--text);line-height:1.55;\n  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}\n.sfhm *{box-sizing:border-box;}\n.sfhm img{max-width:100%;display:block;}\n.sfhm a{color:var(--nm-gold);}\n.sfhm .container{max-width:1100px;margin:0 auto;padding:0 20px;}\n.sfhm .eyebrow{color:var(--nm-gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.75rem;margin:0 0 8px;}\n.sfhm h1,.sfhm h2,.sfhm h3{color:var(--text);}\n.sfhm h2{font-size:2rem;font-weight:900;margin:0 0 8px;}\n.sfhm .section{padding:64px 0;}\n.sfhm .section-sub{color:var(--text-muted);max-width:640px;margin:0 0 28px;}\n.sfhm .card{background:var(--card-bg);border:1px solid var(--border-gray);border-radius:16px;overflow:hidden;}\n.sfhm .btn{display:inline-block;background:var(--nm-gold);color:#0A0A0A;font-weight:800;text-decoration:none;border-radius:10px;padding:10px 20px;font-size:.95rem;border:0;cursor:pointer;}\n.sfhm .btn:hover,.sfhm .btn:focus{filter:brightness(1.08);}\n.sfhm .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--text-muted);}\n.sfhm .btn-ghost:hover,.sfhm .btn-ghost:focus{border-color:var(--text);}\n.sfhm :focus-visible{outline:2px solid var(--nm-gold);outline-offset:2px;}\n.sfhm .tip-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;counter-reset:tip;}\n.sfhm .tip{padding:24px;}\n.sfhm .tip::before{counter-increment:tip;content:counter(tip,decimal-leading-zero);display:block;color:var(--nm-gold);font-weight:900;font-size:1.4rem;margin-bottom:6px;font-variant-numeric:tabular-nums;}\n.sfhm .tip h3{margin:0 0 6px;font-size:1.05rem;}\n.sfhm .tip p{color:var(--text-muted);font-size:.92rem;margin:0;}\n</style>\n<div class=\"sfhm\">\n<section id=\"altitude\" class=\"section\">\n  <div class=\"container\">\n    <p class=\"eyebrow\">Racing at 7,000 feet</p>\n    <h2>Respect the Altitude</h2>\n    <p class=\"section-sub\">Santa Fe sits higher than Denver. The thin air is part of the challenge — and the charm. A little planning goes a long way.</p>\n    <div class=\"tip-list\">\n      <div class=\"card tip\">\n        <h3>Arrive early if you can</h3>\n        <p>Coming from low elevation? Two to three days in town before the race helps your body adjust — and Santa Fe is a fine place to spend them.</p>\n      </div>\n      <div class=\"card tip\">\n        <h3>Hydrate all week</h3>\n        <p>The high desert is dry and you lose more fluid than you notice. Keep a water bottle in hand for a few days before the gun.</p>\n      </div>\n      <div class=\"card tip\">\n        <h3>Pace the first four miles</h3>\n        <p>The climb to the 7,330 ft high point comes early. Run it a touch slower than goal pace — the net-downhill back half is where you make it up.</p>\n      </div>\n    </div>\n  </div>\n</section>\n</div>"
+              },
+              "elements": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1a2b57",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "full_width",
+        "gap": "no",
+        "background_background": "classic",
+        "background_color": "#0A0A0A"
+      },
+      "elements": [
+        {
+          "id": "1a2b58",
+          "elType": "column",
+          "isInner": false,
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": null
+          },
+          "elements": [
+            {
+              "id": "1a2b59",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<style>\n.sfhm{--bg:#0A0A0A;--card-bg:#121212;--border-gray:#1E1E1E;--text:#ffffff;--text-muted:#A3A3A3;--nm-gold:#FFB800;--nm-crimson:#D6221D;--nm-turquoise:#00A896;\n  background:var(--bg);color:var(--text);line-height:1.55;\n  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}\n.sfhm *{box-sizing:border-box;}\n.sfhm img{max-width:100%;display:block;}\n.sfhm a{color:var(--nm-gold);}\n.sfhm .container{max-width:1100px;margin:0 auto;padding:0 20px;}\n.sfhm .eyebrow{color:var(--nm-gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.75rem;margin:0 0 8px;}\n.sfhm h1,.sfhm h2,.sfhm h3{color:var(--text);}\n.sfhm h2{font-size:2rem;font-weight:900;margin:0 0 8px;}\n.sfhm .section{padding:64px 0;}\n.sfhm .section-sub{color:var(--text-muted);max-width:640px;margin:0 0 28px;}\n.sfhm .card{background:var(--card-bg);border:1px solid var(--border-gray);border-radius:16px;overflow:hidden;}\n.sfhm .btn{display:inline-block;background:var(--nm-gold);color:#0A0A0A;font-weight:800;text-decoration:none;border-radius:10px;padding:10px 20px;font-size:.95rem;border:0;cursor:pointer;}\n.sfhm .btn:hover,.sfhm .btn:focus{filter:brightness(1.08);}\n.sfhm .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--text-muted);}\n.sfhm .btn-ghost:hover,.sfhm .btn-ghost:focus{border-color:var(--text);}\n.sfhm :focus-visible{outline:2px solid var(--nm-gold);outline-offset:2px;}\n.sfhm .register-band{background:linear-gradient(120deg,#171204 0%,#121212 60%);border-top:1px solid var(--border-gray);border-bottom:1px solid var(--border-gray);}\n.sfhm .register-band .container{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-top:44px;padding-bottom:44px;}\n.sfhm .register-band h2{margin:0 0 4px;}\n.sfhm .register-band p{margin:0;color:var(--text-muted);}\n</style>\n<div class=\"sfhm\">\n<section class=\"register-band\">\n  <div class=\"container\">\n    <div>\n      <p class=\"eyebrow\">September 20, 2026</p>\n      <h2>Toe the line in Eldorado.</h2>\n      <p>Registration is open now on RunSignup.</p>\n    </div>\n    <a class=\"btn\" href=\"https://runsignup.com/Race/NM/SantaFe/SantaFeInternationalHalfMarathon\">Register now</a>\n  </div>\n</section>\n</div>"
+              },
+              "elements": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

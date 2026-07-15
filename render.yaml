@@ -1,6 +1,15 @@
 # Render.com blueprint — push-button deploy.
 # In Render: New > Blueprint > connect the repo containing this file.
+#
+# Two services, deliberately separate:
+#   1. the dynamic backend (Docker)  — owns the JSON feeds and /mcp
+#   2. the static client   (static)  — owns leaderboard.html only
+# The static client is a pure consumer of the backend's JSON feeds; it has no
+# Python, no Docker, and no server of its own.
 services:
+  # --- Dynamic JSON feeds + MCP (Docker) -------------------------------
+  # Serves /leaderboard, /leaderboard.json, /result.json (CORS: *) and /mcp.
+  # The homepage of santafehalfmarathon.com embeds this via iframe.
   - type: web
     name: santa-fe-half-marathon
     runtime: docker
@@ -15,3 +24,22 @@ services:
         value: "8000"
       - key: REGISTRATION_BACKEND
         value: json
+
+  # --- Static leaderboard client ---------------------------------------
+  # build_static.sh copies leaderboard.html into public/ and injects
+  # window.LEADERBOARD_URL / window.RESULT_URL so the client fetches from the
+  # backend above instead of its own (static, feed-less) origin.
+  #
+  # Invoked as `sh build_static.sh`, not `./build_static.sh`: the file is
+  # committed mode 100644 (non-executable) from a Windows checkout, so calling
+  # it directly would fail with permission denied on Render's Linux builder.
+  - type: web
+    name: santa-fe-results-board
+    runtime: static
+    staticPublishPath: public
+    buildCommand: sh build_static.sh
+    autoDeploy: true
+    envVars:
+      # Backend origin, no trailing slash. Update here if the backend URL changes.
+      - key: BACKEND_URL
+        value: https://santa-fe-results.onrender.com

@@ -156,6 +156,32 @@ Or reuse the JSON feed from your own front-end (set `window.LEADERBOARD_URL` to
 point the bundled widget at a different origin). Start it with
 `python server.py http` and open http://127.0.0.1:8000/leaderboard.
 
+### Hosting the widget as a separate static site
+
+`leaderboard.html` defaults to same-origin (`/leaderboard.json`), which is what
+the Docker service above relies on. To host the widget as a standalone static
+site that reads from a remote backend instead, run:
+
+```sh
+sh build_static.sh                                   # -> public/index.html
+BACKEND_URL=https://your-backend.example sh build_static.sh   # custom origin
+```
+
+It copies `leaderboard.html` into `public/` and injects `window.LEADERBOARD_URL`
+and `window.RESULT_URL` ahead of the widget's inline script. `leaderboard.html`
+stays the single source of truth and is never modified, so the Docker service
+keeps working unchanged. `public/` is generated — it's gitignored, don't edit it
+by hand.
+
+`render.yaml` wires this up as a second service (`santa-fe-results-board`)
+alongside the Docker backend. The static site is a pure consumer of the
+backend's JSON feeds — it ships no Python and no server of its own.
+
+> **Note:** the backend runs on Render's free tier and sleeps when idle, so the
+> first request after a quiet period waits on a cold start regardless of whether
+> the widget is served statically. Splitting the client out does not change that;
+> only a paid tier does.
+
 ## Live results lookup (`lookup_result`)
 
 Registration data is gated, but RunSignup's **results** API is public for races

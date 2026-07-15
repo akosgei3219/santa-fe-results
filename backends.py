@@ -72,6 +72,8 @@ class JsonBackend:
             runners = json.loads(self.path.read_text())
         except FileNotFoundError:
             raise BackendError(f"registration file not found: {self.path}")
+        except ValueError as e:
+            raise BackendError(f"registration file is not valid JSON ({self.path}): {e}")
         for r in runners:
             if (bib is not None and r.get("bib") == bib) or (
                 email is not None and str(r.get("email", "")).lower() == email.lower()

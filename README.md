@@ -43,6 +43,14 @@ Quick end-to-end check without a full client:
 python smoke_test.py             # launches the server and exercises every tool
 ```
 
+The offline unit tests (no network, no client) run with pytest and also run in
+CI on every push and pull request:
+
+```bash
+pip install pytest
+pytest                           # test_server / test_backends / test_course / test_results
+```
+
 ## Connect it to a client
 
 Copy the block from `claude_desktop_config.example.json` into your client's MCP
@@ -129,7 +137,7 @@ A synthetic `sample_course.gpx` fixture is included for the tests (it is **not**
 the real course). Verify parsing, distance, and gain/loss with:
 
 ```bash
-python test_course.py
+pytest test_course.py
 ```
 
 ## Live results widget (for the website)
@@ -168,7 +176,7 @@ live results as they post on race day.
 Parsing is verified against a real captured 2025 response:
 
 ```bash
-python test_results.py
+pytest test_results.py
 ```
 
 ## Real registration backends (Airtable / RunSignup / RaceRoster)
@@ -213,7 +221,7 @@ rather than crashing the server.
 Run the offline backend tests (mocked HTTP, no real API calls):
 
 ```bash
-python test_backends.py
+pytest test_backends.py
 ```
 
 ### Gotcha: passing env vars over stdio

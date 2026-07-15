@@ -165,13 +165,26 @@ site that reads from a remote backend instead, run:
 ```sh
 sh build_static.sh                                   # -> public/index.html
 BACKEND_URL=https://your-backend.example sh build_static.sh   # custom origin
+HOME_URL=https://example.com sh build_static.sh               # custom home link
 ```
 
-It copies `leaderboard.html` into `public/` and injects `window.LEADERBOARD_URL`
-and `window.RESULT_URL` ahead of the widget's inline script. `leaderboard.html`
-stays the single source of truth and is never modified, so the Docker service
-keeps working unchanged. `public/` is generated — it's gitignored, don't edit it
-by hand.
+It copies `leaderboard.html` into `public/` and injects two things:
+
+- `window.LEADERBOARD_URL` / `window.RESULT_URL`, ahead of the widget's inline
+  script, so the client reads from the remote backend;
+- a minimal header bar (Espresso ground, Cream text) with a single link back to
+  the main site, controlled by `HOME_URL`.
+
+`leaderboard.html` stays the single source of truth and is never modified, so
+the Docker service keeps working unchanged. `public/` is generated — it's
+gitignored, don't edit it by hand.
+
+**The header is deliberately static-only.** It exists only in the built output,
+so `/leaderboard` — the route `server.py` serves from `leaderboard.html`, and
+the one the homepage iframes — stays header-free. The embed never grows a nav
+bar inside itself. If you ever need the header in both places, inject it here
+rather than adding it to `leaderboard.html`, or the iframe will sprout a
+duplicate site header.
 
 `render.yaml` wires this up as a second service (`santa-fe-results-board`)
 alongside the Docker backend. The static site is a pure consumer of the

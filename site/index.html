@@ -55,13 +55,68 @@
   }
   .brand { font-weight: 900; font-size: 1rem; color: var(--text); text-decoration: none; letter-spacing: .02em; }
   .brand span { color: var(--nm-gold); }
-  nav.main-nav { display: flex; gap: 22px; align-items: center; flex-wrap: wrap; }
+  nav.main-nav { display: flex; gap: 22px; align-items: center; }
   nav.main-nav a {
     color: var(--text-muted); text-decoration: none; font-size: .9rem; font-weight: 600;
   }
   nav.main-nav a:hover, nav.main-nav a:focus { color: var(--text); }
   /* the Register button keeps dark-on-gold text despite the nav link color rules */
   nav.main-nav a.btn, nav.main-nav a.btn:hover, nav.main-nav a.btn:focus { color: #0A0A0A; }
+
+  /* ---------- mega dropdown ---------- */
+  .menu-list { display: flex; align-items: center; gap: 22px; list-style: none; margin: 0; padding: 0; }
+  .has-mega { position: relative; }
+  .menu-link .arrow { font-size: .6rem; margin-left: .3em; display: inline-block; transition: transform .2s ease; }
+  .mega-dropdown {
+    position: absolute; top: 100%; left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: var(--card-bg); border: 1px solid var(--border-gray); border-radius: 12px;
+    padding: 22px; width: 480px; max-width: calc(100vw - 32px);
+    opacity: 0; visibility: hidden;
+    transition: opacity .22s ease, transform .22s ease, visibility .22s;
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,.5);
+  }
+  .mega-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+  .mega-column h3 {
+    color: var(--nm-gold); font-size: .8rem; text-transform: uppercase; letter-spacing: .05em;
+    margin: 0 0 10px; border-bottom: 1px solid var(--border-gray); padding-bottom: 6px;
+  }
+  .mega-column ul { list-style: none; padding: 0; margin: 0; }
+  .mega-column li { margin-bottom: 8px; }
+  .mega-column a { color: var(--text-muted); text-decoration: none; font-size: .85rem; font-weight: 500; }
+  .mega-column a:hover, .mega-column a:focus { color: var(--text); }
+  .highlight-link { font-weight: 700; color: var(--nm-gold) !important; }
+  @media (min-width: 901px) {
+    /* open on hover AND keyboard focus */
+    .has-mega:hover .mega-dropdown, .has-mega:focus-within .mega-dropdown {
+      opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0);
+    }
+    .has-mega:hover .arrow, .has-mega:focus-within .arrow { transform: rotate(180deg); }
+  }
+
+  /* ---------- hamburger + mobile menu ---------- */
+  .hamburger { display: none; background: none; border: 0; cursor: pointer; padding: 8px; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); margin: 4px 0; }
+  @media (max-width: 900px) {
+    .hamburger { display: block; }
+    nav.main-nav {
+      display: none; position: absolute; top: 100%; left: 0; width: 100%;
+      background: rgba(10,10,10,.97); border-top: 1px solid var(--border-gray);
+      border-bottom: 1px solid var(--border-gray); padding: 20px;
+      max-height: calc(100vh - 70px); overflow-y: auto;
+    }
+    nav.main-nav.is-open { display: block; }
+    .menu-list { flex-direction: column; align-items: flex-start; gap: 14px; width: 100%; }
+    .mega-dropdown {
+      position: static; transform: none; width: 100%; opacity: 1; visibility: visible;
+      display: none; background: transparent; border: 0; box-shadow: none; padding: 10px 0 0 14px;
+    }
+    .mega-dropdown.open-sub { display: block; }
+    .mega-grid { grid-template-columns: 1fr; gap: 14px; }
+    .btn-item { width: 100%; margin-top: 4px; }
+    .btn-item .btn { display: block; text-align: center; }
+  }
+
   .btn {
     display: inline-block; background: var(--nm-gold); color: #0A0A0A;
     font-weight: 800; text-decoration: none; border-radius: 10px;
@@ -73,7 +128,6 @@
     border: 1px solid var(--text-muted);
   }
   .btn-ghost:hover, .btn-ghost:focus { border-color: var(--text); }
-  @media (max-width: 720px) { nav.main-nav .nav-link { display: none; } }
 
   /* ---------- hero ---------- */
   .hero { position: relative; min-height: 78vh; display: flex; align-items: flex-end; overflow: hidden; }
@@ -231,15 +285,48 @@
 <header class="site-header">
   <div class="container">
     <a class="brand" href="#top">SANTA FE <span>HALF MARATHON</span></a>
-    <nav class="main-nav" aria-label="Main">
-      <a class="nav-link" href="#race">Race Info</a>
-      <a class="nav-link" href="#course">Course</a>
-      <a class="nav-link" href="#results">Results</a>
-      <a class="nav-link" href="#photos">Photos</a>
-      <a class="nav-link" href="#stay">Stay</a>
-      <a class="nav-link" href="#vendors">Expo</a>
-      <a class="btn" href="https://runsignup.com/Race/NM/SantaFe/SantaFeInternationalHalfMarathon">Register</a>
+    <nav class="main-nav" id="js-menu" aria-label="Main">
+      <ul class="menu-list">
+        <li class="menu-item has-mega">
+          <a href="#race" class="menu-link toggle-sub" aria-haspopup="true" aria-expanded="false">
+            Race Info <span class="arrow" aria-hidden="true">▼</span>
+          </a>
+          <div class="mega-dropdown">
+            <div class="mega-grid">
+              <div class="mega-column">
+                <h3>Plan your race</h3>
+                <ul>
+                  <li><a href="https://runsignup.com/Race/NM/SantaFe/SantaFeInternationalHalfMarathon">Registration &amp; Fees</a></li>
+                  <li><a href="#race">Packet Pickup &amp; Expo Hours</a></li>
+                  <li><a href="#stay">Where to Stay — 15% off</a></li>
+                  <li><a href="#vendors">Vendor Booths</a></li>
+                </ul>
+              </div>
+              <div class="mega-column">
+                <h3>Race day</h3>
+                <ul>
+                  <li><a href="#race">Start &amp; Finish Lines</a></li>
+                  <li><a href="https://santa-fe-half-marathon.onrender.com/leaderboard" class="highlight-link">⚡ Live Leaderboard</a></li>
+                  <li><a href="https://runsignup.com/Race/Results/83604">Official Results</a></li>
+                  <li><a href="#altitude">Racing at 7,000 Feet</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="menu-item"><a class="menu-link nav-link" href="#course">Course</a></li>
+        <li class="menu-item"><a class="menu-link nav-link" href="#results">Results</a></li>
+        <li class="menu-item"><a class="menu-link nav-link" href="#photos">Photos</a></li>
+        <li class="menu-item"><a class="menu-link nav-link" href="#stay">Stay</a></li>
+        <li class="menu-item"><a class="menu-link nav-link" href="#vendors">Expo</a></li>
+        <li class="menu-item btn-item">
+          <a class="btn" href="https://runsignup.com/Race/NM/SantaFe/SantaFeInternationalHalfMarathon">Register</a>
+        </li>
+      </ul>
     </nav>
+    <button class="hamburger" id="js-hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="js-menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
@@ -540,6 +627,45 @@ if (new Date() > PROMO_END) {
   document.getElementById("stay").style.display = "none";
   document.querySelectorAll('a[href="#stay"]').forEach(a => a.style.display = "none");
 }
+
+/* ---------- header: hamburger + mobile mega accordion ---------- */
+const burger = document.getElementById("js-hamburger");
+const menu = document.getElementById("js-menu");
+const isMobileNav = () => window.matchMedia("(max-width: 900px)").matches;
+
+burger.addEventListener("click", () => {
+  const open = menu.classList.toggle("is-open");
+  burger.setAttribute("aria-expanded", String(open));
+});
+
+// On mobile, the mega parent toggles its accordion instead of navigating.
+document.querySelectorAll(".toggle-sub").forEach(anchor => {
+  anchor.addEventListener("click", e => {
+    if (!isMobileNav()) return;
+    e.preventDefault();
+    const drop = anchor.nextElementSibling;
+    const open = drop.classList.toggle("open-sub");
+    anchor.setAttribute("aria-expanded", String(open));
+    anchor.querySelector(".arrow").style.transform = open ? "rotate(180deg)" : "none";
+  });
+});
+
+// Close the mobile menu after choosing a destination.
+menu.querySelectorAll("a:not(.toggle-sub)").forEach(a =>
+  a.addEventListener("click", () => {
+    if (!isMobileNav()) return;
+    menu.classList.remove("is-open");
+    burger.setAttribute("aria-expanded", "false");
+  })
+);
+
+// Escape closes the mobile menu and any open dropdown.
+document.addEventListener("keydown", e => {
+  if (e.key !== "Escape") return;
+  menu.classList.remove("is-open");
+  burger.setAttribute("aria-expanded", "false");
+  document.activeElement?.blur?.();
+});
 
 /* ---------- countdown to the 7:30 AM MDT gun ---------- */
 const RACE_START = new Date("2026-09-20T07:30:00-06:00");

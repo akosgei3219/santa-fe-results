@@ -17,6 +17,7 @@
 .sfhm .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--text-muted);}
 .sfhm .btn-ghost:hover,.sfhm .btn-ghost:focus{border-color:var(--text);}
 .sfhm :focus-visible{outline:2px solid var(--nm-gold);outline-offset:2px;}
+.sfhm [id]{scroll-margin-top:84px;}
 .sfhm .vendor-card{display:flex;flex-wrap:wrap;align-items:stretch;}
 .sfhm .vendor-fee{flex:1 1 240px;background:linear-gradient(160deg,#171204 0%,#121212 80%);border-right:1px solid var(--border-gray);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px;text-align:center;}
 .sfhm .vendor-fee .amount{font-size:3rem;font-weight:900;color:var(--nm-gold);font-variant-numeric:tabular-nums;line-height:1;}
@@ -26,6 +27,9 @@
 .sfhm .day-chip{background:var(--card-bg);border:1px solid var(--border-gray);border-radius:10px;padding:10px 16px;}
 .sfhm .day-chip b{display:block;color:var(--text);font-size:.95rem;}
 .sfhm .day-chip span{color:var(--text-muted);font-size:.8rem;}
+@media (max-width:720px){
+  .sfhm .vendor-fee{border-right:0;border-bottom:1px solid var(--border-gray);padding:24px;}
+}
 </style>
 <div class="sfhm">
 <section id="vendors" class="section">

@@ -35,12 +35,9 @@
       Top finishers update automatically as runners cross the line at Railyard Park.
       Type your bib number to find your own time the moment it posts.
     </p>
-    <!-- Live tracking link. Currently https://onrender.com per the organizer;
-         swap in the service hostname from the Render dashboard
-         (your-service.onrender.com) so it lands on the leaderboard. -->
     <p style="margin:0 0 24px;">
       <a class="btn" id="live-results-link" target="_blank" rel="noopener"
-         href="https://onrender.com/leaderboard">View Live Leaderboard &rarr;</a>
+         href="https://santa-fe-half-marathon.onrender.com/leaderboard">View Live Leaderboard &rarr;</a>
     </p>
     <div class="results-grid">
       <div class="card" id="leaderboard-slot">
@@ -69,10 +66,9 @@
 </section>
 </div>
 <script>
-// GO-LIVE: set RESULTS_HOST to your deployed results server (no protocol, no
-// trailing slash), e.g. "santa-fe-half-marathon.onrender.com". Leave "" and the
-// official-results links above stay in place.
-var RESULTS_HOST = "";
+// The deployed results server (no protocol, no trailing slash). Set to "" to
+// fall back to the official-results links instead of the live embed.
+var RESULTS_HOST = "santa-fe-half-marathon.onrender.com";
 if (RESULTS_HOST) {
   document.getElementById("leaderboard-slot").innerHTML =
     '<div class="frame-wrap"><iframe src="https://' + RESULTS_HOST + '/leaderboard" ' +

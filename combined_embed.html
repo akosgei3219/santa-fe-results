@@ -3,9 +3,9 @@
      Paste this whole block into index.html (a natural spot is
      right after the Course Profile section).
 
-     ONE EDIT REQUIRED: replace RACE_HOST (2 spots) with your
-     deployed results host, e.g. santa-fe-half-marathon.onrender.com
-     Keep it https://
+     No edits required — both iframes point at the live results
+     server (santa-fe-half-marathon.onrender.com). If the host ever
+     changes, update the src of both iframes. Keep it https://
      ============================================================ -->
 <section id="results" style="padding:64px 0; background:var(--bg, #0A0A0A);">
   <div style="max-width:1100px; margin:0 auto; padding:0 20px;">
@@ -28,7 +28,7 @@
       <div style="background:var(--card-bg, #121212); border:1px solid var(--border-gray, #1E1E1E);
                   border-radius:16px; overflow:hidden;">
         <div style="position:relative; width:100%; padding-top:78%;">
-          <iframe src="https://RACE_HOST/leaderboard"
+          <iframe src="https://santa-fe-half-marathon.onrender.com/leaderboard"
                   title="Live Leaderboard — Santa Fe Half Marathon"
                   loading="lazy"
                   style="position:absolute; inset:0; width:100%; height:100%; border:0;"></iframe>
@@ -39,7 +39,7 @@
       <div style="background:var(--card-bg, #121212); border:1px solid var(--border-gray, #1E1E1E);
                   border-radius:16px; overflow:hidden;">
         <div style="position:relative; width:100%; padding-top:78%;">
-          <iframe src="https://RACE_HOST/course"
+          <iframe src="https://santa-fe-half-marathon.onrender.com/course"
                   title="Course Elevation Profile — Santa Fe Half Marathon"
                   loading="lazy"
                   style="position:absolute; inset:0; width:100%; height:100%; border:0;"></iframe>

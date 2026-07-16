@@ -1,0 +1,78 @@
+<style>
+.sfhm{--bg:#0A0A0A;--card-bg:#121212;--border-gray:#1E1E1E;--text:#ffffff;--text-muted:#A3A3A3;--nm-gold:#FFB800;--nm-crimson:#D6221D;--nm-turquoise:#00A896;
+  background:var(--bg);color:var(--text);line-height:1.55;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
+.sfhm *{box-sizing:border-box;}
+.sfhm img{max-width:100%;display:block;}
+.sfhm a{color:var(--nm-gold);}
+.sfhm .container{max-width:1100px;margin:0 auto;padding:0 20px;}
+.sfhm .eyebrow{color:var(--nm-gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.75rem;margin:0 0 8px;}
+.sfhm h1,.sfhm h2,.sfhm h3{color:var(--text);}
+.sfhm h2{font-size:2rem;font-weight:900;margin:0 0 8px;}
+.sfhm .section{padding:64px 0;}
+.sfhm .section-sub{color:var(--text-muted);max-width:640px;margin:0 0 28px;}
+.sfhm .card{background:var(--card-bg);border:1px solid var(--border-gray);border-radius:16px;overflow:hidden;}
+.sfhm .btn{display:inline-block;background:var(--nm-gold);color:#0A0A0A;font-weight:800;text-decoration:none;border-radius:10px;padding:10px 20px;font-size:.95rem;border:0;cursor:pointer;}
+.sfhm .btn:hover,.sfhm .btn:focus{filter:brightness(1.08);}
+.sfhm .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--text-muted);}
+.sfhm .btn-ghost:hover,.sfhm .btn-ghost:focus{border-color:var(--text);}
+.sfhm :focus-visible{outline:2px solid var(--nm-gold);outline-offset:2px;}
+.sfhm .hero{position:relative;min-height:78vh;display:flex;align-items:flex-end;overflow:hidden;background:linear-gradient(160deg,#171204 0%,#0A0A0A 70%);}
+.sfhm .hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;}
+.sfhm .hero .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.55) 0%,rgba(10,10,10,.35) 40%,rgba(10,10,10,.94) 100%);}
+.sfhm .hero .container{position:relative;padding-bottom:56px;padding-top:120px;}
+.sfhm .hero h1{font-size:clamp(2rem,5.4vw,3.6rem);font-weight:900;line-height:1.08;margin:0 0 12px;max-width:780px;}
+.sfhm .hero .tagline{color:var(--text);font-size:1.1rem;max-width:620px;margin:0 0 24px;}
+.sfhm .hero .cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:34px;}
+.sfhm .countdown{display:flex;gap:12px;flex-wrap:wrap;}
+.sfhm .count-cell{background:rgba(18,18,18,.85);border:1px solid var(--border-gray);border-radius:12px;padding:10px 14px;min-width:84px;text-align:center;}
+.sfhm .count-cell b{display:block;font-size:1.7rem;font-weight:900;color:var(--nm-gold);font-variant-numeric:tabular-nums;}
+.sfhm .count-cell span{font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;}
+</style>
+<div class="sfhm">
+<section class="hero">
+  <!-- Replace IMAGE_URL_FINISH with the Media Library URL of sfi-half-marathon-04.jpg.
+       Until then the img hides itself and the dark gradient shows instead. -->
+  <img class="bg" src="IMAGE_URL_FINISH" onerror="this.style.display='none'"
+       alt="Runners approaching the finish line near the rail crossing at Railyard Park, Santa Fe.">
+  <div class="shade"></div>
+  <div class="container">
+    <p class="eyebrow">Sunday &middot; September 20, 2026 &middot; 7:30 AM</p>
+    <h1>Run 13.1 miles through the historic Santa Fe Trail</h1>
+    <p class="tagline">
+      A point-to-point, net-downhill course dropping from 7,012 ft in Eldorado
+      into the festive heart of the Santa Fe Railyard.
+    </p>
+    <div class="cta-row">
+      <a class="btn" href="https://runsignup.com/Race/NM/SantaFe/SantaFeInternationalHalfMarathon">Register on RunSignup</a>
+      <a class="btn btn-ghost" href="#course">See the course</a>
+    </div>
+    <div class="countdown" id="countdown" role="timer" aria-label="Countdown to race day">
+      <div class="count-cell"><b id="cd-days">&mdash;</b><span>days</span></div>
+      <div class="count-cell"><b id="cd-hours">&mdash;</b><span>hours</span></div>
+      <div class="count-cell"><b id="cd-mins">&mdash;</b><span>minutes</span></div>
+      <div class="count-cell"><b id="cd-secs">&mdash;</b><span>seconds</span></div>
+    </div>
+  </div>
+</section>
+</div>
+<script>
+var RACE_START = new Date("2026-09-20T07:30:00-06:00");
+function sfhmPad(n){ return String(n).padStart(2, "0"); }
+function sfhmTick() {
+  var ms = RACE_START - new Date();
+  if (ms <= 0) {
+    document.getElementById("countdown").innerHTML =
+      '<div class="count-cell" style="min-width:auto;padding:10px 22px;"><b>It&rsquo;s race day &mdash; go get it!</b></div>';
+    clearInterval(sfhmTimer);
+    return;
+  }
+  var s = Math.floor(ms / 1000);
+  document.getElementById("cd-days").textContent  = Math.floor(s / 86400);
+  document.getElementById("cd-hours").textContent = sfhmPad(Math.floor(s / 3600) % 24);
+  document.getElementById("cd-mins").textContent  = sfhmPad(Math.floor(s / 60) % 60);
+  document.getElementById("cd-secs").textContent  = sfhmPad(s % 60);
+}
+var sfhmTimer = setInterval(sfhmTick, 1000);
+sfhmTick();
+</script>

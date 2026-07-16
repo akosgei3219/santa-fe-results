@@ -1,0 +1,48 @@
+<style>
+.sfhm{--bg:#0A0A0A;--card-bg:#121212;--border-gray:#1E1E1E;--text:#ffffff;--text-muted:#A3A3A3;--nm-gold:#FFB800;--nm-crimson:#D6221D;--nm-turquoise:#00A896;
+  background:var(--bg);color:var(--text);line-height:1.55;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
+.sfhm *{box-sizing:border-box;}
+.sfhm img{max-width:100%;display:block;}
+.sfhm a{color:var(--nm-gold);}
+.sfhm .container{max-width:1100px;margin:0 auto;padding:0 20px;}
+.sfhm .eyebrow{color:var(--nm-gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.75rem;margin:0 0 8px;}
+.sfhm h1,.sfhm h2,.sfhm h3{color:var(--text);}
+.sfhm h2{font-size:2rem;font-weight:900;margin:0 0 8px;}
+.sfhm .section{padding:64px 0;}
+.sfhm .section-sub{color:var(--text-muted);max-width:640px;margin:0 0 28px;}
+.sfhm .card{background:var(--card-bg);border:1px solid var(--border-gray);border-radius:16px;overflow:hidden;}
+.sfhm .btn{display:inline-block;background:var(--nm-gold);color:#0A0A0A;font-weight:800;text-decoration:none;border-radius:10px;padding:10px 20px;font-size:.95rem;border:0;cursor:pointer;}
+.sfhm .btn:hover,.sfhm .btn:focus{filter:brightness(1.08);}
+.sfhm .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--text-muted);}
+.sfhm .btn-ghost:hover,.sfhm .btn-ghost:focus{border-color:var(--text);}
+.sfhm :focus-visible{outline:2px solid var(--nm-gold);outline-offset:2px;}
+.sfhm .tip-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;counter-reset:tip;}
+.sfhm .tip{padding:24px;}
+.sfhm .tip::before{counter-increment:tip;content:counter(tip,decimal-leading-zero);display:block;color:var(--nm-gold);font-weight:900;font-size:1.4rem;margin-bottom:6px;font-variant-numeric:tabular-nums;}
+.sfhm .tip h3{margin:0 0 6px;font-size:1.05rem;}
+.sfhm .tip p{color:var(--text-muted);font-size:.92rem;margin:0;}
+</style>
+<div class="sfhm">
+<section id="altitude" class="section">
+  <div class="container">
+    <p class="eyebrow">Racing at 7,000 feet</p>
+    <h2>Respect the Altitude</h2>
+    <p class="section-sub">Santa Fe sits higher than Denver. The thin air is part of the challenge — and the charm. A little planning goes a long way.</p>
+    <div class="tip-list">
+      <div class="card tip">
+        <h3>Arrive early if you can</h3>
+        <p>Coming from low elevation? Two to three days in town before the race helps your body adjust — and Santa Fe is a fine place to spend them.</p>
+      </div>
+      <div class="card tip">
+        <h3>Hydrate all week</h3>
+        <p>The high desert is dry and you lose more fluid than you notice. Keep a water bottle in hand for a few days before the gun.</p>
+      </div>
+      <div class="card tip">
+        <h3>Pace the first four miles</h3>
+        <p>The climb to the 7,330 ft high point comes early. Run it a touch slower than goal pace — the net-downhill back half is where you make it up.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</div>

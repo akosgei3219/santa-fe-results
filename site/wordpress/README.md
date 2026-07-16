@@ -23,6 +23,7 @@ Gutenberg **Custom HTML** block. Use any subset, in any order:
 
 | Block | What it is |
 |---|---|
+| `00-header.html` | Sticky header: mega-menu nav + mobile hamburger (for Canvas pages with no theme header) |
 | `01-promo-bar.html` | Pecos Trail Inn 15% banner (auto-hides after Sept 22) |
 | `02-hero-countdown.html` | Hero + live countdown + register CTAs |
 | `03-stat-strip.html` | 13.109 mi / 7:30 AM / net −36′ / 3:30 facts row |

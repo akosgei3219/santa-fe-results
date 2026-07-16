@@ -55,8 +55,9 @@ there are no per-day tiers). The Friday/Saturday chips are purely
 informational, and the copy tells applicants their day checkboxes don't
 change the price. Two placeholders to wire up on your side:
 
-- `VENDOR_FORM_URL` in `08b-vendor-expo.html` (and the imported template) →
-  link to your WordPress vendor application page/form. In that form, remove
+- The "Apply for a booth" button in `08b-vendor-expo.html` (and the imported
+  template) currently links to https://santafehalfmarathon.com — swap in a
+  dedicated vendor application page URL when one exists. In that form, remove
   any per-day pricing fields and keep the day checkboxes as plain,
   non-pricing inputs.
 - `vendor-confirmation-email.md` → the automated confirmation email copy for

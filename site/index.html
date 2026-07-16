@@ -23,6 +23,8 @@
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
+  /* anchor targets land below the sticky header instead of underneath it */
+  main [id] { scroll-margin-top: 84px; }
   body {
     margin: 0; background: var(--bg); color: var(--text);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -245,6 +247,10 @@
   .day-chip { background: var(--card-bg); border: 1px solid var(--border-gray); border-radius: 10px; padding: 10px 16px; }
   .day-chip b { display: block; color: var(--text); font-size: .95rem; }
   .day-chip span { color: var(--text-muted); font-size: .8rem; }
+  @media (max-width: 720px) {
+    /* when the card stacks, the divider moves from the side to the bottom */
+    .vendor-fee { border-right: 0; border-bottom: 1px solid var(--border-gray); padding: 24px; }
+  }
 
   /* ---------- register band ---------- */
   .register-band { background: linear-gradient(120deg, #171204 0%, #121212 60%); border-top: 1px solid var(--border-gray); border-bottom: 1px solid var(--border-gray); }

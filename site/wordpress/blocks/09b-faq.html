@@ -1,0 +1,101 @@
+<style>
+.sfhm{--bg:#0A0A0A;--card-bg:#121212;--border-gray:#1E1E1E;--text:#ffffff;--text-muted:#A3A3A3;--nm-gold:#FFB800;--nm-crimson:#D6221D;--nm-turquoise:#00A896;
+  background:var(--bg);color:var(--text);line-height:1.55;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
+.sfhm *{box-sizing:border-box;}
+.sfhm img{max-width:100%;display:block;}
+.sfhm a{color:var(--nm-gold);}
+.sfhm .container{max-width:1100px;margin:0 auto;padding:0 20px;}
+.sfhm .eyebrow{color:var(--nm-gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.75rem;margin:0 0 8px;}
+.sfhm h1,.sfhm h2,.sfhm h3{color:var(--text);}
+.sfhm h2{font-size:2rem;font-weight:900;margin:0 0 8px;}
+.sfhm .section{padding:64px 0;}
+.sfhm .section-sub{color:var(--text-muted);max-width:640px;margin:0 0 28px;}
+.sfhm .card{background:var(--card-bg);border:1px solid var(--border-gray);border-radius:16px;overflow:hidden;}
+.sfhm .btn{display:inline-block;background:var(--nm-gold);color:#0A0A0A;font-weight:800;text-decoration:none;border-radius:10px;padding:10px 20px;font-size:.95rem;border:0;cursor:pointer;}
+.sfhm .btn:hover,.sfhm .btn:focus{filter:brightness(1.08);}
+.sfhm .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--text-muted);}
+.sfhm .btn-ghost:hover,.sfhm .btn-ghost:focus{border-color:var(--text);}
+.sfhm :focus-visible{outline:2px solid var(--nm-gold);outline-offset:2px;}
+.sfhm [id]{scroll-margin-top:84px;}
+.sfhm .faq-list{max-width:760px;}
+.sfhm .faq-item{border-bottom:1px solid var(--border-gray);}
+.sfhm .faq-item summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 4px;font-weight:700;font-size:1rem;color:var(--text);}
+.sfhm .faq-item summary::-webkit-details-marker{display:none;}
+.sfhm .faq-item summary::after{content:"+";color:var(--nm-gold);font-size:1.3rem;font-weight:400;flex:0 0 auto;}
+.sfhm .faq-item[open] summary::after{content:"\2013";}
+.sfhm .faq-item p{color:var(--text-muted);font-size:.95rem;margin:0 0 18px;padding:0 4px;}
+.sfhm .faq-item a{font-weight:600;}
+</style>
+<div class="sfhm">
+<section id="faq" class="section">
+  <div class="container">
+    <p class="eyebrow">Good to know</p>
+    <h2>Frequently Asked Questions</h2>
+    <p class="section-sub">The short answers, all in one place. Everything here is covered in more detail up the page.</p>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>When and where does the race start?</summary>
+        <p>Sunday, September 20, 2026, at 7:30 AM Mountain time, from La Tienda Plaza in Eldorado
+           (7 Caliente Rd). It's a point-to-point course via Old Las Vegas Highway, finishing at
+           Railyard Park (740 Cerrillos Rd) in the heart of Santa Fe.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How long is the course, really?</summary>
+        <p>13.109 miles, USATF-certified, and net-downhill: you start at 6,992 ft, top out at
+           7,330 ft near mile 4, and finish at 6,956 ft. See the full <a href="#course">elevation profile</a>.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is there a time limit?</summary>
+        <p>Yes &mdash; 3 hours 30 minutes.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Where do I pick up my packet?</summary>
+        <p>At the expo at Old Warehouse 21, next to Railyard Park: Friday 12&ndash;6 PM and Saturday
+           10 AM&ndash;5 PM. Race-morning pickup runs 5:45&ndash;7:10 AM at the Eldorado start.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How do I register?</summary>
+        <p>On <a href="https://runsignup.com/Race/NM/SantaFe/SantaFeInternationalHalfMarathon">RunSignup</a> &mdash;
+           registration is open now.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How do I find my time after I finish?</summary>
+        <p>Chip times post live as you cross the line. Open the
+           <a href="https://santa-fe-half-marathon.onrender.com/leaderboard">live leaderboard</a>
+           and type your bib number into "Find my time" &mdash; past editions are on
+           <a href="https://runsignup.com/Race/Results/83604">RunSignup results</a>.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Will there be race photos?</summary>
+        <p>Yes, free ones &mdash; from the start line in Eldorado to the Railyard finish. Links to all
+           the galleries are in the <a href="#photos">Photos section</a>.</p>
+      </details>
+      <details class="faq-item">
+        <summary>I live at sea level. How bad is the altitude?</summary>
+        <p>You'll feel it &mdash; Santa Fe sits higher than Denver. Arrive a couple of days early if you
+           can, hydrate all week, and pace the first four miles gently. Full advice in
+           <a href="#altitude">Respect the Altitude</a>.</p>
+      </details>
+      <details class="faq-item" id="faq-lodging">
+        <summary>Is there a deal on lodging?</summary>
+        <p>Yes &mdash; the Pecos Trail Inn gives runners 15% off race-week stays (Wed, Sept 16 through
+           Tue, Sept 22) with code <strong style="color:var(--nm-gold)">RUNSANTAFE26</strong>.
+           Details in <a href="#stay">Where to Stay</a>.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can my business have a booth at the expo?</summary>
+        <p>Yes &mdash; one flat $300 fee covers both expo days at Old Warehouse 21. See
+           <a href="#vendors">Vendor Booths</a>.</p>
+      </details>
+    </div>
+  </div>
+</section>
+</div>
+<script>
+// The lodging FAQ hides with the rest of the promo after Sept 22, 2026 (MT).
+if (new Date() > new Date("2026-09-22T23:59:59-06:00")) {
+  var fl = document.getElementById("faq-lodging");
+  if (fl) fl.style.display = "none";
+}
+</script>

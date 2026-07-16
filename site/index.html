@@ -252,6 +252,27 @@
     .vendor-fee { border-right: 0; border-bottom: 1px solid var(--border-gray); padding: 24px; }
   }
 
+  /* ---------- faq ---------- */
+  .faq-list { max-width: 760px; }
+  .faq-item { border-bottom: 1px solid var(--border-gray); }
+  .faq-item summary {
+    cursor: pointer; list-style: none; display: flex; justify-content: space-between;
+    align-items: center; gap: 16px; padding: 18px 4px; font-weight: 700; font-size: 1rem;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after { content: "+"; color: var(--nm-gold); font-size: 1.3rem; font-weight: 400; flex: 0 0 auto; }
+  .faq-item[open] summary::after { content: "–"; }
+  .faq-item p { color: var(--text-muted); font-size: .95rem; margin: 0 0 18px; padding: 0 4px; }
+  .faq-item a { font-weight: 600; }
+
+  /* ---------- partners ---------- */
+  .partners-strip { border-top: 1px solid var(--border-gray); background: var(--card-bg); }
+  .partners-strip .container { display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap; padding-top: 36px; padding-bottom: 36px; }
+  .partner { display: flex; align-items: center; gap: 14px; }
+  .partner img { max-height: 44px; width: auto; background: #fff; border-radius: 8px; padding: 4px 8px; }
+  .partner .partner-label { color: var(--text-muted); font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; display: block; }
+  .partner .partner-name { color: var(--text); font-weight: 800; font-size: 1.05rem; }
+
   /* ---------- register band ---------- */
   .register-band { background: linear-gradient(120deg, #171204 0%, #121212 60%); border-top: 1px solid var(--border-gray); border-bottom: 1px solid var(--border-gray); }
   .register-band .container { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding-top: 44px; padding-bottom: 44px; }
@@ -306,6 +327,7 @@
                   <li><a href="#race">Packet Pickup &amp; Expo Hours</a></li>
                   <li><a href="#stay">Where to Stay — 15% off</a></li>
                   <li><a href="#vendors">Vendor Booths</a></li>
+                  <li><a href="#faq">FAQs</a></li>
                 </ul>
               </div>
               <div class="mega-column">
@@ -588,6 +610,88 @@
     </div>
   </section>
 
+  <!-- ================= FAQ ================= -->
+  <section id="faq" class="section" style="padding-top:0">
+    <div class="container">
+      <p class="eyebrow">Good to know</p>
+      <h2>Frequently Asked Questions</h2>
+      <p class="section-sub">The short answers, all in one place. Everything here is covered in more detail up the page.</p>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>When and where does the race start?</summary>
+          <p>Sunday, September 20, 2026, at 7:30 AM Mountain time, from La Tienda Plaza in Eldorado
+             (7 Caliente Rd). It's a point-to-point course via Old Las Vegas Highway, finishing at
+             Railyard Park (740 Cerrillos Rd) in the heart of Santa Fe.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How long is the course, really?</summary>
+          <p>13.109 miles, USATF-certified, and net-downhill: you start at 6,992 ft, top out at
+             7,330 ft near mile 4, and finish at 6,956 ft. See the full
+             <a href="#course">elevation profile</a>.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is there a time limit?</summary>
+          <p>Yes — 3 hours 30 minutes.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Where do I pick up my packet?</summary>
+          <p>At the expo at Old Warehouse 21, next to Railyard Park: Friday 12–6 PM and Saturday
+             10 AM–5 PM. Race-morning pickup runs 5:45–7:10 AM at the Eldorado start.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How do I register?</summary>
+          <p>On <a href="https://runsignup.com/Race/NM/SantaFe/SantaFeInternationalHalfMarathon">RunSignup</a> —
+             registration is open now.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How do I find my time after I finish?</summary>
+          <p>Chip times post live as you cross the line. Open the
+             <a href="https://santa-fe-half-marathon.onrender.com/leaderboard">live leaderboard</a>
+             and type your bib number into "Find my time" — past editions are on
+             <a href="https://runsignup.com/Race/Results/83604">RunSignup results</a>.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Will there be race photos?</summary>
+          <p>Yes, free ones — from the start line in Eldorado to the Railyard finish. Links to all
+             the galleries are in the <a href="#photos">Photos section</a>.</p>
+        </details>
+        <details class="faq-item">
+          <summary>I live at sea level. How bad is the altitude?</summary>
+          <p>You'll feel it — Santa Fe sits higher than Denver. Arrive a couple of days early if you
+             can, hydrate all week, and pace the first four miles gently. Full advice in
+             <a href="#altitude">Respect the Altitude</a>.</p>
+        </details>
+        <details class="faq-item" id="faq-lodging">
+          <summary>Is there a deal on lodging?</summary>
+          <p>Yes — the Pecos Trail Inn gives runners 15% off race-week stays (Wed, Sept 16 through
+             Tue, Sept 22) with code <strong style="color:var(--nm-gold)">RUNSANTAFE26</strong>.
+             Details in <a href="#stay">Where to Stay</a>.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can my business have a booth at the expo?</summary>
+          <p>Yes — one flat $300 fee covers both expo days at Old Warehouse 21. See
+             <a href="#vendors">Vendor Booths</a>.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PARTNERS ================= -->
+  <div class="partners-strip" aria-label="Race partners">
+    <div class="container">
+      <div class="partner">
+        <!-- Drop assets/capitol-ford.png next to this file and the logo appears. -->
+        <img src="assets/capitol-ford.png" alt="Capitol Ford" onerror="this.style.display='none'">
+        <span><span class="partner-label">Title sponsor</span><span class="partner-name">Capitol Ford</span></span>
+      </div>
+      <div class="partner">
+        <img src="assets/pecos-trail-inn.png" alt="Pecos Trail Inn" onerror="this.style.display='none'">
+        <span><span class="partner-label">Lodging partner</span><span class="partner-name">Pecos Trail Inn</span></span>
+      </div>
+    </div>
+  </div>
+
   <!-- ================= REGISTER BAND ================= -->
   <section class="register-band">
     <div class="container">
@@ -631,6 +735,7 @@ const PROMO_END = new Date("2026-09-22T23:59:59-06:00");
 if (new Date() > PROMO_END) {
   document.getElementById("promo-bar").style.display = "none";
   document.getElementById("stay").style.display = "none";
+  document.getElementById("faq-lodging").style.display = "none";
   document.querySelectorAll('a[href="#stay"]').forEach(a => a.style.display = "none");
 }
 

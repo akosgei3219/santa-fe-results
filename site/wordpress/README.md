@@ -34,6 +34,8 @@ Gutenberg **Custom HTML** block. Use any subset, in any order:
 | `08-where-to-stay.html` | Pecos Trail Inn offer + code (auto-hides after Sept 22) |
 | `08b-vendor-expo.html` | Vendor booths: flat $300 fee, informational day chips |
 | `09-altitude.html` | Three altitude tips |
+| `09b-faq.html` | Ten-question FAQ accordion (lodging item auto-hides after Sept 22) |
+| `09c-partners.html` | Partners strip: Capitol Ford (title) + Pecos Trail Inn (lodging) |
 | `10-register-band.html` | Bottom register call-to-action |
 
 ## After inserting: replace 3 image URLs
@@ -44,7 +46,8 @@ file's URL from the Media Library, then in the Elementor HTML widgets replace:
 
 - `IMAGE_URL_FINISH` (2 spots: hero block + photos block) → finish-line photo URL
 - `IMAGE_URL_COMMUNITY` (photos block) → community photo URL
-- `LOGO_URL_PECOS` (where-to-stay block) → hotel logo URL
+- `LOGO_URL_PECOS` (where-to-stay + partners blocks) → hotel logo URL
+- `LOGO_URL_FORD` (partners block) → Capitol Ford logo URL (text lockup shows either way)
 
 Until replaced, the page still looks intentional: the hero shows a dark
 gradient, and the photo cards / logo panel hide themselves.

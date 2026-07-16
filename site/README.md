@@ -20,20 +20,14 @@ uploaded anywhere static files are served.
   Google Drive gallery, and the 2025 pro-photo OneDrive album.
 - **Altitude tips**, register band, and footer.
 
-## Go-live: one edit
+## Live results server — wired
 
-When the results server (this repo, `python server.py http`) is deployed —
-e.g. on Render per `../DEPLOY.md` — open `index.html` and set the one config
-line near the top of the `<script>` block:
-
-```js
-const RESULTS_HOST = "santa-fe-half-marathon.onrender.com";
-```
-
-No protocol, no trailing slash. The Results section then swaps its links for
-the auto-refreshing leaderboard iframe (with the "Find my time" bib search).
-Leave it `""` and the section gracefully shows the official RunSignup results
-links instead — the page never looks broken.
+The results server is deployed on Render and the site is wired to it:
+`RESULTS_HOST = "santa-fe-half-marathon.onrender.com"` in `index.html`, so
+the Results section embeds the auto-refreshing leaderboard iframe (with the
+"Find my time" bib search) plus a "View Live Leaderboard" button. Set
+`RESULTS_HOST` to `""` to fall back to official RunSignup results links if
+the server is ever down.
 
 ## Lodging partner logo
 

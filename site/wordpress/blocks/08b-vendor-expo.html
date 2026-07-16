@@ -1,0 +1,58 @@
+<style>
+.sfhm{--bg:#0A0A0A;--card-bg:#121212;--border-gray:#1E1E1E;--text:#ffffff;--text-muted:#A3A3A3;--nm-gold:#FFB800;--nm-crimson:#D6221D;--nm-turquoise:#00A896;
+  background:var(--bg);color:var(--text);line-height:1.55;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
+.sfhm *{box-sizing:border-box;}
+.sfhm img{max-width:100%;display:block;}
+.sfhm a{color:var(--nm-gold);}
+.sfhm .container{max-width:1100px;margin:0 auto;padding:0 20px;}
+.sfhm .eyebrow{color:var(--nm-gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.75rem;margin:0 0 8px;}
+.sfhm h1,.sfhm h2,.sfhm h3{color:var(--text);}
+.sfhm h2{font-size:2rem;font-weight:900;margin:0 0 8px;}
+.sfhm .section{padding:64px 0;}
+.sfhm .section-sub{color:var(--text-muted);max-width:640px;margin:0 0 28px;}
+.sfhm .card{background:var(--card-bg);border:1px solid var(--border-gray);border-radius:16px;overflow:hidden;}
+.sfhm .btn{display:inline-block;background:var(--nm-gold);color:#0A0A0A;font-weight:800;text-decoration:none;border-radius:10px;padding:10px 20px;font-size:.95rem;border:0;cursor:pointer;}
+.sfhm .btn:hover,.sfhm .btn:focus{filter:brightness(1.08);}
+.sfhm .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--text-muted);}
+.sfhm .btn-ghost:hover,.sfhm .btn-ghost:focus{border-color:var(--text);}
+.sfhm :focus-visible{outline:2px solid var(--nm-gold);outline-offset:2px;}
+.sfhm .vendor-card{display:flex;flex-wrap:wrap;align-items:stretch;}
+.sfhm .vendor-fee{flex:1 1 240px;background:linear-gradient(160deg,#171204 0%,#121212 80%);border-right:1px solid var(--border-gray);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px;text-align:center;}
+.sfhm .vendor-fee .amount{font-size:3rem;font-weight:900;color:var(--nm-gold);font-variant-numeric:tabular-nums;line-height:1;}
+.sfhm .vendor-fee .amount-note{color:var(--text-muted);font-size:.85rem;margin-top:10px;max-width:220px;}
+.sfhm .vendor-body{flex:2 1 320px;padding:28px;}
+.sfhm .day-chips{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 18px;}
+.sfhm .day-chip{background:var(--card-bg);border:1px solid var(--border-gray);border-radius:10px;padding:10px 16px;}
+.sfhm .day-chip b{display:block;color:var(--text);font-size:.95rem;}
+.sfhm .day-chip span{color:var(--text-muted);font-size:.8rem;}
+</style>
+<div class="sfhm">
+<section id="vendors" class="section">
+  <div class="container">
+    <p class="eyebrow">The expo</p>
+    <h2>Vendor Booths</h2>
+    <p class="section-sub">Join us at Old Warehouse 21, next to Railyard Park, for race-weekend expo &amp; packet pickup.
+       One flat fee covers your booth for the whole weekend.</p>
+    <div class="card vendor-card">
+      <div class="vendor-fee">
+        <div class="amount">$300</div>
+        <p class="amount-note">Flat vendor fee &mdash; covers both expo days. No per-day tiers.</p>
+      </div>
+      <div class="vendor-body">
+        <h3 style="margin:0 0 6px;font-size:1.2rem;">Expo days &amp; hours</h3>
+        <p style="color:var(--text-muted);font-size:.92rem;margin:0;">
+          Both days are included in your fee. When you apply, the day checkboxes just tell us
+          when you plan to be on the floor &mdash; they don't change your price.
+        </p>
+        <div class="day-chips">
+          <div class="day-chip"><b>Friday, Sept 18</b><span>12&ndash;6 PM</span></div>
+          <div class="day-chip"><b>Saturday, Sept 19</b><span>10 AM&ndash;5 PM</span></div>
+        </div>
+        <!-- Point this at your vendor application page/form. -->
+        <a class="btn" href="VENDOR_FORM_URL">Apply for a booth</a>
+      </div>
+    </div>
+  </div>
+</section>
+</div>

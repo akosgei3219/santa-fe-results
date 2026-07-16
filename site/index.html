@@ -175,6 +175,21 @@
     padding: 10px 18px; background: rgba(255,184,0,.06);
   }
 
+  /* ---------- vendor expo ---------- */
+  .vendor-card { display: flex; flex-wrap: wrap; align-items: stretch; }
+  .vendor-fee {
+    flex: 1 1 240px; background: linear-gradient(160deg, #171204 0%, #121212 80%);
+    border-right: 1px solid var(--border-gray); display: flex; flex-direction: column;
+    align-items: center; justify-content: center; padding: 32px 24px; text-align: center;
+  }
+  .vendor-fee .amount { font-size: 3rem; font-weight: 900; color: var(--nm-gold); font-variant-numeric: tabular-nums; line-height: 1; }
+  .vendor-fee .amount-note { color: var(--text-muted); font-size: .85rem; margin-top: 10px; max-width: 220px; }
+  .vendor-body { flex: 2 1 320px; padding: 28px; }
+  .day-chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0 18px; }
+  .day-chip { background: var(--card-bg); border: 1px solid var(--border-gray); border-radius: 10px; padding: 10px 16px; }
+  .day-chip b { display: block; color: var(--text); font-size: .95rem; }
+  .day-chip span { color: var(--text-muted); font-size: .8rem; }
+
   /* ---------- register band ---------- */
   .register-band { background: linear-gradient(120deg, #171204 0%, #121212 60%); border-top: 1px solid var(--border-gray); border-bottom: 1px solid var(--border-gray); }
   .register-band .container { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding-top: 44px; padding-bottom: 44px; }
@@ -220,6 +235,7 @@
       <a class="nav-link" href="#results">Results</a>
       <a class="nav-link" href="#photos">Photos</a>
       <a class="nav-link" href="#stay">Stay</a>
+      <a class="nav-link" href="#vendors">Expo</a>
       <a class="btn" href="https://runsignup.com/Race/NM/SantaFe/SantaFeInternationalHalfMarathon">Register</a>
     </nav>
   </div>
@@ -283,7 +299,7 @@
         <div class="card info-card">
           <h3><span class="tick gold"></span>Packet Pickup &amp; Expo</h3>
           <p>Expo and packet pickup at <strong>Old Warehouse 21</strong>, next to Railyard Park:<br>
-             <strong>Friday 12–5 PM</strong> and <strong>Saturday 10 AM–5 PM</strong>.</p>
+             <strong>Friday 12–6 PM</strong> and <strong>Saturday 10 AM–5 PM</strong>.</p>
           <p>Race-morning pickup <strong>5:45–7:10 AM</strong> at the Eldorado start.</p>
         </div>
       </div>
@@ -439,6 +455,35 @@
             Tuesday, Sept 22</strong>. Mention the promo code when you book:
           </p>
           <p class="promo-code-box"><code>RUNSANTAFE26</code></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= VENDOR EXPO ================= -->
+  <section id="vendors" class="section" style="padding-top:0">
+    <div class="container">
+      <p class="eyebrow">The expo</p>
+      <h2>Vendor Booths</h2>
+      <p class="section-sub">Join us at Old Warehouse 21, next to Railyard Park, for race-weekend expo &amp; packet pickup.
+         One flat fee covers your booth for the whole weekend.</p>
+      <div class="card vendor-card">
+        <div class="vendor-fee">
+          <div class="amount">$300</div>
+          <p class="amount-note">Flat vendor fee — covers both expo days. No per-day tiers.</p>
+        </div>
+        <div class="vendor-body">
+          <h3 style="margin:0 0 6px; font-size:1.2rem;">Expo days &amp; hours</h3>
+          <p style="color:var(--text-muted); font-size:.92rem; margin:0;">
+            Both days are included in your fee. When you apply, the day checkboxes just tell us
+            when you plan to be on the floor — they don't change your price.
+          </p>
+          <div class="day-chips">
+            <div class="day-chip"><b>Friday, Sept 18</b><span>12–6 PM</span></div>
+            <div class="day-chip"><b>Saturday, Sept 19</b><span>10 AM–5 PM</span></div>
+          </div>
+          <!-- Point this at your vendor application page/form. -->
+          <a class="btn" href="VENDOR_FORM_URL">Apply for a booth</a>
         </div>
       </div>
     </div>

@@ -53,7 +53,7 @@ RACE = {
     "start_time": "07:30 MDT",
     "packet_pickup": (
         "Expo & packet pickup at Old Warehouse 21 (next to Railyard Park): "
-        "Fri 12-5pm and Sat 10am-5pm. Race-morning pickup 5:45-7:10am at the "
+        "Fri 12-6pm and Sat 10am-5pm. Race-morning pickup 5:45-7:10am at the "
         "Eldorado start."
     ),
     # Eldorado / La Tienda Plaza start coordinates (for the weather forecast).

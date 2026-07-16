@@ -31,6 +31,7 @@ Gutenberg **Custom HTML** block. Use any subset, in any order:
 | `06-live-results.html` | Results section (leaderboard-ready) |
 | `07-photos.html` | Photo cards + album links |
 | `08-where-to-stay.html` | Pecos Trail Inn offer + code (auto-hides after Sept 22) |
+| `08b-vendor-expo.html` | Vendor booths: flat $300 fee, informational day chips |
 | `09-altitude.html` | Three altitude tips |
 | `10-register-band.html` | Bottom register call-to-action |
 
@@ -47,10 +48,24 @@ file's URL from the Media Library, then in the Elementor HTML widgets replace:
 Until replaced, the page still looks intentional: the hero shows a dark
 gradient, and the photo cards / logo panel hide themselves.
 
+## Vendor form + confirmation email
+
+The vendor section shows the **flat $300 fee** (one price, both expo days —
+there are no per-day tiers). The Friday/Saturday chips are purely
+informational, and the copy tells applicants their day checkboxes don't
+change the price. Two placeholders to wire up on your side:
+
+- `VENDOR_FORM_URL` in `08b-vendor-expo.html` (and the imported template) →
+  link to your WordPress vendor application page/form. In that form, remove
+  any per-day pricing fields and keep the day checkboxes as plain,
+  non-pricing inputs.
+- `vendor-confirmation-email.md` → the automated confirmation email copy for
+  your form plugin's notification settings, rewritten for the flat $300 setup.
+
 ## Menu anchors
 
 Sections keep their ids, so WordPress menu items can use custom links:
-`/#race`, `/#course`, `/#results`, `/#photos`, `/#stay`.
+`/#race`, `/#course`, `/#results`, `/#photos`, `/#stay`, `/#vendors`.
 (Remove the Stay menu item after Sept 22 — the section hides itself then.)
 
 ## Race-day leaderboard

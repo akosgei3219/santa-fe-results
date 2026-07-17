@@ -1,0 +1,60 @@
+<style>
+.sfhm{--bg:#0A0A0A;--card-bg:#121212;--border-gray:#1E1E1E;--text:#ffffff;--text-muted:#A3A3A3;--nm-gold:#FFB800;--nm-crimson:#D6221D;--nm-turquoise:#00A896;
+  background:var(--bg);color:var(--text);line-height:1.55;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
+.sfhm *{box-sizing:border-box;}
+.sfhm img{max-width:100%;display:block;}
+.sfhm a{color:var(--nm-gold);}
+.sfhm .container{max-width:1100px;margin:0 auto;padding:0 20px;}
+.sfhm .eyebrow{color:var(--nm-gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.75rem;margin:0 0 8px;}
+.sfhm h1,.sfhm h2,.sfhm h3{color:var(--text);}
+.sfhm h2{font-size:2rem;font-weight:900;margin:0 0 8px;}
+.sfhm .section{padding:64px 0;}
+.sfhm .section-sub{color:var(--text-muted);max-width:640px;margin:0 0 28px;}
+.sfhm .card{background:var(--card-bg);border:1px solid var(--border-gray);border-radius:16px;overflow:hidden;}
+.sfhm .btn{display:inline-block;background:var(--nm-gold);color:#0A0A0A;font-weight:800;text-decoration:none;border-radius:10px;padding:10px 20px;font-size:.95rem;border:0;cursor:pointer;}
+.sfhm .btn:hover,.sfhm .btn:focus{filter:brightness(1.08);}
+.sfhm .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--text-muted);}
+.sfhm .btn-ghost:hover,.sfhm .btn-ghost:focus{border-color:var(--text);}
+.sfhm :focus-visible{outline:2px solid var(--nm-gold);outline-offset:2px;}
+.sfhm [id]{scroll-margin-top:84px;}
+.sfhm .sched-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;}
+.sfhm .sched-day{padding:24px;}
+.sfhm .sched-day h3{margin:0 0 4px;font-size:1.05rem;color:var(--nm-gold);}
+.sfhm .sched-day .sched-sub{color:var(--text-muted);font-size:.8rem;margin:0 0 16px;}
+.sfhm .sched-row{display:grid;grid-template-columns:110px 1fr;gap:12px;padding:10px 0;border-top:1px solid var(--border-gray);font-size:.92rem;}
+.sfhm .sched-row:first-of-type{border-top:0;}
+.sfhm .sched-row b{color:var(--text);font-variant-numeric:tabular-nums;font-weight:700;}
+.sfhm .sched-row span{color:var(--text-muted);}
+</style>
+<div class="sfhm">
+<section id="race-schedule" class="section">
+  <div class="container">
+    <p class="eyebrow">Race weekend</p>
+    <h2>Schedule of Events</h2>
+    <p class="section-sub">Three days at a glance &mdash; expo Friday and Saturday at Old Warehouse 21, racing Sunday morning.</p>
+    <div class="sched-grid">
+      <div class="card sched-day">
+        <h3>Friday, Sept 18</h3>
+        <p class="sched-sub">Old Warehouse 21, next to Railyard Park</p>
+        <div class="sched-row"><b>12:00 PM</b><span>Expo &amp; packet pickup opens</span></div>
+        <div class="sched-row"><b>6:00 PM</b><span>Expo closes</span></div>
+      </div>
+      <div class="card sched-day">
+        <h3>Saturday, Sept 19</h3>
+        <p class="sched-sub">Old Warehouse 21, next to Railyard Park</p>
+        <div class="sched-row"><b>10:00 AM</b><span>Expo &amp; packet pickup opens</span></div>
+        <div class="sched-row"><b>5:00 PM</b><span>Expo closes &mdash; last chance before race morning</span></div>
+      </div>
+      <div class="card sched-day">
+        <h3>Sunday, Sept 20 &mdash; Race Day</h3>
+        <p class="sched-sub">La Tienda Plaza, Eldorado &rarr; Railyard Park</p>
+        <div class="sched-row"><b>5:45 AM</b><span>Race-morning packet pickup opens at the Eldorado start</span></div>
+        <div class="sched-row"><b>7:10 AM</b><span>Race-morning pickup closes</span></div>
+        <div class="sched-row"><b>7:30 AM</b><span>Half marathon start &mdash; gun time</span></div>
+        <div class="sched-row"><b>11:00 AM</b><span>Course closes (3:30 time limit); results posting live all morning</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>

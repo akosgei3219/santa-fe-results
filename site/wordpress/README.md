@@ -30,6 +30,7 @@ Gutenberg **Custom HTML** block. Use any subset, in any order:
 | `04-race-info.html` | Start, finish, packet-pickup cards |
 | `05-course-chart.html` | Elevation profile with hover + data table |
 | `06-live-results.html` | Results section (leaderboard-ready) |
+| `06b-champions.html` | Past Champions cards — derived live from RunSignup results (top man + woman per year), hidden until results load |
 | `07-photos.html` | Photo cards + album links |
 | `08-where-to-stay.html` | Pecos Trail Inn offer + code (auto-hides after Sept 22) |
 | `08b-vendor-expo.html` | Vendor booths: flat $300 fee, informational day chips |

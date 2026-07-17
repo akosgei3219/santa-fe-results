@@ -607,6 +607,77 @@
     </div>
   </section>
 
+  <!-- ================= PAST CHAMPIONS ================= -->
+  <!-- Champions are DERIVED LIVE from the RunSignup results feed (via the
+       results server): first male and first female finisher by place for each
+       edition. Nothing is hardcoded, so this section always matches the
+       official results — and stays hidden until results load. -->
+  <section id="champions" class="section" style="padding-top:0; display:none;">
+    <div class="container">
+      <p class="eyebrow">The podium</p>
+      <h2>Past Champions</h2>
+      <p class="section-sub">
+        Fastest man and woman across the line at Railyard Park, straight from the
+        official RunSignup results.
+      </p>
+      <div class="champ-grid" id="champ-grid"
+           style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;"></div>
+      <p class="footnote">
+        Pulled live from the official results —
+        <a href="https://runsignup.com/Race/Results/83604">full results on RunSignup</a>.
+      </p>
+    </div>
+  </section>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (typeof RESULTS_HOST === "undefined" || !RESULTS_HOST) return;
+    var YEARS = [2026, 2025, 2023];  // 2026 appears automatically once results post
+    function esc(s) {
+      return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
+        return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+      });
+    }
+    function firstByGender(rows, g) {
+      for (var i = 0; i < rows.length; i++) {
+        if (String(rows[i].gender || "").toUpperCase().charAt(0) === g) return rows[i];
+      }
+      return null;
+    }
+    function champRow(label, r) {
+      if (!r) return "";
+      return '<div style="display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-top:1px solid var(--border-gray);">' +
+        '<div><b style="display:block;color:var(--text);font-size:1.02rem;">' + esc(r.name) + '</b>' +
+        '<span style="color:var(--text-muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;">' + label + '</span></div>' +
+        '<div style="text-align:right;font-variant-numeric:tabular-nums;"><b style="display:block;color:var(--text);">' + esc(r.finish_time || "—") + '</b>' +
+        (r.pace_per_mile ? '<span style="color:var(--text-muted);font-size:.8rem;">' + esc(r.pace_per_mile) + '/mi</span>' : '') +
+        '</div></div>';
+    }
+    YEARS.forEach(function (year) {
+      fetch("https://" + RESULTS_HOST + "/leaderboard.json?year=" + year + "&top_n=50", { cache: "no-store" })
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          if (d.status !== "ok" || !d.leaderboard || !d.leaderboard.length) return;
+          var m = firstByGender(d.leaderboard, "M"), f = firstByGender(d.leaderboard, "F");
+          if (!m && !f) return;
+          var card = document.createElement("div");
+          card.className = "card";
+          card.style.padding = "20px 22px";
+          card.dataset.year = year;
+          card.innerHTML = '<p style="color:var(--nm-gold);font-weight:900;font-size:1.5rem;margin:0 0 12px;font-variant-numeric:tabular-nums;">' + year + '</p>' +
+            champRow("Female champion", f) + champRow("Male champion", m);
+          // keep newest year first no matter which fetch resolves first
+          var grid = document.getElementById("champ-grid"), ref = null;
+          for (var i = 0; i < grid.children.length; i++) {
+            if (Number(grid.children[i].dataset.year) < year) { ref = grid.children[i]; break; }
+          }
+          grid.insertBefore(card, ref);
+          document.getElementById("champions").style.display = "";
+        })
+        .catch(function () { /* year unavailable - skip its card */ });
+    });
+  });
+  </script>
+
   <!-- ================= PHOTOS ================= -->
   <section id="photos" class="section" style="padding-top:0">
     <div class="container">

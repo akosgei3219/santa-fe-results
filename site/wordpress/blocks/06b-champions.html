@@ -1,0 +1,95 @@
+<style>
+.sfhm{--bg:#0A0A0A;--card-bg:#121212;--border-gray:#1E1E1E;--text:#ffffff;--text-muted:#A3A3A3;--nm-gold:#FFB800;--nm-crimson:#D6221D;--nm-turquoise:#00A896;
+  background:var(--bg);color:var(--text);line-height:1.55;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
+.sfhm *{box-sizing:border-box;}
+.sfhm a{color:var(--nm-gold);}
+.sfhm .container{max-width:1100px;margin:0 auto;padding:0 20px;}
+.sfhm .eyebrow{color:var(--nm-gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.75rem;margin:0 0 8px;}
+.sfhm h2{color:var(--text);font-size:2rem;font-weight:900;margin:0 0 8px;}
+.sfhm .section{padding:64px 0;}
+.sfhm .section-sub{color:var(--text-muted);max-width:640px;margin:0 0 28px;}
+.sfhm .champ-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;}
+.sfhm .champ-card{background:var(--card-bg);border:1px solid var(--border-gray);border-radius:16px;padding:20px 22px;}
+.sfhm .champ-year{color:var(--nm-gold);font-weight:900;font-size:1.5rem;margin:0 0 12px;font-variant-numeric:tabular-nums;}
+.sfhm .champ-row{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-top:1px solid var(--border-gray);}
+.sfhm .champ-row .who b{display:block;color:var(--text);font-size:1.02rem;}
+.sfhm .champ-row .who span{color:var(--text-muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;}
+.sfhm .champ-row .mark{text-align:right;font-variant-numeric:tabular-nums;}
+.sfhm .champ-row .mark b{display:block;color:var(--text);}
+.sfhm .champ-row .mark span{color:var(--text-muted);font-size:.8rem;}
+.sfhm .champ-note{color:var(--text-muted);font-size:.8rem;margin:16px 0 0;}
+</style>
+<div class="sfhm">
+<!-- Champions are DERIVED LIVE from the RunSignup results feed (via the
+     results server): first male and first female finisher by place for each
+     edition. Nothing is hardcoded, so this section always matches the
+     official results — and hides itself entirely until results load. -->
+<section id="champions" class="section" style="display:none;">
+  <div class="container">
+    <p class="eyebrow">The podium</p>
+    <h2>Past Champions</h2>
+    <p class="section-sub">
+      Fastest man and woman across the line at Railyard Park, straight from the
+      official RunSignup results.
+    </p>
+    <div class="champ-grid" id="sfhm-champ-grid"></div>
+    <p class="champ-note">
+      Pulled live from the official results —
+      <a href="https://runsignup.com/Race/Results/83604">full results on RunSignup</a>.
+    </p>
+  </div>
+</section>
+</div>
+<script>
+(function () {
+  // Override for testing / future host moves: set window.SFHM_RESULTS_BASE.
+  var BASE = window.SFHM_RESULTS_BASE || "https://santa-fe-half-marathon.onrender.com";
+  // 2026 is listed so champions appear automatically once results post.
+  var YEARS = [2026, 2025, 2023];
+
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+    });
+  }
+  function firstByGender(rows, g) {
+    for (var i = 0; i < rows.length; i++) {
+      if (String(rows[i].gender || "").toUpperCase().charAt(0) === g) return rows[i];
+    }
+    return null;
+  }
+  function champRow(label, r) {
+    if (!r) return "";
+    return '<div class="champ-row">' +
+      '<div class="who"><b>' + esc(r.name) + '</b><span>' + label + '</span></div>' +
+      '<div class="mark"><b>' + esc(r.finish_time || "—") + '</b>' +
+      (r.pace_per_mile ? '<span>' + esc(r.pace_per_mile) + '/mi</span>' : '') +
+      '</div></div>';
+  }
+  function addCard(year, rows) {
+    var m = firstByGender(rows, "M"), f = firstByGender(rows, "F");
+    if (!m && !f) return;
+    var card = document.createElement("div");
+    card.className = "champ-card";
+    card.dataset.year = year;
+    card.innerHTML = '<p class="champ-year">' + year + '</p>' +
+      champRow("Female champion", f) + champRow("Male champion", m);
+    // keep newest year first no matter which fetch resolves first
+    var grid = document.getElementById("sfhm-champ-grid"), ref = null;
+    for (var i = 0; i < grid.children.length; i++) {
+      if (Number(grid.children[i].dataset.year) < year) { ref = grid.children[i]; break; }
+    }
+    grid.insertBefore(card, ref);
+    document.getElementById("champions").style.display = "";
+  }
+  YEARS.forEach(function (year) {
+    fetch(BASE + "/leaderboard.json?year=" + year + "&top_n=50", { cache: "no-store" })
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (d.status === "ok" && d.leaderboard && d.leaderboard.length) addCard(year, d.leaderboard);
+      })
+      .catch(function () { /* year unavailable - skip its card */ });
+  });
+})();
+</script>

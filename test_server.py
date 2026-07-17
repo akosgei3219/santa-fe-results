@@ -382,6 +382,24 @@ def client():
     return TestClient(server.mcp.streamable_http_app())
 
 
+def test_site_asset_serves_photo(client):
+    resp = client.get("/assets/sfi-half-marathon-04.jpg")
+    assert resp.status_code == 200
+    assert resp.headers["content-type"] == "image/jpeg"
+    assert resp.headers["access-control-allow-origin"] == "*"
+    assert "max-age" in resp.headers["cache-control"]
+    assert len(resp.content) > 1000
+
+
+def test_site_asset_unknown_name_404(client):
+    assert client.get("/assets/nope.jpg").status_code == 404
+
+
+def test_site_asset_traversal_and_bad_type_404(client):
+    assert client.get("/assets/..%2Fserver.py").status_code == 404
+    assert client.get("/assets/registrations.json").status_code == 404
+
+
 def test_leaderboard_json_ok(monkeypatch, client):
     monkeypatch.setattr(results, "top_results", lambda event_id, n: [dict(FINISH)] * n)
     resp = client.get("/leaderboard.json?year=2025&top_n=2")

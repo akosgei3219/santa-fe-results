@@ -32,9 +32,10 @@
 </style>
 <div class="sfhm">
 <section class="hero">
-  <!-- Replace IMAGE_URL_FINISH with the Media Library URL of sfi-half-marathon-04.jpg.
-       Until then the img hides itself and the dark gradient shows instead. -->
-  <img class="bg" src="IMAGE_URL_FINISH" onerror="this.style.display='none'"
+  <!-- Served by the results server; swap for a Media Library URL any time.
+       On failure it retries once (Render cold start), then hides. -->
+  <img class="bg" src="https://santa-fe-half-marathon.onrender.com/assets/sfi-half-marathon-04.jpg"
+       onerror="if(!this.dataset.r){this.dataset.r='1';var i=this;setTimeout(function(){i.src=i.src.split('?')[0]+'?r='+Date.now()},12000)}else{this.style.display='none'}"
        alt="Runners approaching the finish line near the rail crossing at Railyard Park, Santa Fe.">
   <div class="shade"></div>
   <div class="container">

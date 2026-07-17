@@ -219,6 +219,16 @@
   .info-card p + p { margin-top: 10px; }
   .info-card strong { color: var(--text); }
 
+  /* ---------- schedule ---------- */
+  .sched-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+  .sched-day { padding: 24px; }
+  .sched-day h3 { margin: 0 0 4px; font-size: 1.05rem; color: var(--nm-gold); }
+  .sched-day .sched-sub { color: var(--text-muted); font-size: .8rem; margin: 0 0 16px; }
+  .sched-row { display: grid; grid-template-columns: 110px 1fr; gap: 12px; padding: 10px 0; border-top: 1px solid var(--border-gray); font-size: .92rem; }
+  .sched-row:first-of-type { border-top: 0; }
+  .sched-row b { color: var(--text); font-variant-numeric: tabular-nums; font-weight: 700; }
+  .sched-row span { color: var(--text-muted); }
+
   /* ---------- course chart ---------- */
   .chart-card { padding: 20px 16px 10px; position: relative; }
   .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
@@ -382,6 +392,7 @@
                 <h3>Plan your race</h3>
                 <ul>
                   <li><a href="https://runsignup.com/Race/NM/SantaFe/SantaFeInternationalHalfMarathon">Registration &amp; Fees</a></li>
+                  <li><a href="#race-schedule">Schedule of Events</a></li>
                   <li><a href="#race">Packet Pickup &amp; Expo Hours</a></li>
                   <li><a href="#stay">Where to Stay — 15% off</a></li>
                   <li><a href="#vendors">Vendor Booths</a></li>
@@ -476,6 +487,38 @@
           <p>Expo and packet pickup at <strong>Old Warehouse 21</strong>, next to Railyard Park:<br>
              <strong>Friday 12–6 PM</strong> and <strong>Saturday 10 AM–5 PM</strong>.</p>
           <p>Race-morning pickup <strong>5:45–7:10 AM</strong> at the Eldorado start.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SCHEDULE ================= -->
+  <section id="race-schedule" class="section" style="padding-top:0">
+    <div class="container">
+      <p class="eyebrow">Race weekend</p>
+      <h2>Schedule of Events</h2>
+      <p class="section-sub">Three days at a glance — expo Friday and Saturday at Old Warehouse 21, racing Sunday morning.</p>
+
+      <div class="sched-grid">
+        <div class="card sched-day">
+          <h3>Friday, Sept 18</h3>
+          <p class="sched-sub">Old Warehouse 21, next to Railyard Park</p>
+          <div class="sched-row"><b>12:00 PM</b><span>Expo &amp; packet pickup opens</span></div>
+          <div class="sched-row"><b>6:00 PM</b><span>Expo closes</span></div>
+        </div>
+        <div class="card sched-day">
+          <h3>Saturday, Sept 19</h3>
+          <p class="sched-sub">Old Warehouse 21, next to Railyard Park</p>
+          <div class="sched-row"><b>10:00 AM</b><span>Expo &amp; packet pickup opens</span></div>
+          <div class="sched-row"><b>5:00 PM</b><span>Expo closes — last chance before race morning</span></div>
+        </div>
+        <div class="card sched-day">
+          <h3>Sunday, Sept 20 — Race Day</h3>
+          <p class="sched-sub">La Tienda Plaza, Eldorado → Railyard Park</p>
+          <div class="sched-row"><b>5:45 AM</b><span>Race-morning packet pickup opens at the Eldorado start</span></div>
+          <div class="sched-row"><b>7:10 AM</b><span>Race-morning pickup closes</span></div>
+          <div class="sched-row"><b>7:30 AM</b><span>Half marathon start — gun time</span></div>
+          <div class="sched-row"><b>11:00 AM</b><span>Course closes (3:30 time limit); results posting live all morning</span></div>
         </div>
       </div>
     </div>
@@ -776,6 +819,7 @@
       <h4>Explore</h4>
       <ul>
         <li><a href="#race">Race Info</a></li>
+        <li><a href="#race-schedule">Schedule of Events</a></li>
         <li><a href="#course">Course</a></li>
         <li><a href="#results">Live Results</a></li>
         <li><a href="#photos">Photos</a></li>

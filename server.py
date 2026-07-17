@@ -422,9 +422,26 @@ def race_day_pep_talk(runner_name: str = "runner") -> str:
 # These ride on the same Streamable HTTP app, so `python server.py http` serves
 # both the MCP endpoint (/mcp) and the widget (/leaderboard, /leaderboard.json).
 from starlette.requests import Request
-from starlette.responses import JSONResponse, HTMLResponse
+from starlette.responses import JSONResponse, HTMLResponse, Response
 
 _CORS = {"Access-Control-Allow-Origin": "*"}
+
+# Race photos served for the website (the WP template hotlinks these, so the
+# page works on import with no manual Media Library steps).
+_ASSETS_DIR = (pathlib.Path(__file__).with_name("site") / "assets").resolve()
+_ASSET_TYPES = {".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".png": "image/png",
+                ".svg": "image/svg+xml", ".webp": "image/webp"}
+
+
+@mcp.custom_route("/assets/{filename}", methods=["GET"])
+async def site_asset(request: Request):
+    """Serve a file from site/assets. Unknown names and traversal -> 404."""
+    path = (_ASSETS_DIR / request.path_params["filename"]).resolve()
+    media = _ASSET_TYPES.get(path.suffix.lower())
+    if path.parent != _ASSETS_DIR or media is None or not path.is_file():
+        return JSONResponse({"status": "not_found"}, status_code=404, headers=_CORS)
+    return Response(path.read_bytes(), media_type=media,
+                    headers={**_CORS, "Cache-Control": "public, max-age=86400"})
 
 
 @mcp.custom_route("/leaderboard.json", methods=["GET"])

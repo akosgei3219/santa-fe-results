@@ -38,19 +38,21 @@ Gutenberg **Custom HTML** block. Use any subset, in any order:
 | `09c-partners.html` | Partners strip: Capitol Ford (title) + Pecos Trail Inn (lodging) |
 | `10-register-band.html` | Bottom register call-to-action |
 
-## After inserting: replace 3 image URLs
+## After inserting: images
 
-Upload to **Media → Add New**: `../assets/sfi-half-marathon-04.jpg`,
-`../assets/sfi-half-marathon-06.jpg`, and the Pecos Trail Inn logo. Copy each
-file's URL from the Media Library, then in the Elementor HTML widgets replace:
+The two race photos need **no setup** — the hero and Photos blocks hotlink
+them from the results server (`…onrender.com/assets/…`), which serves them
+with day-long caching. They work the moment the template is imported. To
+serve them from your own WordPress instead (recommended eventually: your
+hosting, your CDN), upload the files from `../assets/` to the Media Library
+and swap the two `onrender.com/assets` URLs in the hero and photos blocks.
 
-- `IMAGE_URL_FINISH` (2 spots: hero block + photos block) → finish-line photo URL
-- `IMAGE_URL_COMMUNITY` (photos block) → community photo URL
+Two logo placeholders remain (no image files exist for them yet):
+
 - `LOGO_URL_PECOS` (where-to-stay + partners blocks) → hotel logo URL
 - `LOGO_URL_FORD` (partners block) → Capitol Ford logo URL (text lockup shows either way)
 
-Until replaced, the page still looks intentional: the hero shows a dark
-gradient, and the photo cards / logo panel hide themselves.
+Until replaced, the logo panels hide themselves — nothing looks broken.
 
 ## Vendor form + confirmation email
 

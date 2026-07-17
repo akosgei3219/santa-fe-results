@@ -55,3 +55,12 @@ All content is plain HTML in `index.html`; brand colors are CSS variables at
 the top (`--nm-gold`, `--nm-turquoise`, `--nm-crimson`, obsidian backgrounds).
 Race facts match `../server.py` (`RACE` dict) — if the date, start, or course
 changes, update both places.
+
+**Changing the race date** touches four spots: the hero eyebrow text, the
+JSON-LD `startDate`, and the `RACE_START` JS variable (all three in
+`wordpress/blocks/02-hero-countdown.html` and mirrored in `index.html`),
+plus the `RACE` dict in `../server.py`.
+
+Photos ship as WebP with a JPEG fallback (`assets/*.webp` + `assets/*.jpg`,
+generated from the JPEG at quality 70). If you swap in a new photo, keep both
+formats and the same basename so the `onerror` fallback chain keeps working.

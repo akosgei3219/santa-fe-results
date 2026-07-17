@@ -58,6 +58,10 @@ config, replacing the path with the absolute path to `server.py`. In Claude
 Desktop that file is `claude_desktop_config.json`; restart the app and the
 server's tools appear.
 
+Want GitHub's hosted MCP server registered with the `claude` CLI too (issues,
+PRs, code search)? See `GITHUB_MCP_SETUP.md` — it reads a `GITHUB_PAT` from
+`.env` so the token stays out of committed files.
+
 ## The two "real" tools
 
 - **`race_day_weather`** makes an actual HTTPS call to Open-Meteo at invocation

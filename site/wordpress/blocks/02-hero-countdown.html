@@ -58,6 +58,34 @@
 </section>
 </div>
 <script>
+// Event rich-result markup (valid in body). Google reads this for the
+// race's date, locations, sponsor, and registration link.
+(function () {
+  var ld = document.createElement("script");
+  ld.type = "application/ld+json";
+  ld.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "SportsEvent",
+    "name": "Capitol Ford Santa Fe International Half Marathon",
+    "sport": "Running",
+    "startDate": "2026-09-20T07:30:00-06:00",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "description": "13.109 USATF-certified miles, point-to-point and net-downhill from Eldorado (6,992 ft) into Railyard Park in the heart of Santa Fe, New Mexico.",
+    "url": "https://santafehalfmarathon.com/",
+    "location": [
+      { "@type": "Place", "name": "Start: La Tienda Plaza, Eldorado",
+        "address": { "@type": "PostalAddress", "streetAddress": "7 Caliente Rd", "addressLocality": "Santa Fe", "addressRegion": "NM", "addressCountry": "US" } },
+      { "@type": "Place", "name": "Finish: Railyard Park",
+        "address": { "@type": "PostalAddress", "streetAddress": "740 Cerrillos Rd", "addressLocality": "Santa Fe", "addressRegion": "NM", "addressCountry": "US" } }
+    ],
+    "organizer": { "@type": "Organization", "name": "Santa Fe International Half Marathon" },
+    "sponsor": { "@type": "Organization", "name": "Capitol Ford" },
+    "offers": { "@type": "Offer", "url": "https://runsignup.com/Race/NM/SantaFe/SantaFeInternationalHalfMarathon", "availability": "https://schema.org/InStock" }
+  });
+  document.head.appendChild(ld);
+})();
+
 var RACE_START = new Date("2026-09-20T07:30:00-06:00");
 function sfhmPad(n){ return String(n).padStart(2, "0"); }
 function sfhmTick() {

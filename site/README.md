@@ -55,3 +55,18 @@ All content is plain HTML in `index.html`; brand colors are CSS variables at
 the top (`--nm-gold`, `--nm-turquoise`, `--nm-crimson`, obsidian backgrounds).
 Race facts match `../server.py` (`RACE` dict) — if the date, start, or course
 changes, update both places.
+
+**Changing the race date** touches four spots: the hero eyebrow text, the
+JSON-LD `startDate`, and the `RACE_START` JS variable (all three in
+`wordpress/blocks/02-hero-countdown.html` and mirrored in `index.html`),
+plus the `RACE` dict in `../server.py`.
+
+Photos ship as WebP with a JPEG fallback (`assets/*.webp` + `assets/*.jpg`,
+generated from the JPEG at quality 70). If you swap in a new photo, keep both
+formats and the same basename so the `onerror` fallback chain keeps working.
+
+**Ambassador photo (action needed):** the Tricia Downing section currently
+falls back to the Google Drive original (`DSC_5319.JPG`). To serve it from the
+site instead, download that photo from Drive, resize to ~1600px wide, export
+as `tricia-downing.webp` (quality 70) plus `tricia-downing.jpg`, and drop both
+into `assets/` — the section picks them up automatically, no HTML edits.

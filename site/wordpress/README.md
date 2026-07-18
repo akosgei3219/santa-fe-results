@@ -27,9 +27,12 @@ Gutenberg **Custom HTML** block. Use any subset, in any order:
 | `01-promo-bar.html` | Pecos Trail Inn 15% banner (auto-hides after Sept 22) |
 | `02-hero-countdown.html` | Hero + live countdown + register CTAs |
 | `03-stat-strip.html` | 13.109 mi / 7:30 AM / net −36′ / 3:30 facts row |
+| `03b-whats-new.html` | What's New This Year (2026): YouthWorks finish-line food, Tricia Downing returns, live results, champions wall, Nuckolls Brewing post-race celebrations |
 | `04-race-info.html` | Start, finish, packet-pickup cards |
 | `05-course-chart.html` | Elevation profile with hover + data table |
 | `06-live-results.html` | Results section (leaderboard-ready) |
+| `06b-champions.html` | Past Champions cards — derived live from RunSignup results (top man + woman per year), hidden until results load |
+| `06c-ambassador.html` | Meet Tricia Downing — Wheelchair Division Athlete Ambassador feature (photo + bio + Expo speaker note) |
 | `07-photos.html` | Photo cards + album links |
 | `08-where-to-stay.html` | Pecos Trail Inn offer + code (auto-hides after Sept 22) |
 | `08b-vendor-expo.html` | Vendor booths: flat $300 fee, informational day chips |

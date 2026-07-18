@@ -15,3 +15,14 @@ services:
         value: "8000"
       - key: REGISTRATION_BACKEND
         value: json
+
+  # Standalone homepage (site/index.html) as a static site. Plain HTML -
+  # nothing to build; publish the folder as-is. If you created this service
+  # by hand, make sure its Build Command is EMPTY (a leftover `npm run
+  # build` fails with status 254 because this repo has no package.json).
+  - type: web
+    name: santa-fe-results-board
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: ./site
+    autoDeploy: true

@@ -1,0 +1,77 @@
+<style>
+.sfhm{--bg:#0A0A0A;--card-bg:#121212;--border-gray:#1E1E1E;--text:#ffffff;--text-muted:#A3A3A3;--nm-gold:#FFB800;--nm-crimson:#D6221D;--nm-turquoise:#00A896;
+  background:var(--bg);color:var(--text);line-height:1.55;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
+.sfhm *{box-sizing:border-box;}
+.sfhm a{color:var(--nm-gold);}
+.sfhm .container{max-width:1100px;margin:0 auto;padding:0 20px;}
+.sfhm .eyebrow{color:var(--nm-gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.75rem;margin:0 0 8px;}
+.sfhm h2{color:var(--text);font-size:2rem;font-weight:900;margin:0 0 8px;}
+.sfhm .section{padding:64px 0;}
+.sfhm .amb-grid{display:grid;grid-template-columns:minmax(280px,420px) 1fr;gap:32px;align-items:start;}
+@media(max-width:820px){.sfhm .amb-grid{grid-template-columns:1fr;}}
+.sfhm .amb-photo{background:var(--card-bg);border:1px solid var(--border-gray);border-radius:16px;overflow:hidden;}
+.sfhm .amb-photo img{display:block;width:100%;height:auto;}
+.sfhm .amb-photo figcaption{color:var(--text-muted);font-size:.8rem;padding:10px 14px;}
+.sfhm .amb-role{color:var(--nm-turquoise);font-weight:700;font-size:1rem;margin:0 0 16px;}
+.sfhm .amb-body p{color:var(--text-muted);margin:0 0 14px;max-width:60ch;}
+.sfhm .amb-body p b{color:var(--text);}
+.sfhm .amb-chips{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 0;padding:0;list-style:none;}
+.sfhm .amb-chips li{background:var(--card-bg);border:1px solid var(--border-gray);border-radius:10px;padding:8px 12px;font-size:.8rem;color:var(--text);}
+</style>
+<div class="sfhm">
+<section id="ambassador" class="section">
+  <div class="container">
+    <p class="eyebrow">Meet our ambassador</p>
+    <h2>Tricia Downing</h2>
+    <p class="amb-role">Wheelchair Division Athlete Ambassador</p>
+
+    <div class="amb-grid">
+      <figure class="amb-photo" style="margin:0;">
+        <!-- Tries the results-server asset first; falls back to the Drive
+             original until tricia-downing.webp/.jpg land in site/assets. -->
+        <img src="https://santa-fe-half-marathon.onrender.com/assets/tricia-downing.webp"
+             loading="lazy"
+             data-alts="https://santa-fe-half-marathon.onrender.com/assets/tricia-downing.jpg|https://drive.google.com/thumbnail?id=1BGjVP0R9QIMjF3jAC6QXahFqoLDH1-AQ&amp;sz=w1600"
+             onerror="var a=(this.dataset.alts||'').split('|').filter(Boolean);if(a.length){this.dataset.alts=a.slice(1).join('|');this.src=a[0]}else{this.closest('figure').style.display='none'}"
+             alt="Tricia Downing, Wheelchair Division Athlete Ambassador for the Santa Fe International Half Marathon.">
+        <figcaption>Tricia Downing — back for 2026 as our Wheelchair Division Athlete Ambassador.</figcaption>
+      </figure>
+
+      <div class="amb-body">
+        <p>
+          Last year Tricia made history as the <b>first wheelchair athlete to compete
+          in the Santa Fe International Half Marathon</b> — and helped launch our
+          commitment to a race that celebrates athletes of all abilities. We couldn't
+          be happier to welcome her back.
+        </p>
+        <p>
+          After a cycling accident left her paralyzed from the chest down, Tricia
+          rebuilt her life through adaptive sports and became a pioneer in the
+          disability athletic community. She was the <b>first female wheelchair
+          athlete to complete an Iron-distance triathlon</b>, and she's a Paralympic
+          shooter now training with her sights set on representing the United States
+          at the <b>2028 Los Angeles Paralympic Games</b>.
+        </p>
+        <p>
+          She's also a nationally recognized disability advocate, keynote speaker,
+          bicultural adoptee, and the author of <i>Cycle of Hope: A Journey from
+          Paralysis to Possibility</i> — a story about what's possible when
+          perceptions of disability get challenged.
+        </p>
+        <p>
+          This year, catch Tricia as our <b>inspirational speaker at the Health &amp;
+          Wellness Expo</b>, where she'll keep helping us build a more accessible,
+          competitive, and inclusive race for every athlete who lines up in Eldorado.
+        </p>
+        <ul class="amb-chips">
+          <li>First wheelchair athlete at the SFI Half</li>
+          <li>First female wheelchair Iron-distance finisher</li>
+          <li>Paralympic shooter — LA 2028 hopeful</li>
+          <li>Author, <i>Cycle of Hope</i></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+</div>

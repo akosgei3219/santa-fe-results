@@ -43,19 +43,18 @@ Gutenberg **Custom HTML** block. Use any subset, in any order:
 
 ## After inserting: images
 
-The two race photos need **no setup** — the hero and Photos blocks hotlink
-them from the results server (`…onrender.com/assets/…`), which serves them
-with day-long caching. They work the moment the template is imported. To
-serve them from your own WordPress instead (recommended eventually: your
-hosting, your CDN), upload the files from `../assets/` to the Media Library
-and swap the two `onrender.com/assets` URLs in the hero and photos blocks.
+All images need **no setup** — the hero, Photos, Where to Stay, and
+partners blocks hotlink them from the static-site CDN
+(`santa-fe-results-board.onrender.com/assets/…`), which is always warm and
+serves them with day-long caching. That includes both sponsor logos
+(Capitol Ford and Pecos Trail Inn). Everything works the moment the
+template is imported. To serve images from your own WordPress instead
+(recommended eventually: your hosting, your CDN), upload the files from
+`../assets/` to the Media Library and swap the `onrender.com/assets` URLs
+in those blocks.
 
-Two logo placeholders remain (no image files exist for them yet):
-
-- `LOGO_URL_PECOS` (where-to-stay + partners blocks) → hotel logo URL
-- `LOGO_URL_FORD` (partners block) → Capitol Ford logo URL (text lockup shows either way)
-
-Until replaced, the logo panels hide themselves — nothing looks broken.
+The ambassador photo still falls back to its Google Drive original until
+`tricia-downing.webp`/`.jpg` land in `../assets/`.
 
 ## Vendor form + confirmation email
 

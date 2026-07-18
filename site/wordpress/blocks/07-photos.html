@@ -29,16 +29,16 @@
     <h2>Photos</h2>
     <p class="section-sub">Free race photos every year — from the start line in Eldorado to the finish at the Railyard.</p>
     <div class="photo-grid">
-      <!-- Served by the results server; swap for Media Library URLs any time.
-           On failure each retries once (Render cold start), then hides its card. -->
+      <!-- Served from the static-site CDN (always warm); swap for Media
+           Library URLs any time. On failure each retries once, then hides its card. -->
       <figure class="card photo-card" style="margin:0;">
-        <img src="https://santa-fe-half-marathon.onrender.com/assets/sfi-half-marathon-04.webp" loading="lazy"
+        <img src="https://santa-fe-results-board.onrender.com/assets/sfi-half-marathon-04.webp" loading="lazy"
              onerror="if(!this.dataset.r){this.dataset.r='1';var i=this;setTimeout(function(){i.src=i.src.split('?')[0]+'?r='+Date.now()},12000)}else if(!this.dataset.j){this.dataset.j='1';this.src=this.src.split('?')[0].replace('.webp','.jpg')}else{this.closest('figure').style.display='none'}"
              alt="Runners kicking to the finish line banner beside the rail crossing at Railyard Park.">
         <figcaption>The finish at Railyard Park — flat, fast, and lined with cheers.</figcaption>
       </figure>
       <figure class="card photo-card" style="margin:0;">
-        <img src="https://santa-fe-half-marathon.onrender.com/assets/sfi-half-marathon-06.webp" loading="lazy"
+        <img src="https://santa-fe-results-board.onrender.com/assets/sfi-half-marathon-06.webp" loading="lazy"
              onerror="if(!this.dataset.r){this.dataset.r='1';var i=this;setTimeout(function(){i.src=i.src.split('?')[0]+'?r='+Date.now()},12000)}else if(!this.dataset.j){this.dataset.j='1';this.src=this.src.split('?')[0].replace('.webp','.jpg')}else{this.closest('figure').style.display='none'}"
              alt="Runners and families gathered at the race festival under a clear New Mexico sky.">
         <figcaption>Race morning in the high desert — runners, families, and friends from everywhere.</figcaption>

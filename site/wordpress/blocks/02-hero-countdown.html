@@ -32,10 +32,10 @@
 </style>
 <div class="sfhm">
 <section class="hero">
-  <!-- Served by the results server; swap for a Media Library URL any time.
-       On failure it retries once (Render cold start), then falls back to the
-       JPEG (very old browsers without WebP), then hides. -->
-  <img class="bg" src="https://santa-fe-half-marathon.onrender.com/assets/sfi-half-marathon-04.webp"
+  <!-- Served from the static-site CDN (always warm); swap for a Media
+       Library URL any time. On failure it retries once, then falls back to
+       the JPEG (very old browsers without WebP), then hides. -->
+  <img class="bg" src="https://santa-fe-results-board.onrender.com/assets/sfi-half-marathon-04.webp"
        fetchpriority="high"
        onerror="if(!this.dataset.r){this.dataset.r='1';var i=this;setTimeout(function(){i.src=i.src.split('?')[0]+'?r='+Date.now()},12000)}else if(!this.dataset.j){this.dataset.j='1';this.src=this.src.split('?')[0].replace('.webp','.jpg')}else{this.style.display='none'}"
        alt="Runners approaching the finish line near the rail crossing at Railyard Park, Santa Fe.">

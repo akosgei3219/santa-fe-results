@@ -27,6 +27,7 @@ Gutenberg **Custom HTML** block. Use any subset, in any order:
 | `01-promo-bar.html` | Pecos Trail Inn 15% banner (auto-hides after Sept 22) |
 | `02-hero-countdown.html` | Hero + live countdown + register CTAs |
 | `03-stat-strip.html` | 13.109 mi / 7:30 AM / net −36′ / 3:30 facts row |
+| `03b-whats-new.html` | What's New This Year (2026): YouthWorks finish-line food, Tricia Downing returns, live results, champions wall |
 | `04-race-info.html` | Start, finish, packet-pickup cards |
 | `05-course-chart.html` | Elevation profile with hover + data table |
 | `06-live-results.html` | Results section (leaderboard-ready) |

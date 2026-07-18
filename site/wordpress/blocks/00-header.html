@@ -29,6 +29,7 @@
 .sfhm .has-mega{position:relative;}
 .sfhm .menu-link .arrow{font-size:.6rem;margin-left:.3em;display:inline-block;transition:transform .2s ease;}
 .sfhm .mega-dropdown{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(10px);background:var(--card-bg);border:1px solid var(--border-gray);border-radius:12px;padding:22px;width:480px;max-width:calc(100vw - 32px);opacity:0;visibility:hidden;transition:opacity .22s ease,transform .22s ease,visibility .22s;box-shadow:0 20px 25px -5px rgba(0,0,0,.5);}
+.sfhm .mega-dropdown.slim{width:270px;padding:18px 20px;}
 .sfhm .mega-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
 .sfhm .mega-column h3{color:var(--nm-gold);font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;margin:0 0 10px;border-bottom:1px solid var(--border-gray);padding-bottom:6px;}
 .sfhm .mega-column ul{list-style:none;padding:0;margin:0;}
@@ -64,36 +65,37 @@
           <a href="#race" class="menu-link toggle-sub" aria-haspopup="true" aria-expanded="false">
             Race Info <span class="arrow" aria-hidden="true">&#9660;</span>
           </a>
-          <div class="mega-dropdown">
-            <div class="mega-grid">
-              <div class="mega-column">
-                <h3>Plan your race</h3>
-                <ul>
-                  <li><a href="https://runsignup.com/Race/NM/SantaFe/SantaFeInternationalHalfMarathon">Registration &amp; Fees</a></li>
-                  <li><a href="#race-schedule">Schedule of Events</a></li>
-                  <li><a href="#race">Packet Pickup &amp; Expo Hours</a></li>
-                  <li><a href="#stay">Where to Stay &mdash; 15% off</a></li>
-                  <li><a href="#vendors">Vendor Booths</a></li>
-                  <li><a href="#faq">FAQs</a></li>
-                </ul>
-              </div>
-              <div class="mega-column">
-                <h3>Race day</h3>
-                <ul>
-                  <li><a href="#race">Start &amp; Finish Lines</a></li>
-                  <li><a href="https://santa-fe-half-marathon.onrender.com/leaderboard" class="highlight-link">&#9889; Live Leaderboard</a></li>
-                  <li><a href="https://runsignup.com/Race/Results/83604">Official Results</a></li>
-                  <li><a href="#altitude">Racing at 7,000 Feet</a></li>
-                </ul>
-              </div>
+          <div class="mega-dropdown slim">
+            <div class="mega-column">
+              <ul>
+                <li><a href="https://runsignup.com/Race/NM/SantaFe/SantaFeInternationalHalfMarathon">Registration &amp; Fees</a></li>
+                <li><a href="#race-schedule">Schedule of Events</a></li>
+                <li><a href="#race">Packet Pickup &amp; Expo Hours</a></li>
+                <li><a href="#course">Course &amp; Elevation</a></li>
+                <li><a href="#altitude">Racing at 7,000 Feet</a></li>
+                <li><a href="#faq">FAQs</a></li>
+              </ul>
             </div>
           </div>
         </li>
-        <li class="menu-item"><a class="menu-link" href="#course">Course</a></li>
-        <li class="menu-item"><a class="menu-link" href="#results">Results</a></li>
-        <li class="menu-item"><a class="menu-link" href="#photos">Photos</a></li>
-        <li class="menu-item"><a class="menu-link" href="#stay">Stay</a></li>
-        <li class="menu-item"><a class="menu-link" href="#vendors">Expo</a></li>
+        <li class="menu-item has-mega">
+          <a href="#whats-new" class="menu-link toggle-sub" aria-haspopup="true" aria-expanded="false">
+            Race Weekend <span class="arrow" aria-hidden="true">&#9660;</span>
+          </a>
+          <div class="mega-dropdown slim">
+            <div class="mega-column">
+              <ul>
+                <li><a href="#whats-new">What's New This Year</a></li>
+                <li><a href="https://santa-fe-half-marathon.onrender.com/leaderboard" class="highlight-link">&#9889; Live Leaderboard</a></li>
+                <li><a href="#results">Results &amp; Past Champions</a></li>
+                <li><a href="#ambassador">Meet Tricia Downing</a></li>
+                <li><a href="#photos">Photos</a></li>
+                <li><a href="#stay">Where to Stay &mdash; 15% off</a></li>
+                <li><a href="#vendors">Vendor Booths &amp; Expo</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
         <li class="menu-item btn-item">
           <a class="btn" style="color:#0A0A0A;" href="https://runsignup.com/Race/NM/SantaFe/SantaFeInternationalHalfMarathon">Register</a>
         </li>

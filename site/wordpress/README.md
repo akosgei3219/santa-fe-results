@@ -29,6 +29,7 @@ Gutenberg **Custom HTML** block. Use any subset, in any order:
 | `03-stat-strip.html` | 13.109 mi / 7:30 AM / net −36′ / 3:30 facts row |
 | `03b-whats-new.html` | What's New This Year (2026): YouthWorks finish-line food, Tricia Downing returns, live results, champions wall, Nuckolls Brewing post-race celebrations |
 | `04-race-info.html` | Start, finish, packet-pickup cards |
+| `04b-schedule.html` | Three-day Schedule of Events (expo Fri/Sat + race-day timeline) |
 | `05-course-chart.html` | Elevation profile with hover + data table |
 | `06-live-results.html` | Results section (leaderboard-ready) |
 | `06b-champions.html` | Past Champions cards — derived live from RunSignup results (top man + woman per year), hidden until results load |
@@ -40,6 +41,7 @@ Gutenberg **Custom HTML** block. Use any subset, in any order:
 | `09b-faq.html` | Ten-question FAQ accordion (lodging item auto-hides after Sept 22) |
 | `09c-partners.html` | Partners strip: Capitol Ford (title) + Pecos Trail Inn (lodging) |
 | `10-register-band.html` | Bottom register call-to-action |
+| `11-footer.html` | Three-column footer + copyright bar (for Canvas pages with no theme footer) |
 
 ## After inserting: images
 

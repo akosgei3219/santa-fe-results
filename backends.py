@@ -85,6 +85,20 @@ class JsonBackend:
                 }
         return None
 
+    def create_volunteer(self, entry: dict) -> None:
+        """Append a volunteer entry to the local JSON file used for registrations."""
+        try:
+            if self.path.exists():
+                arr = json.loads(self.path.read_text(encoding="utf-8"))
+                if not isinstance(arr, list):
+                    arr = []
+            else:
+                arr = []
+        except Exception:
+            arr = []
+        arr.append(entry)
+        self.path.write_text(json.dumps(arr, indent=2), encoding="utf-8")
+
 
 # ---------------------------------------------------------------------------
 # Airtable — one row per runner in a base/table you own.
@@ -128,6 +142,17 @@ class AirtableBackend:
             "status": fields.get(self.f["status"], ""),
             "packet_picked_up": bool(fields.get(self.f["packet"], False)),
         }
+
+    def create_volunteer(self, entry: dict) -> None:
+        """Create a record in Airtable for the volunteer entry."""
+        url = f"https://api.airtable.com/v0/{self.base_id}/{urllib.parse.quote(self.table)}"
+        payload = {"fields": {"Name": entry.get("name"), "Email": entry.get("email"), "Role": entry.get("role", ""), "SubmittedAt": entry.get("created_at")}}
+        req = urllib.request.Request(url, data=json.dumps(payload).encode("utf-8"), method="POST")
+        req.add_header("Authorization", f"Bearer {self.token}")
+        req.add_header("Content-Type", "application/json")
+        with urllib.request.urlopen(req, timeout=8) as resp:
+            # best-effort; raise on HTTP error
+            _ = resp.read()
 
 
 # ---------------------------------------------------------------------------
@@ -178,6 +203,34 @@ class RunSignupBackend:
             # checkin record as packet pickup if present.
             "packet_picked_up": bool(p.get("checkedin") or p.get("checkin_data")),
         }
+
+    def create_volunteer(self, entry: dict) -> None:
+        """Best-effort create a lightweight participant note in RunSignup via the participants endpoint.
+
+        RunSignup's API and required fields vary — this method attempts to POST a minimal participant
+        using the configured API key/secret and the `event_id` supplied at init. It is intentionally
+        best-effort and logs/raises on obvious HTTP failures.
+        """
+        if not (self.api_key and self.api_secret and self.race_id and self.event_id):
+            raise BackendError("RunSignup backend not fully configured for create")
+        url = f"https://api.runsignup.com/rest/race/{self.race_id}/participants"
+        names = (entry.get("name") or "").split()
+        first = names[0] if names else entry.get("name")
+        last = " ".join(names[1:]) if len(names) > 1 else ""
+        body = {
+            "api_key": self.api_key,
+            "api_secret": self.api_secret,
+            "event_id": self.event_id,
+            "format": "json",
+            "first_name": first,
+            "last_name": last,
+            "email": entry.get("email"),
+            "notes": entry.get("role", "Volunteer signup"),
+        }
+        req = urllib.request.Request(url, data=json.dumps(body).encode("utf-8"), method="POST")
+        req.add_header("Content-Type", "application/json")
+        with urllib.request.urlopen(req, timeout=8) as resp:
+            _ = resp.read()
 
 
 # ---------------------------------------------------------------------------

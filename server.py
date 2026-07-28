@@ -34,10 +34,78 @@ mcp = FastMCP(
     port=int(os.environ.get("MCP_PORT", "8000")),
 )
 
+import smtplib
+from email.message import EmailMessage
+import urllib.parse
+
 
 def log(msg: str) -> None:
     """Log to stderr. stdout is reserved for the JSON-RPC stream on stdio."""
     print(f"[santa-fe-mcp] {msg}", file=sys.stderr, flush=True)
+
+
+def _get_redis_client():
+    url = os.environ.get("REDIS_URL", "")
+    if not url:
+        return None
+    try:
+        import redis as _redis
+        return _redis.from_url(url)
+    except Exception as e:
+        log(f"redis client not available: {e}")
+        return None
+
+
+def check_rate_limit(client_ip: str) -> tuple[bool, int]:
+    """Return (allowed, retry_after_seconds).
+
+    Uses Redis if REDIS_URL is set and redis package is available; otherwise
+    uses an in-memory sliding window per-process. This is best-effort for tests.
+    """
+    try:
+        rate_limit = int(os.environ.get("VOLUNTEER_RATE_LIMIT", "10"))
+        rate_window = int(os.environ.get("VOLUNTEER_RATE_WINDOW", "3600"))
+    except Exception:
+        rate_limit = 10
+        rate_window = 3600
+
+    now = int(dt.datetime.utcnow().timestamp())
+    redis_client = _get_redis_client()
+    if redis_client:
+        key = f"vol:{client_ip}"
+        try:
+            cnt = redis_client.incr(key)
+            if int(cnt) == 1:
+                redis_client.expire(key, rate_window)
+            if int(cnt) > rate_limit:
+                ttl = redis_client.ttl(key) or rate_window
+                return False, int(ttl)
+            return True, 0
+        except Exception as e:
+            log(f"redis limiter error: {e}; falling back to in-memory")
+
+    # in-memory sliding window
+    if not hasattr(check_rate_limit, "_store"):
+        check_rate_limit._store = {}
+    stamps = check_rate_limit._store.get(client_ip, [])
+    stamps = [t for t in stamps if t > now - rate_window]
+    if len(stamps) >= rate_limit:
+        retry_after = stamps[0] + rate_window - now if stamps else rate_window
+        return False, int(retry_after)
+    stamps.append(now)
+    check_rate_limit._store[client_ip] = stamps
+    return True, 0
+
+
+def verify_recaptcha(token: str) -> dict:
+    """Verify recaptcha token with Google's API and return the parsed JSON."""
+    secret = os.environ.get("RECAPTCHA_SECRET", "").strip()
+    if not secret:
+        raise RuntimeError("RECAPTCHA_SECRET not configured")
+    data = urllib.parse.urlencode({"secret": secret, "response": token}).encode()
+    req = urllib.request.Request("https://www.google.com/recaptcha/api/siteverify", data=data)
+    with urllib.request.urlopen(req, timeout=6) as resp:
+        return json.loads(resp.read().decode())
 
 
 RACE = {
@@ -467,6 +535,144 @@ async def leaderboard_page(request: Request):
     """Serve the embeddable widget HTML."""
     html = (pathlib.Path(__file__).with_name("leaderboard.html")).read_text(encoding="utf-8")
     return HTMLResponse(html, headers=_CORS)
+
+
+@mcp.custom_route("/volunteer", methods=["POST"])
+async def volunteer_submit(request: Request):
+    """Accept volunteer signups as JSON `{name,email,role}`.
+
+    Saves submissions to `volunteers.json` and, if SMTP env vars are set,
+    sends an email notification to the coordinator.
+    """
+    try:
+        payload = await request.json()
+    except Exception:
+        return JSONResponse({"status": "error", "reason": "invalid JSON"}, status_code=400, headers=_CORS)
+
+    # Simple honeypot: bots often fill extra fields. If the hidden
+    # `website`/`hp` field is present and non-empty, treat as spam.
+    if payload.get("website") or payload.get("hp"):
+        log("volunteer submission rejected: honeypot triggered")
+        return JSONResponse({"status": "error", "reason": "spam detected"}, status_code=400, headers=_CORS)
+
+    name = (payload.get("name") or "").strip()
+    email = (payload.get("email") or "").strip()
+    role = (payload.get("role") or "").strip()
+    if not name or not email:
+        return JSONResponse({"status": "error", "reason": "name and email are required"}, status_code=400, headers=_CORS)
+
+    # Rate limiting: prefer Redis-based limiter when REDIS_URL set and redis package
+    client_ip = (request.client.host if getattr(request, "client", None) else "unknown")
+    allowed, retry = check_rate_limit(client_ip)
+    if not allowed:
+        return JSONResponse({"status": "error", "reason": "rate limit exceeded"}, status_code=429, headers={**_CORS, "Retry-After": str(retry)})
+
+    entry = {
+        "name": name,
+        "email": email,
+        "role": role or "",
+        "created_at": dt.datetime.utcnow().isoformat() + "Z",
+    }
+
+    vols_path = pathlib.Path(__file__).with_name("volunteers.json")
+    try:
+        if vols_path.exists():
+            arr = json.loads(vols_path.read_text(encoding="utf-8"))
+            if not isinstance(arr, list):
+                arr = []
+        else:
+            arr = []
+        arr.append(entry)
+        vols_path.write_text(json.dumps(arr, indent=2), encoding="utf-8")
+    except Exception as e:
+        log(f"volunteer save failed: {e}")
+        return JSONResponse({"status": "error", "reason": "could not save submission"}, status_code=500, headers=_CORS)
+
+    # Optional forwarding: if configured, POST the submission to another
+    # backend (e.g., an API that ingests volunteers). Failures here are non-fatal.
+    forward_url = os.environ.get("VOLUNTEER_FORWARD_URL", "").strip()
+    if forward_url:
+        try:
+            req = urllib.request.Request(forward_url, method="POST")
+            req.add_header("Content-Type", "application/json")
+            data = json.dumps(entry).encode("utf-8")
+            with urllib.request.urlopen(req, data=data, timeout=8) as resp:
+                log(f"volunteer forwarded to {forward_url}: {resp.status}")
+        except Exception as e:
+            log(f"volunteer forward failed: {e}")
+
+    # Optional reCAPTCHA verification (server-side). If RECAPTCHA_SECRET is set,
+    # require a `recaptcha_token` from the client and verify it with Google's API.
+    if os.environ.get("RECAPTCHA_SECRET", "").strip():
+        token = payload.get("recaptcha_token", "")
+        if not token:
+            return JSONResponse({"status": "error", "reason": "recaptcha token required"}, status_code=400, headers=_CORS)
+        try:
+            v = verify_recaptcha(token)
+            min_score = float(os.environ.get("RECAPTCHA_MIN_SCORE", "0.5"))
+            expected_action = os.environ.get("RECAPTCHA_ACTION", "volunteer")
+            score = v.get("score")
+            action = v.get("action")
+            if not v.get("success"):
+                log(f"recaptcha failed: {v}")
+                return JSONResponse({"status": "error", "reason": "recaptcha verification failed"}, status_code=400, headers=_CORS)
+            if score is not None and score < min_score:
+                log(f"recaptcha low score: {score} < {min_score} for {payload.get('email')}")
+                return JSONResponse({"status": "error", "reason": "recaptcha score too low"}, status_code=400, headers=_CORS)
+            if expected_action and action and action != expected_action:
+                log(f"recaptcha action mismatch: {action} != {expected_action}")
+                return JSONResponse({"status": "error", "reason": "recaptcha action mismatch"}, status_code=400, headers=_CORS)
+        except Exception as e:
+            log(f"recaptcha verification error: {e}")
+            return JSONResponse({"status": "error", "reason": "recaptcha verification error"}, status_code=500, headers=_CORS)
+
+    # Attempt to email the coordinator if SMTP is configured
+    smtp_host = os.environ.get("SMTP_HOST", "")
+    if smtp_host:
+        smtp_port = int(os.environ.get("SMTP_PORT", "587"))
+        smtp_user = os.environ.get("SMTP_USER", "")
+        smtp_pass = os.environ.get("SMTP_PASS", "")
+        use_tls = os.environ.get("SMTP_STARTTLS", "true").lower() in ("1", "true", "yes")
+        from_addr = os.environ.get("VOLUNTEER_FROM", "info@santafehalfmarathon.com")
+        to_addr = os.environ.get("VOLUNTEER_TO", "KerriCottle@gmail.com")
+        subj = f"New volunteer: {name} — {role or 'general'}"
+        body = f"New volunteer sign-up:\n\nName: {name}\nEmail: {email}\nRole: {role or ''}\nSubmitted: {entry['created_at']}\n"
+
+    # Optional persistence into a registration backend
+    persist_backend = os.environ.get("VOLUNTEER_PERSIST_BACKEND", "").lower()
+    if persist_backend:
+        try:
+            backend = get_backend()
+            if hasattr(backend, 'create_volunteer'):
+                try:
+                    backend.create_volunteer(entry)
+                    log(f"volunteer persisted via backend {type(backend).__name__}")
+                except Exception as e:
+                    log(f"backend create_volunteer failed: {e}")
+            else:
+                log("configured backend does not support create_volunteer; skipping")
+        except Exception as e:
+            log(f"could not persist volunteer via backend: {e}")
+
+    # Send notification email if SMTP configured
+    if smtp_host:
+        try:
+            msg = EmailMessage()
+            msg.set_content(body)
+            msg["Subject"] = subj
+            msg["From"] = from_addr
+            msg["To"] = to_addr
+            with smtplib.SMTP(smtp_host, smtp_port, timeout=10) as s:
+                if use_tls:
+                    s.starttls()
+                if smtp_user and smtp_pass:
+                    s.login(smtp_user, smtp_pass)
+                s.send_message(msg)
+            log(f"volunteer email sent to {to_addr} for {email}")
+        except Exception as e:
+            log(f"volunteer email failed: {e}")
+
+    return JSONResponse({"status": "ok", "saved": True}, status_code=201, headers=_CORS)
 
 
 def _choose_transport() -> str:

@@ -4,3 +4,8 @@ mcp>=1.2.0
 
 # Only needed for CLIENTS that connect over HTTP from behind a SOCKS proxy.
 # httpx[socks]
+# Optional: redis client for production rate limiting
+redis>=4.5.0
+pytest>=7.0.0
+pytest-timeout>=3.0.0
+requests>=2.0.0

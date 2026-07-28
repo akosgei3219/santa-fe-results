@@ -1,3 +1,13 @@
+- `RECAPTCHA_SECRET`: If you enable Google reCAPTCHA (v3) for the site, place
+  your server-side secret here; the server will verify `recaptcha_token` values
+  posted by clients and reject low-confidence or invalid tokens.
+  
+Persisting volunteers
+
+- `VOLUNTEER_PERSIST_BACKEND`: optional; when set to `airtable` the server will
+  attempt to create a record in your Airtable table (requires `AIRTABLE_*`
+  env vars). When set to `json` the server appends a small volunteer record to
+  `registrations.json` so you can reuse local tooling for follow-up.
 # Santa Fe Half Marathon — example MCP server
 
 A small, runnable Model Context Protocol server that shows all three MCP
@@ -42,6 +52,36 @@ Quick end-to-end check without a full client:
 ```bash
 python smoke_test.py             # launches the server and exercises every tool
 ```
+
+## Frontend build in CI
+
+The combined GitHub Actions workflow supports a configurable frontend repository URL with the `frontend_repo` input.
+When manually dispatching `combined-ci.yml`, set `frontend_repo` to the repo you want the workflow to clone and build.
+
+Example override:
+
+```yaml
+on:
+  workflow_dispatch:
+    inputs:
+      frontend_repo:
+        description: 'Frontend repository URL'
+        required: false
+        default: 'https://github.com/akosgei3219/nba-dashboard.git'
+```
+
+If the workflow must clone a private GitHub repo, it will automatically use the built-in `GITHUB_TOKEN` for authentication when the URL points to `github.com`.
+
+Or use the GitHub UI "Run workflow" form and enter the repository URL directly.
+
+## Production deployment
+
+This repository now includes `.github/workflows/deploy-backend.yml`, which deploys the backend to Fly.io using the `FLY_API_TOKEN` secret.
+
+To enable it:
+- add `FLY_API_TOKEN` to repo secrets
+- ensure `fly.toml` is configured for your app
+- push to `main` or `master`
 
 ## Connect it to a client
 
@@ -155,6 +195,46 @@ no key is required. Embed on the marathon site with an iframe:
 Or reuse the JSON feed from your own front-end (set `window.LEADERBOARD_URL` to
 point the bundled widget at a different origin). Start it with
 `python server.py http` and open http://127.0.0.1:8000/leaderboard.
+
+### Volunteer submissions endpoint
+
+This server exposes a simple POST endpoint for volunteer signups at
+`POST /volunteer` which accepts JSON `{name,email,role}`. Submissions are
+appended to `volunteers.json` next to `server.py` and — if SMTP is configured
+via the environment below — an email notification is sent to the coordinator.
+
+Configure SMTP in your `.env` (copy `.env.example`):
+
+```
+SMTP_HOST=smtp.example.com
+SMTP_PORT=587
+SMTP_USER=your-user
+SMTP_PASS=your-pass
+SMTP_STARTTLS=true
+VOLUNTEER_FROM=info@santafehalfmarathon.com
+VOLUNTEER_TO=KerriCottle@gmail.com
+```
+
+If SMTP is not set, submissions are still saved to `volunteers.json` but no
+email will be sent.
+
+Optional features
+
+- `VOLUNTEER_FORWARD_URL` — when set, the server will POST the saved volunteer
+  JSON to the configured URL (useful to forward signups into another API).
+- `VOLUNTEER_RATE_LIMIT` / `VOLUNTEER_RATE_WINDOW` — simple per-IP rate
+  limiting (defaults to 10 submissions per 3600 seconds). Tune for your
+  deployment to reduce spam.
+
+Production tips
+
+- `REDIS_URL`: Set this to a Redis instance (e.g. `redis://...`) to enable a
+  robust, shared rate limiter across server processes. If present and the
+  `redis` Python package is available, the server uses Redis counters and TTLs
+  instead of the in-memory per-process limiter.
+- `RECAPTCHA_SECRET`: If you enable Google reCAPTCHA (v3) for the site, place
+  your server-side secret here; the server will verify `recaptcha_token` values
+  posted by clients and reject low-confidence or invalid tokens.
 
 ### Hosting the widget as a separate static site
 

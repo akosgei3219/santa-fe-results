@@ -1,0 +1,83 @@
+name: Combined CI
+
+# This workflow runs backend tests and optionally builds the frontend app.
+# Use the `frontend_repo` workflow_dispatch input to override the frontend
+# repository URL when manually dispatching the workflow.
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+    inputs:
+      frontend_repo:
+        description: 'Frontend repository URL to clone and build'
+        required: false
+        default: 'https://github.com/akosgei3219/nba-dashboard.git'
+
+jobs:
+  combined:
+    runs-on: ubuntu-latest
+    services:
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install backend dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run backend tests
+        env:
+          REDIS_URL: redis://localhost:6379/0
+        run: |
+          python -m pytest -q tests
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build frontend if present
+        env:
+          NBA_DASHBOARD_REPO: ${{ github.event.inputs.frontend_repo || 'https://github.com/akosgei3219/nba-dashboard.git' }}
+          GIT_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -d "nba-dashboard" ]; then
+            echo "Found local nba-dashboard checkout. Building."
+          else
+            echo "nba-dashboard folder not present; cloning repository from $NBA_DASHBOARD_REPO."
+            if [ -n "$GIT_AUTH_TOKEN" ] && echo "$NBA_DASHBOARD_REPO" | grep -qE '^https://github.com/'; then
+              auth_repo="${NBA_DASHBOARD_REPO/https:\/\/github.com\//https://x-access-token:$GIT_AUTH_TOKEN@github.com/}"
+              git clone "$auth_repo" nba-dashboard
+            else
+              git clone "$NBA_DASHBOARD_REPO" nba-dashboard
+            fi
+          fi
+          cd nba-dashboard
+          npm ci
+          npm run build

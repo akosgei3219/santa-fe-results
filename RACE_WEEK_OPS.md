@@ -36,7 +36,7 @@ The tech side of race weekend, in order.
 - ⬜ Check HostGator disk headroom before race-day photo uploads
 - ⬜ Dry-run "find my time" once with a 2025 bib so the flow is fresh in
      your head when a runner asks at the expo
-- ⬜ Kids 1K Dash is Saturday 3 PM — expect a site-traffic bump Saturday too
+- ⬜ Expo runs both days — expect a site-traffic bump Saturday too
 
 ## Race morning (Sun, Sept 20 — gun at 7:30 AM)
 

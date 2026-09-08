@@ -13,11 +13,11 @@ The tech side of race weekend, in order.
 ## What that changes
 
 - **Upgrading Render to a paid tier for race week is now optional.** Do it
-  only if you share the standalone `santa-fe-results.onrender.com/leaderboard`
+  only if you share the standalone `santa-fe-half-marathon.onrender.com/leaderboard`
   link directly (social posts, timing tent QR code). The website itself is
   unaffected by Render cold starts.
 - One soft dependency remains: the Results & Photos page upgrades its card
-  photo to `santa-fe-results.onrender.com/assets/sfi-half-marathon-04.webp`
+  photo to `santa-fe-half-marathon.onrender.com/assets/sfi-half-marathon-04.webp`
   when that server is awake. If it's asleep, the page falls back to a
   WordPress-hosted photo automatically. Cosmetic only.
 

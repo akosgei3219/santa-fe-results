@@ -1,0 +1,122 @@
+/* ============================================================
+   Santa Fe International Half Marathon — Design System
+   Tokens and component styles, lifted verbatim from the shipped
+   site (site/index.html). The brand: obsidian ground, New Mexico
+   gold, turquoise + crimson accents.
+   ============================================================ */
+
+:root {
+  --sfhm-bg: #0A0A0A;
+  --sfhm-card-bg: #121212;
+  --sfhm-border: #1E1E1E;
+  --sfhm-row: #161616;
+  --sfhm-text: #ffffff;
+  --sfhm-text-muted: #A3A3A3;
+  --sfhm-gold: #FFB800;
+  --sfhm-crimson: #D6221D;
+  --sfhm-turquoise: #00A896;
+}
+
+.sfhm-root {
+  background: var(--sfhm-bg);
+  color: var(--sfhm-text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.55;
+}
+
+/* ---------- Button ---------- */
+.sfhm-btn {
+  display: inline-block; background: var(--sfhm-gold); color: #0A0A0A;
+  font-weight: 800; text-decoration: none; border-radius: 10px;
+  padding: 10px 20px; font-size: .95rem; border: 0; cursor: pointer;
+  font-family: inherit;
+}
+.sfhm-btn:hover, .sfhm-btn:focus { filter: brightness(1.08); }
+.sfhm-btn--ghost {
+  background: transparent; color: var(--sfhm-text);
+  border: 1px solid var(--sfhm-text-muted);
+}
+.sfhm-btn--ghost:hover, .sfhm-btn--ghost:focus { border-color: var(--sfhm-text); filter: none; }
+
+/* ---------- Card ---------- */
+.sfhm-card {
+  background: var(--sfhm-card-bg); border: 1px solid var(--sfhm-border);
+  border-radius: 16px; overflow: hidden;
+}
+.sfhm-card--padded { padding: 24px; }
+
+/* ---------- SectionHeader ---------- */
+.sfhm-eyebrow {
+  color: var(--sfhm-gold); font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; font-size: .75rem; margin: 0 0 8px;
+}
+.sfhm-section-title { font-size: 2rem; font-weight: 900; margin: 0 0 8px; color: var(--sfhm-text); }
+.sfhm-section-sub { color: var(--sfhm-text-muted); max-width: 640px; margin: 0 0 28px; }
+
+/* ---------- Stat / StatStrip ---------- */
+.sfhm-stat-strip {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  border-top: 1px solid var(--sfhm-border); border-bottom: 1px solid var(--sfhm-border);
+  background: var(--sfhm-card-bg); padding: 22px 0;
+}
+.sfhm-stat { padding: 6px 18px; border-left: 1px solid var(--sfhm-border); }
+.sfhm-stat:first-child { border-left: 0; }
+.sfhm-stat b {
+  display: block; font-size: 1.35rem; font-weight: 900;
+  color: var(--sfhm-gold); font-variant-numeric: tabular-nums;
+}
+.sfhm-stat span {
+  font-size: .75rem; color: var(--sfhm-text-muted);
+  text-transform: uppercase; letter-spacing: .05em;
+}
+
+/* ---------- Chip ---------- */
+.sfhm-chip {
+  display: inline-block; background: var(--sfhm-card-bg);
+  border: 1px solid var(--sfhm-border); border-radius: 10px; padding: 10px 16px;
+}
+.sfhm-chip b { display: block; color: var(--sfhm-text); font-size: .95rem; }
+.sfhm-chip span { color: var(--sfhm-text-muted); font-size: .8rem; }
+
+/* ---------- CountdownCell ---------- */
+.sfhm-count-cell {
+  display: inline-block; background: rgba(18,18,18,.85);
+  border: 1px solid var(--sfhm-border); border-radius: 12px;
+  padding: 10px 14px; min-width: 84px; text-align: center;
+}
+.sfhm-count-cell b {
+  display: block; font-size: 1.7rem; font-weight: 900;
+  color: var(--sfhm-gold); font-variant-numeric: tabular-nums;
+}
+.sfhm-count-cell span {
+  font-size: .7rem; color: var(--sfhm-text-muted);
+  text-transform: uppercase; letter-spacing: .06em;
+}
+
+/* ---------- FAQItem ---------- */
+.sfhm-faq-item { border-bottom: 1px solid var(--sfhm-border); }
+.sfhm-faq-item summary {
+  cursor: pointer; list-style: none; display: flex; justify-content: space-between;
+  align-items: center; gap: 16px; padding: 18px 4px; font-weight: 700;
+  font-size: 1rem; color: var(--sfhm-text);
+}
+.sfhm-faq-item summary::-webkit-details-marker { display: none; }
+.sfhm-faq-item summary::after {
+  content: "+"; color: var(--sfhm-gold); font-size: 1.3rem; font-weight: 400; flex: 0 0 auto;
+}
+.sfhm-faq-item[open] summary::after { content: "\2013"; }
+.sfhm-faq-item .sfhm-faq-answer {
+  color: var(--sfhm-text-muted); font-size: .95rem; margin: 0 0 18px; padding: 0 4px;
+}
+.sfhm-faq-item a { color: var(--sfhm-gold); font-weight: 600; }
+
+/* ---------- PromoBar ---------- */
+.sfhm-promo-bar {
+  background: var(--sfhm-gold); color: #0A0A0A; text-align: center;
+  padding: 9px 16px; font-size: .9rem; font-weight: 600;
+}
+.sfhm-promo-bar code {
+  background: rgba(10,10,10,.12); border-radius: 6px; padding: 1px 7px;
+  font-weight: 800; letter-spacing: .04em;
+}
+.sfhm-promo-bar a { color: #0A0A0A; font-weight: 800; }

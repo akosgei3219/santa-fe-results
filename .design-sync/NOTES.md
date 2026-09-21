@@ -1,0 +1,3 @@
+- Design system lives in the `design-system/` subpackage (npm, esbuild build via `npm run build` -> dist/). No storybook.
+- Repo root is a Python project; only design-system/ is the JS package.
+- DesignSync auth unavailable in remote claude.ai/code sessions — needs /design-login from an interactive session, or Claude Design "Send to Claude Code Web".

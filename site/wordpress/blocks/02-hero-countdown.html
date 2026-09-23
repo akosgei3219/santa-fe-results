@@ -29,6 +29,9 @@
 .sfhm .count-cell{background:rgba(18,18,18,.85);border:1px solid var(--border-gray);border-radius:12px;padding:10px 14px;min-width:84px;text-align:center;}
 .sfhm .count-cell b{display:block;font-size:1.7rem;font-weight:900;color:var(--nm-gold);font-variant-numeric:tabular-nums;}
 .sfhm .count-cell span{font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;}
+.sfhm .post-race{background:rgba(18,18,18,.85);border:1px solid var(--border-gray);border-radius:12px;padding:14px 20px;max-width:560px;}
+.sfhm .post-race b{display:block;font-size:1.05rem;font-weight:800;color:var(--nm-gold);margin-bottom:4px;}
+.sfhm .post-race span{font-size:.9rem;color:var(--text-muted);}
 </style>
 <div class="sfhm">
 <section class="hero">
@@ -72,6 +75,7 @@
     "name": "Capitol Ford Santa Fe International Half Marathon",
     "sport": "Running",
     "startDate": "2026-09-20T07:30:00-06:00",
+    "endDate": "2026-09-20T11:00:00-06:00",
     "eventStatus": "https://schema.org/EventScheduled",
     "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
     "description": "13.109 USATF-certified miles, point-to-point and net-downhill from Eldorado (6,992 ft) into Railyard Park in the heart of Santa Fe, New Mexico.",
@@ -84,22 +88,51 @@
     ],
     "organizer": { "@type": "Organization", "name": "Santa Fe International Half Marathon" },
     "sponsor": { "@type": "Organization", "name": "Capitol Ford" },
-    "offers": { "@type": "Offer", "url": "https://runsignup.com/Race/NM/SantaFe/SantaFeInternationalHalfMarathon", "availability": "https://schema.org/InStock" }
+    "offers": { "@type": "Offer", "url": "https://runsignup.com/Race/NM/SantaFe/SantaFeInternationalHalfMarathon", "availability": "https://schema.org/InStock", "validThrough": "2026-09-20T07:30:00-06:00" }
   });
   document.head.appendChild(ld);
 })();
 
 var RACE_START = new Date("2026-09-20T07:30:00-06:00");
+// Racing is over at the 3:30 course cutoff, so that is when the hero stops
+// selling the race and starts pointing at results and photos. Both phases
+// derive from RACE_START, so moving that one date to next year's gun resets
+// the whole sequence - there is nothing here to remember by hand.
+var RACE_END = new Date(RACE_START.getTime() + 3.5 * 60 * 60 * 1000);
+var sfhmPhase = "";
 function sfhmPad(n){ return String(n).padStart(2, "0"); }
+function sfhmPostRace() {
+  var cd = document.getElementById("countdown");
+  cd.setAttribute("aria-label", "Race finished: results and photos");
+  cd.innerHTML =
+    '<div class="post-race">' +
+      '<b>That&rsquo;s a wrap on the ' + RACE_START.getFullYear() +
+        ' race &mdash; thank you for running.</b>' +
+      '<span>Official results and free race photos are posted below.</span>' +
+    '</div>';
+  var cta = document.querySelector(".sfhm .hero .cta-row");
+  if (cta) {
+    cta.innerHTML =
+      '<a class="btn" href="#results">View results</a>' +
+      '<a class="btn btn-ghost" href="#photos">Race photos</a>';
+  }
+}
 function sfhmTick() {
-  var ms = RACE_START - new Date();
-  if (ms <= 0) {
-    document.getElementById("countdown").innerHTML =
-      '<div class="count-cell" style="min-width:auto;padding:10px 22px;"><b>It&rsquo;s race day &mdash; go get it!</b></div>';
+  var now = new Date();
+  if (now >= RACE_END) {
+    if (sfhmPhase !== "post") { sfhmPhase = "post"; sfhmPostRace(); }
     clearInterval(sfhmTimer);
     return;
   }
-  var s = Math.floor(ms / 1000);
+  if (now >= RACE_START) {
+    if (sfhmPhase !== "raceday") {
+      sfhmPhase = "raceday";
+      document.getElementById("countdown").innerHTML =
+        '<div class="count-cell" style="min-width:auto;padding:10px 22px;"><b>It&rsquo;s race day &mdash; go get it!</b></div>';
+    }
+    return;  // keep ticking so the hero flips itself at the cutoff
+  }
+  var s = Math.floor((RACE_START - now) / 1000);
   document.getElementById("cd-days").textContent  = Math.floor(s / 86400);
   document.getElementById("cd-hours").textContent = sfhmPad(Math.floor(s / 3600) % 24);
   document.getElementById("cd-mins").textContent  = sfhmPad(Math.floor(s / 60) % 60);

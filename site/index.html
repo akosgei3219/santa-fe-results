@@ -25,6 +25,7 @@
   "name": "Capitol Ford Santa Fe International Half Marathon",
   "sport": "Running",
   "startDate": "2026-09-20T07:30:00-06:00",
+  "endDate": "2026-09-20T11:00:00-06:00",
   "eventStatus": "https://schema.org/EventScheduled",
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "description": "13.109 USATF-certified miles, point-to-point and net-downhill from Eldorado (6,992 ft) into Railyard Park in the heart of Santa Fe, New Mexico.",
@@ -47,7 +48,8 @@
   "offers": {
     "@type": "Offer",
     "url": "https://runsignup.com/Race/NM/SantaFe/SantaFeInternationalHalfMarathon",
-    "availability": "https://schema.org/InStock"
+    "availability": "https://schema.org/InStock",
+    "validThrough": "2026-09-20T07:30:00-06:00"
   }
 }
 </script>
@@ -200,6 +202,12 @@
   }
   .count-cell b { display: block; font-size: 1.7rem; font-weight: 900; color: var(--nm-gold); font-variant-numeric: tabular-nums; }
   .count-cell span { font-size: .7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: .06em; }
+  .post-race {
+    background: rgba(18,18,18,.85); border: 1px solid var(--border-gray);
+    border-radius: 12px; padding: 14px 20px; max-width: 560px;
+  }
+  .post-race b { display: block; font-size: 1.05rem; font-weight: 800; color: var(--nm-gold); margin-bottom: 4px; }
+  .post-race span { font-size: .9rem; color: var(--text-muted); }
 
   /* ---------- stat strip ---------- */
   .stat-strip { border-top: 1px solid var(--border-gray); border-bottom: 1px solid var(--border-gray); background: var(--card-bg); }
@@ -1103,19 +1111,47 @@ document.addEventListener("keydown", e => {
   document.activeElement?.blur?.();
 });
 
-/* ---------- countdown to the 7:30 AM MDT gun ---------- */
+/* ---------- race clock: countdown → race day → results ---------- */
 const RACE_START = new Date("2026-09-20T07:30:00-06:00");
+/* Racing is over at the 3:30 course cutoff, so that is when the hero stops
+   selling the race and starts pointing at results and photos. Both phases
+   derive from RACE_START, so moving that one date to next year's gun resets
+   the whole sequence — there is nothing here to remember by hand. */
+const RACE_END = new Date(RACE_START.getTime() + 3.5 * 60 * 60 * 1000);
+let cdPhase = "";
 function pad(n) { return String(n).padStart(2, "0"); }
+function showPostRace() {
+  const cd = document.getElementById("countdown");
+  cd.setAttribute("aria-label", "Race finished — results and photos");
+  cd.innerHTML =
+    '<div class="post-race">' +
+      "<b>That's a wrap on the " + RACE_START.getFullYear() + " race — thank you for running.</b>" +
+      '<span>Official results and free race photos are posted below.</span>' +
+    '</div>';
+  const cta = document.querySelector(".hero .cta-row");
+  if (cta) {
+    cta.innerHTML =
+      '<a class="btn" href="#results">View results</a>' +
+      '<a class="btn btn-ghost" href="#photos">Race photos</a>';
+  }
+}
 function tickCountdown() {
-  const ms = RACE_START - new Date();
+  const now = new Date();
   const el = id => document.getElementById(id);
-  if (ms <= 0) {
-    document.getElementById("countdown").innerHTML =
-      '<div class="count-cell" style="min-width:auto;padding:10px 22px;"><b>It\'s race day — go get it!</b></div>';
+  if (now >= RACE_END) {
+    if (cdPhase !== "post") { cdPhase = "post"; showPostRace(); }
     clearInterval(cdTimer);
     return;
   }
-  const s = Math.floor(ms / 1000);
+  if (now >= RACE_START) {
+    if (cdPhase !== "raceday") {
+      cdPhase = "raceday";
+      el("countdown").innerHTML =
+        '<div class="count-cell" style="min-width:auto;padding:10px 22px;"><b>It\'s race day — go get it!</b></div>';
+    }
+    return;  // keep ticking so the hero flips itself at the cutoff
+  }
+  const s = Math.floor((RACE_START - now) / 1000);
   el("cd-days").textContent  = Math.floor(s / 86400);
   el("cd-hours").textContent = pad(Math.floor(s / 3600) % 24);
   el("cd-mins").textContent  = pad(Math.floor(s / 60) % 60);

@@ -83,10 +83,10 @@ def test_days_until_past(monkeypatch):
 # --- altitude_advice ---
 
 @pytest.mark.parametrize("from_ft,tier", [
-    (0, "big jump"),        # sea level: gain 6992
-    (1992, "big jump"),     # gain exactly 5000
-    (4992, "noticeable"),   # gain exactly 2000
-    (5000, "minimal"),      # gain 1992
+    (0, "big jump"),        # sea level: gain 6640
+    (1640, "big jump"),     # gain exactly 5000
+    (4640, "noticeable"),   # gain exactly 2000
+    (5000, "minimal"),      # gain 1640
     (7000, "minimal"),
 ])
 def test_altitude_tiers(from_ft, tier):

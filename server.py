@@ -42,31 +42,44 @@ def log(msg: str) -> None:
 
 RACE = {
     "name": "Capitol Ford Santa Fe International Half Marathon",
-    "date": dt.date(2026, 9, 20),  # Sunday - half marathon race day
+    "edition": "6th annual",
+    "date": dt.date(2027, 9, 19),  # Sunday - Half Marathon & 3-Amigos Relay
     "distance_miles": 13.1,
-    "cutoff": "3:30 (3 hours 30 minutes)",
-    "start_line": "La Tienda Plaza, Eldorado (7 Caliente Rd) - point-to-point via Old Las Vegas Hwy",
-    "finish_line": "Railyard Park (740 Cerrillos Rd)",
-    "base_elevation_ft": 6992,   # Official: La Tienda at Eldorado start elevation
-    "high_point_ft": 7330,       # Woods Loop, ~mile 4 (highest point)
-    "finish_elevation_ft": 6956, # Railyard finish (net-downhill course)
-    "start_time": "07:30 MDT",
-    "packet_pickup": (
-        "Expo & packet pickup at Old Warehouse 21 (next to Railyard Park): "
-        "Fri 12-6pm and Sat 10am-5pm. Race-morning pickup 5:45-7:10am at the "
-        "Eldorado start."
+    "cutoff": "4:30 from the 7:30 AM start - course support ends 12:00 PM",
+    "start_line": "Romero Park, Agua Fria Village - Half Marathon & 3-Amigos Relay start",
+    "finish_line": "Reunity Resources Farm, Santa Fe River corridor",
+    "course_note": (
+        "First ~4.9 miles on streets, then the car-free Santa Fe River Trail. "
+        "GPS-measured; not USATF-certified for this course yet."
     ),
-    # Eldorado / La Tienda Plaza start coordinates (for the weather forecast).
-    "latitude": 35.5236,
-    "longitude": -105.9319,
+    "base_elevation_ft": 6640,   # Romero Park start
+    "low_point_ft": 6567,        # near Agua Fria Village, ~mile 4
+    "high_point_ft": 6883,       # mile 9 turnaround (highest point)
+    "finish_elevation_ft": 6590, # Reunity Resources Farm
+    "total_climb_ft": 651,
+    "start_time": "07:30 MDT",
+    "schedule": [
+        "Sat Sept 18, 2027: 5K, 10K and Kids Fun Dash",
+        "Sun Sept 19, 2027: Half Marathon and 3-Amigos Relay (7:30 AM start)",
+    ],
+    "packet_pickup": (
+        "Reunity Resources Farm, all events: Fri Sept 17 10am-6pm and Sat Sept 18 "
+        "10am-5pm. 5K and 10K bibs are mailed about a week before race day "
+        "(collect shirts at Reunity). Sunday race-morning pickup (Half & Relay) "
+        "is for emergencies only, 6-7am."
+    ),
+    "registration_url": "https://runsignup.com/Race/Register/?raceId=89412",
+    # Romero Park start coordinates (for the weather forecast).
+    "latitude": 35.6592,
+    "longitude": -106.0290,
 }
 
-# Approximate per-mile elevations interpolated from the official published
-# anchors (start 6,992 ft; high point 7,330 ft near mile 4; finish 6,956 ft;
-# net-downhill, USATF-certified 13.109 mi). Drop a real course.gpx to replace.
+# Approximate per-mile elevations interpolated from the published 2026 course
+# anchors (start ~6,640 ft; low 6,567 ft near mile 4; high point 6,883 ft at the
+# mile 9 turnaround; finish ~6,590 ft). Drop a real course.gpx to replace.
 COURSE_PROFILE_FT = [
-    6992, 7080, 7180, 7280, 7330, 7250, 7160, 7090,
-    7040, 7010, 6995, 6980, 6968, 6956,
+    6640, 6620, 6600, 6580, 6567, 6630, 6690, 6760,
+    6830, 6883, 6800, 6720, 6650, 6590,
 ]
 
 REGISTRATIONS_FILE = pathlib.Path(__file__).with_name("registrations.json")
@@ -116,8 +129,8 @@ def pace_calculator(target_finish: str, units: Literal["mi", "km"] = "mi") -> di
         "pace_per_unit": f"{pace_min}:{pace_sec:02d} / {units}",
         "summary": (
             f"To finish in {target_finish} you need about {pace_min}:{pace_sec:02d} "
-            f"per {units}. At 7,000 ft, run the first few miles a touch slower and "
-            f"make it up on the downhill back to the Railyard."
+            f"per {units}. At altitude, stay patient on the climb from mile 4 to the "
+            f"mile 9 turnaround and make it up on the run back down the River Trail."
         ),
     }
 
@@ -212,7 +225,7 @@ def race_day_weather() -> dict:
         "precip_chance_pct": rain,
         "max_wind_mph": wind,
         "summary": (
-            f"Race-day forecast: low {lo:.0f}F at the 7am gun, high {hi:.0f}F, "
+            f"Race-day forecast: low {lo:.0f}F around the 7:30am start, high {hi:.0f}F, "
             f"{rain:.0f}% chance of rain, wind up to {wind:.0f} mph. Mornings up "
             f"here are crisp - dress for the start, not the finish."
         ),
@@ -352,13 +365,17 @@ def race_info() -> str:
     """Core logistics for the Santa Fe Half Marathon."""
     r = RACE
     return (
-        f"{r['name']}\n"
+        f"{r['name']} ({r['edition']})\n"
         f"Date: {r['date'].isoformat()}  Start: {r['start_time']}\n"
-        f"Distance: {r['distance_miles']} miles\n"
+        f"Schedule: {' | '.join(r['schedule'])}\n"
+        f"Distance: {r['distance_miles']} miles  Time limit: {r['cutoff']}\n"
         f"Start: {r['start_line']}\n"
         f"Finish: {r['finish_line']}\n"
-        f"Base elevation: {r['base_elevation_ft']} ft\n"
-        f"Packet pickup: {r['packet_pickup']}"
+        f"Course: {r['course_note']}\n"
+        f"Elevation: start {r['base_elevation_ft']} ft, high {r['high_point_ft']} ft "
+        f"at mile 9, +{r['total_climb_ft']} ft total climb\n"
+        f"Packet pickup: {r['packet_pickup']}\n"
+        f"Register: {r['registration_url']}"
     )
 
 
@@ -412,7 +429,8 @@ def race_day_pep_talk(runner_name: str = "runner") -> str:
     return (
         f"Write a short, encouraging race-morning note for {runner_name} running "
         f"the Santa Fe Half Marathon. Keep it warm and neighborly, mention the "
-        f"crisp early air at the Plaza start and the finish at Railyard Park, and "
+        f"crisp early air at the Romero Park start, the quiet miles along the Santa "
+        f"Fe River Trail and the finish at Reunity Resources Farm, and "
         f"remind them to respect the altitude. Talk like a local runner who's "
         f"happy they're here."
     )
@@ -484,6 +502,203 @@ async def leaderboard_page(request: Request):
     """Serve the embeddable widget HTML."""
     html = (pathlib.Path(__file__).with_name("leaderboard.html")).read_text(encoding="utf-8")
     return HTMLResponse(html, headers=_CORS)
+
+
+# ---- Volunteer sign-up -----------------------------------------------------
+# POST /volunteer with JSON {name, email, role, phone?, notes?}. Checks run in
+# order: honeypot -> required fields -> rate limit -> reCAPTCHA (only when
+# RECAPTCHA_SECRET is set). Only a submission that passes all of them is saved
+# and announced. Config lives in env vars (see .env.example); no personal
+# addresses are hard-coded here because this repository is public.
+import re
+import smtplib
+import threading
+from starlette.concurrency import run_in_threadpool
+import urllib.parse
+from email.message import EmailMessage
+
+VOLUNTEER_ROLES = {
+    "course marshal", "aid station", "packet pickup", "start line",
+    "finish line", "relay exchange", "shuttle ambassador", "setup / teardown",
+    "kids fun dash", "general",
+}
+_EMAIL_RE = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
+_VOL_LOCK = threading.Lock()
+_RATE_STORE: dict[str, list[float]] = {}
+
+
+def _volunteers_file() -> pathlib.Path:
+    """Where sign-ups are stored. Git-ignored; override with VOLUNTEERS_FILE."""
+    custom = os.environ.get("VOLUNTEERS_FILE", "").strip()
+    return pathlib.Path(custom) if custom else pathlib.Path(__file__).with_name("volunteers.json")
+
+
+def check_rate_limit(client_ip: str, now: Optional[float] = None) -> tuple[bool, int]:
+    """In-memory sliding window per client IP. Returns (allowed, retry_after_s)."""
+    try:
+        limit = int(os.environ.get("VOLUNTEER_RATE_LIMIT", "10"))
+        window = int(os.environ.get("VOLUNTEER_RATE_WINDOW", "3600"))
+    except ValueError:
+        limit, window = 10, 3600
+    now = dt.datetime.now(dt.timezone.utc).timestamp() if now is None else now
+    stamps = [t for t in _RATE_STORE.get(client_ip, []) if t > now - window]
+    if len(stamps) >= limit:
+        _RATE_STORE[client_ip] = stamps
+        return False, max(1, int(stamps[0] + window - now))
+    stamps.append(now)
+    _RATE_STORE[client_ip] = stamps
+    return True, 0
+
+
+def verify_recaptcha(token: str) -> dict:
+    """Verify a reCAPTCHA v3 token with Google and return the parsed reply."""
+    secret = os.environ.get("RECAPTCHA_SECRET", "").strip()
+    if not secret:
+        raise RuntimeError("RECAPTCHA_SECRET not configured")
+    data = urllib.parse.urlencode({"secret": secret, "response": token}).encode()
+    req = urllib.request.Request("https://www.google.com/recaptcha/api/siteverify", data=data)
+    with urllib.request.urlopen(req, timeout=6) as resp:
+        return json.loads(resp.read().decode())
+
+
+def _recaptcha_problem(payload: dict) -> Optional[str]:
+    """None if reCAPTCHA passes or is not configured, else a reason string."""
+    if not os.environ.get("RECAPTCHA_SECRET", "").strip():
+        return None
+    token = str(payload.get("recaptcha_token") or "")
+    if not token:
+        return "recaptcha token required"
+    try:
+        v = verify_recaptcha(token)
+    except Exception as e:  # network or config trouble: fail closed
+        log(f"recaptcha verification error: {e}")
+        return "recaptcha verification error"
+    if not v.get("success"):
+        return "recaptcha verification failed"
+    score = v.get("score")
+    if score is not None and score < float(os.environ.get("RECAPTCHA_MIN_SCORE", "0.5")):
+        return "recaptcha score too low"
+    expected = os.environ.get("RECAPTCHA_ACTION", "volunteer")
+    if expected and v.get("action") and v.get("action") != expected:
+        return "recaptcha action mismatch"
+    return None
+
+
+def _save_volunteer(entry: dict) -> None:
+    path = _volunteers_file()
+    with _VOL_LOCK:
+        try:
+            arr = json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
+        except json.JSONDecodeError:
+            arr = []
+        if not isinstance(arr, list):
+            arr = []
+        arr.append(entry)
+        path.write_text(json.dumps(arr, indent=2), encoding="utf-8")
+
+
+def _notify_coordinator(entry: dict) -> None:
+    """Email the volunteer coordinator. No-op unless SMTP_HOST and VOLUNTEER_TO are set."""
+    host = os.environ.get("SMTP_HOST", "").strip()
+    to_addr = os.environ.get("VOLUNTEER_TO", "").strip()
+    if not host or not to_addr:
+        return
+    msg = EmailMessage()
+    msg["Subject"] = f"New volunteer: {entry['name']} - {entry['role']}"
+    msg["From"] = os.environ.get("VOLUNTEER_FROM", "info@santafehalfmarathon.com")
+    msg["To"] = to_addr
+    msg["Reply-To"] = entry["email"]
+    msg.set_content(
+        "New volunteer sign-up:\n\n"
+        f"Name: {entry['name']}\nEmail: {entry['email']}\n"
+        f"Phone: {entry['phone'] or '-'}\nRole: {entry['role']}\n"
+        f"Notes: {entry['notes'] or '-'}\nSubmitted: {entry['created_at']}\n"
+    )
+    try:
+        with smtplib.SMTP(host, int(os.environ.get("SMTP_PORT", "587")), timeout=10) as s:
+            if os.environ.get("SMTP_STARTTLS", "true").lower() in ("1", "true", "yes"):
+                s.starttls()
+            user, pw = os.environ.get("SMTP_USER", ""), os.environ.get("SMTP_PASS", "")
+            if user and pw:
+                s.login(user, pw)
+            s.send_message(msg)
+        log(f"volunteer email sent for {entry['role']}")
+    except Exception as e:  # the sign-up is already saved; email is best-effort
+        log(f"volunteer email failed: {e}")
+
+
+def _client_ip(request: Request) -> str:
+    fwd = request.headers.get("x-forwarded-for", "")
+    if fwd:
+        return fwd.split(",")[0].strip()
+    return request.client.host if request.client else "unknown"
+
+
+_VOL_CORS = {**_CORS, "Access-Control-Allow-Methods": "POST, OPTIONS",
+             "Access-Control-Allow-Headers": "Content-Type"}
+
+
+def _vol_error(reason: str, code: int = 400, extra: Optional[dict] = None) -> JSONResponse:
+    return JSONResponse({"status": "error", "reason": reason}, status_code=code,
+                        headers={**_VOL_CORS, **(extra or {})})
+
+
+@mcp.custom_route("/volunteer", methods=["OPTIONS"])
+async def volunteer_preflight(request: Request):
+    """CORS preflight so the form on santafehalfmarathon.com can POST here."""
+    return Response(status_code=204, headers=_VOL_CORS)
+
+
+@mcp.custom_route("/volunteer", methods=["POST"])
+async def volunteer_submit(request: Request):
+    """Accept a volunteer sign-up: JSON {name, email, role, phone?, notes?}."""
+    try:
+        payload = await request.json()
+    except Exception:
+        return _vol_error("invalid JSON")
+    if not isinstance(payload, dict):
+        return _vol_error("invalid JSON")
+
+    # Honeypot: a hidden field real people never fill in.
+    if payload.get("website") or payload.get("hp"):
+        log("volunteer submission rejected: honeypot")
+        return _vol_error("spam detected")
+
+    def field(key: str, max_len: int) -> str:
+        return str(payload.get(key) or "").strip()[:max_len]
+
+    name, email = field("name", 120), field("email", 254)
+    phone, notes = field("phone", 40), field("notes", 1000)
+    role = field("role", 60).lower() or "general"
+    if not name or not email:
+        return _vol_error("name and email are required")
+    if not _EMAIL_RE.match(email):
+        return _vol_error("email address looks invalid")
+    if role not in VOLUNTEER_ROLES:
+        return _vol_error(f"unknown role; choose one of {sorted(VOLUNTEER_ROLES)}")
+
+    allowed, retry = check_rate_limit(_client_ip(request))
+    if not allowed:
+        return _vol_error("too many sign-ups from this connection; try again later",
+                          429, {"Retry-After": str(retry)})
+
+    problem = _recaptcha_problem(payload)
+    if problem:
+        log(f"volunteer submission rejected: {problem}")
+        return _vol_error(problem)
+
+    entry = {
+        "name": name, "email": email, "phone": phone, "role": role, "notes": notes,
+        "race_year": RACE["date"].year,
+        "created_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
+    }
+    try:
+        _save_volunteer(entry)
+    except OSError as e:
+        log(f"volunteer save failed: {e}")
+        return _vol_error("could not save sign-up", 500)
+    await run_in_threadpool(_notify_coordinator, entry)  # SMTP blocks; keep the loop free
+    return JSONResponse({"status": "ok", "saved": True}, status_code=201, headers=_VOL_CORS)
 
 
 def _choose_transport() -> str:

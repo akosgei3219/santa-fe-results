@@ -56,10 +56,20 @@ the top (`--nm-gold`, `--nm-turquoise`, `--nm-crimson`, obsidian backgrounds).
 Race facts match `../server.py` (`RACE` dict) — if the date, start, or course
 changes, update both places.
 
-**Changing the race date** touches four spots: the hero eyebrow text, the
-JSON-LD `startDate`, and the `RACE_START` JS variable (all three in
-`wordpress/blocks/02-hero-countdown.html` and mirrored in `index.html`),
-plus the `RACE` dict in `../server.py`.
+**Changing the race date** touches the hero eyebrow text, the JSON-LD
+`startDate`, `endDate` and `offers.validThrough`, and the `RACE_START` JS
+variable (all in `wordpress/blocks/02-hero-countdown.html` and mirrored in
+`index.html`), plus the `RACE` dict in `../server.py`. After editing the
+block, copy it back into the matching HTML widget in
+`wordpress/elementor-template.json` — that file embeds each block verbatim
+and does not update itself.
+
+**The hero runs its own clock** off `RACE_START`, in three phases: it counts
+down to the gun, shows the race-day line until the 3:30 course cutoff
+(`RACE_END`, derived from `RACE_START` rather than hard-coded), then switches
+to a "that's a wrap" panel and swaps the Register buttons for *View results*
+and *Race photos*. Moving `RACE_START` to next year's gun resets all three —
+there is no post-race flag to remember to unset.
 
 Photos ship as WebP with a JPEG fallback (`assets/*.webp` + `assets/*.jpg`,
 generated from the JPEG at quality 70). If you swap in a new photo, keep both

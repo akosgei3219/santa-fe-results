@@ -24,21 +24,18 @@ Gutenberg **Custom HTML** block. Use any subset, in any order:
 | Block | What it is |
 |---|---|
 | `00-header.html` | Sticky header: mega-menu nav + mobile hamburger (for Canvas pages with no theme header) |
-| `01-promo-bar.html` | Pecos Trail Inn 15% banner (auto-hides after Sept 22) |
 | `02-hero-countdown.html` | Hero + live countdown + register CTAs |
-| `03-stat-strip.html` | 13.109 mi / 7:30 AM / net −36′ / 3:30 facts row |
-| `03b-whats-new.html` | What's New This Year (2026): YouthWorks finish-line food, Tricia Downing returns, live results, champions wall, Nuckolls Brewing post-race celebrations |
+| `03-stat-strip.html` | 13.1 GPS mi / 7:30 AM / +651′ climb / 4:30 facts row |
 | `04-race-info.html` | Start, finish, packet-pickup cards |
-| `04b-schedule.html` | Three-day Schedule of Events (expo Fri/Sat + race-day timeline) |
+| `04b-schedule.html` | Three-day 2027 schedule (Reunity pickup Fri/Sat, Sat short races, Sun half + relay) |
 | `05-course-chart.html` | Elevation profile with hover + data table |
 | `06-live-results.html` | Results section (leaderboard-ready) |
 | `06b-champions.html` | Past Champions cards — derived live from RunSignup results (top man + woman per year), hidden until results load |
 | `06c-ambassador.html` | Meet Tricia Downing — Wheelchair Division Athlete Ambassador feature (photo + bio + Expo speaker note) |
 | `07-photos.html` | Photo cards + album links |
-| `08-where-to-stay.html` | Pecos Trail Inn offer + code (auto-hides after Sept 22) |
 | `08b-vendor-expo.html` | Vendor booths: flat $300 fee, informational day chips |
 | `09-altitude.html` | Three altitude tips |
-| `09b-faq.html` | Ten-question FAQ accordion (lodging item auto-hides after Sept 22) |
+| `09b-faq.html` | Ten-question FAQ accordion for the 2027 race |
 | `09c-partners.html` | Partners strip: Capitol Ford (title) + Pecos Trail Inn (lodging) |
 | `10-register-band.html` | Bottom register call-to-action |
 | `11-footer.html` | Three-column footer + copyright bar (for Canvas pages with no theme footer) |
@@ -76,8 +73,7 @@ change the price. Two placeholders to wire up on your side:
 ## Menu anchors
 
 Sections keep their ids, so WordPress menu items can use custom links:
-`/#race`, `/#course`, `/#results`, `/#photos`, `/#stay`, `/#vendors`.
-(Remove the Stay menu item after Sept 22 — the section hides itself then.)
+`/#race`, `/#race-schedule`, `/#course`, `/#results`, `/#photos`, `/#vendors`, `/#faq`.
 
 ## Race-day leaderboard
 

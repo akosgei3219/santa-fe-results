@@ -56,6 +56,8 @@ The tech side of race weekend, in order.
 - ⬜ Upload race photos (watch HostGator disk)
 - ⬜ Post-race SEO item from the audit: mirror the top-10 finishers as plain
      HTML text on the Results & Photos page so the results rank for our domain
+     — run `python top10_html.py --year <year>` and paste the output into a
+     WordPress Custom HTML block (needs a machine that can reach RunSignup)
 
 ## If something breaks
 

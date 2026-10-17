@@ -4,6 +4,8 @@
 
 # Runtime data
 course.gpx
+# Volunteer sign-ups hold personal contact details - never commit them
+volunteers.json
 __pycache__/
 *.pyc
 *.pyo

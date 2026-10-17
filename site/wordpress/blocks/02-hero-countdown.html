@@ -44,14 +44,15 @@
        alt="Runners approaching the finish line near the rail crossing at Railyard Park, Santa Fe.">
   <div class="shade"></div>
   <div class="container">
-    <p class="eyebrow">Sunday &middot; September 20, 2026 &middot; 7:30 AM</p>
-    <h1>Run 13.1 miles through the historic Santa Fe Trail</h1>
+    <p class="eyebrow">Sunday · September 19, 2027 · 7:30 AM</p>
+    <h1>Run the river into town.</h1>
     <p class="tagline">
-      A point-to-point, net-downhill course dropping from 6,992 ft in Eldorado
-      into the festive heart of the Santa Fe Railyard.
+      The 6th annual — 13.1 miles from Romero Park in Agua Fria Village, street miles
+      first, then the car-free Santa Fe River Trail to a farm-festival finish at
+      Reunity Resources.
     </p>
     <div class="cta-row">
-      <a class="btn" href="https://runsignup.com/Race/NM/SantaFe/SantaFeInternationalHalfMarathon">Register on RunSignup</a>
+      <a class="btn" href="https://runsignup.com/Race/Register/?raceId=89412">Register on RunSignup</a>
       <a class="btn btn-ghost" href="#course">See the course</a>
     </div>
     <div class="countdown" id="countdown" role="timer" aria-label="Countdown to race day">
@@ -74,31 +75,31 @@
     "@type": "SportsEvent",
     "name": "Capitol Ford Santa Fe International Half Marathon",
     "sport": "Running",
-    "startDate": "2026-09-20T07:30:00-06:00",
-    "endDate": "2026-09-20T11:00:00-06:00",
+    "startDate": "2027-09-19T07:30:00-06:00",
+    "endDate": "2027-09-19T12:00:00-06:00",
     "eventStatus": "https://schema.org/EventScheduled",
     "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-    "description": "13.109 USATF-certified miles, point-to-point and net-downhill from Eldorado (6,992 ft) into Railyard Park in the heart of Santa Fe, New Mexico.",
+    "description": "6th annual. 13.1 GPS-measured miles: street miles out of Agua Fria Village, then the car-free Santa Fe River Trail to the mile-9 turnaround and a farm finish at Reunity Resources, Santa Fe, New Mexico.",
     "url": "https://santafehalfmarathon.com/",
     "location": [
-      { "@type": "Place", "name": "Start: La Tienda Plaza, Eldorado",
-        "address": { "@type": "PostalAddress", "streetAddress": "7 Caliente Rd", "addressLocality": "Santa Fe", "addressRegion": "NM", "addressCountry": "US" } },
-      { "@type": "Place", "name": "Finish: Railyard Park",
-        "address": { "@type": "PostalAddress", "streetAddress": "740 Cerrillos Rd", "addressLocality": "Santa Fe", "addressRegion": "NM", "addressCountry": "US" } }
+      { "@type": "Place", "name": "Start: Romero Park, Agua Fria Village",
+        "address": { "@type": "PostalAddress", "addressLocality": "Santa Fe", "addressRegion": "NM", "addressCountry": "US" } },
+      { "@type": "Place", "name": "Finish: Reunity Resources Farm, Santa Fe River corridor",
+        "address": { "@type": "PostalAddress", "addressLocality": "Santa Fe", "addressRegion": "NM", "addressCountry": "US" } }
     ],
     "organizer": { "@type": "Organization", "name": "Santa Fe International Half Marathon" },
     "sponsor": { "@type": "Organization", "name": "Capitol Ford" },
-    "offers": { "@type": "Offer", "url": "https://runsignup.com/Race/NM/SantaFe/SantaFeInternationalHalfMarathon", "availability": "https://schema.org/InStock", "validThrough": "2026-09-20T07:30:00-06:00" }
+    "offers": { "@type": "Offer", "url": "https://runsignup.com/Race/Register/?raceId=89412", "availability": "https://schema.org/InStock", "validThrough": "2027-09-19T07:30:00-06:00" }
   });
   document.head.appendChild(ld);
 })();
 
-var RACE_START = new Date("2026-09-20T07:30:00-06:00");
-// Racing is over at the 3:30 course cutoff, so that is when the hero stops
+var RACE_START = new Date("2027-09-19T07:30:00-06:00");
+// Racing is over at the 4:30 course cutoff, so that is when the hero stops
 // selling the race and starts pointing at results and photos. Both phases
 // derive from RACE_START, so moving that one date to next year's gun resets
 // the whole sequence - there is nothing here to remember by hand.
-var RACE_END = new Date(RACE_START.getTime() + 3.5 * 60 * 60 * 1000);
+var RACE_END = new Date(RACE_START.getTime() + 4.5 * 60 * 60 * 1000);
 var sfhmPhase = "";
 function sfhmPad(n){ return String(n).padStart(2, "0"); }
 function sfhmPostRace() {

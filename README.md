@@ -126,6 +126,33 @@ and you'll want `NO_PROXY=127.0.0.1,localhost` so loopback traffic skips the pro
   operate (hosting, TLS, auth) but scales and is maintained separately from any
   one client.
 
+## Volunteer sign-up (`POST /volunteer`)
+
+When the server runs over HTTP it also accepts volunteer sign-ups from a form on
+santafehalfmarathon.com. Send JSON:
+
+```json
+{"name": "Maria Lopez", "email": "maria@example.com", "role": "aid station",
+ "phone": "optional", "notes": "optional", "website": ""}
+```
+
+- **Roles:** course marshal, aid station, packet pickup, start line, finish line,
+  relay exchange, shuttle ambassador, setup / teardown, kids fun dash, general
+  (blank means general).
+- **Spam protection, in order:** a hidden `website` honeypot field, a per-connection
+  rate limit (`VOLUNTEER_RATE_LIMIT` per `VOLUNTEER_RATE_WINDOW` seconds), and
+  Google reCAPTCHA v3 when `RECAPTCHA_SECRET` is set (the form then sends
+  `recaptcha_token`). Nothing is saved or emailed unless every check passes.
+- **Where sign-ups go:** appended to `volunteers.json` (git-ignored; it holds
+  personal contact details) or the path in `VOLUNTEERS_FILE`. If `SMTP_HOST` and
+  `VOLUNTEER_TO` are set, the coordinator also gets an email with the volunteer
+  as Reply-To.
+- **Render note:** the service's disk resets on every deploy, so set
+  `VOLUNTEER_TO` (and SMTP) there, or point `VOLUNTEERS_FILE` at a persistent disk,
+  so sign-ups aren't lost.
+
+All settings are listed in `.env.example`. Tests: `test_volunteer.py`.
+
 ## Course profile from GPX
 
 Export the course as a `.gpx` and save it as `course.gpx` next to `server.py`.

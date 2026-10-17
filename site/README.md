@@ -65,7 +65,7 @@ block, copy it back into the matching HTML widget in
 and does not update itself.
 
 **The hero runs its own clock** off `RACE_START`, in three phases: it counts
-down to the gun, shows the race-day line until the 3:30 course cutoff
+down to the gun, shows the race-day line until the 4:30 course cutoff
 (`RACE_END`, derived from `RACE_START` rather than hard-coded), then switches
 to a "that's a wrap" panel and swaps the Register buttons for *View results*
 and *Race photos*. Moving `RACE_START` to next year's gun resets all three —

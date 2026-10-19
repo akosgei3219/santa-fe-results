@@ -18,3 +18,7 @@ EMBED_ON_YOUR_SITE.md
 test_*.py
 smoke_test.py
 http_smoke_test.py
+requirements-dev.txt
+pytest.ini
+.venv/
+.coverage

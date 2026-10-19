@@ -47,7 +47,7 @@ The offline unit tests (no network, no client) run with pytest and also run in
 CI on every push and pull request:
 
 ```bash
-pip install pytest
+pip install -r requirements-dev.txt
 pytest                           # test_server / test_backends / test_course / test_results
 ```
 

@@ -1,0 +1,5 @@
+# Test/dev dependencies. Runtime deps live in requirements.txt.
+# Install both to run the test suite:
+#   pip install -r requirements.txt -r requirements-dev.txt
+pytest>=8
+coverage>=7

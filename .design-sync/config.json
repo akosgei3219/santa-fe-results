@@ -1,3 +1,23 @@
 {
-  "shape": "package"
+  "shape": "package",
+  "pkg": "@santa-fe-half-marathon/design-system",
+  "globalName": "SFHM",
+  "buildCmd": "npm run build",
+  "cssEntry": "dist/styles.css",
+  "componentSrcMap": {
+    "Root": "src/index.jsx",
+    "Button": "src/index.jsx",
+    "Card": "src/index.jsx",
+    "SectionHeader": "src/index.jsx",
+    "Stat": "src/index.jsx",
+    "StatStrip": "src/index.jsx",
+    "Chip": "src/index.jsx",
+    "CountdownCell": "src/index.jsx",
+    "FAQItem": "src/index.jsx",
+    "PromoBar": "src/index.jsx"
+  },
+  "provider": {
+    "component": "Root"
+  },
+  "readmeHeader": ".design-sync/conventions.md"
 }

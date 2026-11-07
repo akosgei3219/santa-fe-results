@@ -69,7 +69,7 @@ Classes the components apply, if you need to recognize them in the DOM:
 - `FAQItem` is a native `<details>`. Stack siblings directly — they share the
   bottom hairline. `defaultOpen` is the only open-state control.
 - `CountdownCell`, `Chip` and `Stat` all take short `value`/`title` + label
-  pairs. Keep values terse (`13.109`, `7:30 AM`, `net −36′`) — the type is
+  pairs. Keep values terse (`13.1`, `7:30 AM`, `+651′`) — the type is
   tabular and sized for glanceable facts.
 
 ### Where the truth lives
@@ -85,15 +85,15 @@ const { Root, PromoBar, SectionHeader, StatStrip, Stat } = window.SFHM;
 
 <Root>
   <PromoBar>
-    Race-week lodging: save 15% with code <code>RUNSANTAFE26</code>
+    Saturday’s 5K, 10K and Kids Fun Dash — start times announced soon.
   </PromoBar>
   <div style={{ padding: 28 }}>
     <SectionHeader eyebrow="The essentials" title="Race weekend" />
   </div>
   <StatStrip>
-    <Stat value="13.109" label="USATF miles" />
-    <Stat value="7:30 AM" label="Start · Eldorado" />
-    <Stat value="3:30" label="Course cutoff" />
+    <Stat value="13.1" label="GPS-measured miles" />
+    <Stat value="7:30 AM" label="Start · Agua Fria" />
+    <Stat value="4:30" label="Course cutoff" />
   </StatStrip>
 </Root>
 ```

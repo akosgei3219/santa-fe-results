@@ -78,11 +78,16 @@ project and push `ds-bundle/`.
 - **The `@types/react` copy and `.ds-sync/` are gitignored**, so a fresh clone
   has neither. Both steps in the build recipe must be re-run, or the run quietly
   produces weaker `.d.ts` files.
-- **Preview copy is pinned to the 2026 race.** The previews hardcode the
-  Sept 20 2026 date, Eldorado/Railyard elevations, the 3:30 cutoff, expo hours
-  and the promo code `RUNSANTAFE26`. None of it updates itself. Diff the
-  previews against `site/index.html` each year, or the design agent will imitate
-  a stale race.
+- **Preview copy is pinned to the 2027 race.** The previews hardcode the
+  Sept 19 2027 date, the Agua Fria/Reunity elevations, the 4:30 cutoff and the
+  pickup hours. None of it updates itself. Diff the previews against
+  `site/index.html` each year, or the design agent will imitate a stale race —
+  this already happened once: the previews were written for the 2026 race and
+  the 2027 rebuild (#35) invalidated eight of the ten files at a stroke, since
+  2027 is a new course rather than a date bump. Two traps in particular: the
+  course is no longer USATF-certified (say "GPS-measured"), and there is no
+  2027 promo code, so `PromoBar`'s `<code>` story carries a labelled
+  placeholder rather than a real offer.
 - **Everything is in one group, `general`.** No docs directory exists, so no
   `category` frontmatter sets groups. If per-component docs are added later the
   groups will change and the old `components/general/**` paths must land in the

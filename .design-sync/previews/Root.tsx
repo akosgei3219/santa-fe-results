@@ -10,9 +10,9 @@ import {
 export const PageGround = () => (
   <Root style={{ padding: 28 }}>
     <SectionHeader
-      eyebrow="Sunday · September 20, 2026 · 7:30 AM"
+      eyebrow="Sunday · September 19, 2027 · 7:30 AM"
       title="Santa Fe International Half Marathon"
-      sub="Point-to-point and net-downhill, from Eldorado to Railyard Park."
+      sub="Street miles out of Agua Fria Village, then the car-free river trail to a farm finish at Reunity Resources."
     />
     <Button>Register on RunSignup</Button>
   </Root>
@@ -22,15 +22,18 @@ export const PageGround = () => (
 export const WithSections = () => (
   <Root>
     <PromoBar>
-      Race-week lodging: save 15% with code <code>RUNSANTAFE26</code>
+      Registration is open —{' '}
+      <a href="https://runsignup.com/Race/Register/?raceId=89412">
+        sign up on RunSignup
+      </a>
     </PromoBar>
     <div style={{ padding: 28 }}>
       <SectionHeader eyebrow="The essentials" title="Race weekend" />
     </div>
     <StatStrip>
-      <Stat value="13.109" label="USATF miles" />
-      <Stat value="7:30 AM" label="Start · Eldorado" />
-      <Stat value="3:30" label="Course cutoff" />
+      <Stat value="13.1" label="GPS-measured miles" />
+      <Stat value="7:30 AM" label="Start · Agua Fria" />
+      <Stat value="4:30" label="Course cutoff" />
     </StatStrip>
   </Root>
 );

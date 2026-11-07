@@ -7,7 +7,7 @@ export const Padded = () => (
     <SectionHeader
       eyebrow="Race weekend"
       title="Packet pickup"
-      sub="Old Warehouse 21, next to Railyard Park. Friday 12–6 PM, Saturday 10 AM–5 PM."
+      sub="Reunity Resources Farm, for all events. Friday 10 AM–6 PM, Saturday 10 AM–5 PM."
     />
   </Card>
 );
@@ -25,9 +25,9 @@ export const Flush = () => (
 export const WithChips = () => (
   <Card padded>
     <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-      <Chip title="13.109" detail="USATF miles" />
-      <Chip title="7,330′" detail="High · mile 4" />
-      <Chip title="6,956′" detail="Finish" />
+      <Chip title="13.1" detail="GPS miles" />
+      <Chip title="6,883′" detail="High · mile 9" />
+      <Chip title="6,590′" detail="Finish" />
     </div>
   </Card>
 );

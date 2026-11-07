@@ -5,8 +5,8 @@ import { SectionHeader } from '@santa-fe-half-marathon/design-system';
 export const Full = () => (
   <SectionHeader
     eyebrow="The course"
-    title="Point-to-point, net downhill"
-    sub="Start at 6,992 ft in Eldorado, climb to the 7,330 ft high point near mile 4, then descend to the Railyard Park finish."
+    title="Street miles, then the river trail"
+    sub="Start at 6,640 ft in Agua Fria Village, dip to 6,567 ft near mile 4, climb to the 6,883 ft turnaround at mile 9, then run back down to the farm at 6,590 ft."
   />
 );
 

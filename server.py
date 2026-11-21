@@ -59,7 +59,7 @@ RACE = {
     "total_climb_ft": 651,
     "start_time": "07:30 MDT",
     "schedule": [
-        "Sat Sept 18, 2027: 5K, 10K and Kids Fun Dash",
+        "Sat Sept 18, 2027: 5K and 10K (9:00 AM start); Kids Fun Dash time TBA",
         "Sun Sept 19, 2027: Half Marathon and 3-Amigos Relay (7:30 AM start)",
     ],
     "packet_pickup": (
